@@ -14,6 +14,8 @@ class UserController extends BaseController
 
   public function login()
   {
+    session()->remove('logged_user');
+
     if ($this->request->getMethod() == 'get') {
       return view('User/login');
     }
