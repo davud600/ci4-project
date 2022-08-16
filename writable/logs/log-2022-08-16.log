@@ -147,3 +147,31 @@ in APPPATH\Views\User\index.php on line 12.
  8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-16 09:40:56 --> Undefined variable $projects
+in APPPATH\Views\Project\projects.php on line 12.
+ 1 APPPATH\Views\Project\projects.php(12): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $projects', 'APPPATH\\Views\\Project\\projects.php', 12)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Project\\projects.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Project/projects', [], true)
+ 5 APPPATH\Controllers\ProjectController.php(13): view('Project/projects')
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->projects()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-16 09:42:50 --> Undefined array key "id"
+in APPPATH\Controllers\ProjectController.php on line 31.
+ 1 APPPATH\Controllers\ProjectController.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'APPPATH\\Controllers\\ProjectController.php', 31)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->create()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-16 09:43:52 --> Undefined array key "id"
+in APPPATH\Controllers\ProjectController.php on line 31.
+ 1 APPPATH\Controllers\ProjectController.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'APPPATH\\Controllers\\ProjectController.php', 31)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->create()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
