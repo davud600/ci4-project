@@ -7,9 +7,16 @@ use App\Models\UserModel;
 
 class UserController extends BaseController
 {
-  public function index()
+  public function profile()
   {
-    echo session()->get('logged_user')['name'];
+    $logged_user_data = session()->get('logged_user');
+    return view('User/index', ['logged_user_data' => $logged_user_data]);
+  }
+
+  public function dashboard()
+  {
+    $logged_user_data = session()->get('logged_user');
+    return view('Dashboard/index', ['logged_user_data' => $logged_user_data]);
   }
 
   public function login()
@@ -30,8 +37,8 @@ class UserController extends BaseController
       $logged_user_data = $user_obj->findUserByEmail($user['email']);
       session()->set([
         'logged_user' => $logged_user_data
-      ]); // Save user in session
-      return redirect()->to('/dashboard');
+      ]);
+      return redirect()->to('/profile');
     }
 
     return redirect()->to('/login'); // Failed to log in
