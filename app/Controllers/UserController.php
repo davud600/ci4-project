@@ -23,7 +23,7 @@ class UserController extends BaseController
       return redirect()->to('/dashboard');
     }
 
-    // return redirect()->to('/login'); // Failed to log in
+    return redirect()->to('/login'); // Failed to log in
   }
 
   public function signup()
