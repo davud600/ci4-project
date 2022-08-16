@@ -51,6 +51,19 @@ class UserModel extends Model
   protected $beforeDelete   = [];
   protected $afterDelete    = [];
 
+  public function findUserByEmail($user_email)
+  {
+    $db_user = $this->where('email', $user_email)->first();
+    $user_data = [
+      'email' => $db_user['email'],
+      'name' => $db_user['name'],
+      'role' => $db_user['role'],
+      'company' => $db_user['company']
+    ];
+
+    return $user_data;
+  }
+
   public function login($user_data)
   {
     // Find user in db

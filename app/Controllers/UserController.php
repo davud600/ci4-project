@@ -7,6 +7,11 @@ use App\Models\UserModel;
 
 class UserController extends BaseController
 {
+  public function index()
+  {
+    echo session()->get('logged_user')['name'];
+  }
+
   public function login()
   {
     if ($this->request->getMethod() == 'get') {
@@ -20,6 +25,10 @@ class UserController extends BaseController
 
     $user_obj = new UserModel();
     if ($user_obj->login($user)) {
+      $logged_user_data = $user_obj->findUserByEmail($user['email']);
+      session()->set([
+        'logged_user' => $logged_user_data
+      ]); // Save user in session
       return redirect()->to('/dashboard');
     }
 
