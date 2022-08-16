@@ -36,3 +36,36 @@ Stack trace:
 #13 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\CLI\Console.php(48): CodeIgniter\CodeIgniter->run()
 #14 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\spark(98): CodeIgniter\CLI\Console->run()
 #15 {main}
+ERROR - 2022-08-16 06:52:57 --> mysqli_sql_exception: Column 'company' cannot be null in C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `us...', 0)
+#1 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Model.php(666): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\app\Models\UserModel.php(58): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\app\Controllers\UserController.php(36): App\Models\UserModel->signup(Array)
+#9 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\CodeIgniter.php(904): App\Controllers\UserController->signup()
+#10 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#11 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2022-08-16 06:52:57 --> Column 'company' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `users` (`email`, `name`, `password`, `role`, `company`, `created_date`) VALUES (\'d@gmail.com\', \'d\', \'a\', 0, NULL, \'2022202220222022-AugAug-TueTue 0606:Aug1:thth\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `users` (`email`, `name`, `password`, `role`, `company`, `created_date`) VALUES (\'d@gmail.com\', \'d\', \'a\', 0, NULL, \'2022202220222022-AugAug-TueTue 0606:Aug1:thth\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `users` (`email`, `name`, `password`, `role`, `company`, `created_date`) VALUES (\'d@gmail.com\', \'d\', \'a\', 0, NULL, \'2022202220222022-AugAug-TueTue 0606:Aug1:thth\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`email`, `name`, `password`, `role`, `company`, `created_date`) VALUES (:email:, :name:, :password:, :role:, :company:, :created_date:)', [...], false)
+ 5 SYSTEMPATH\Model.php(278): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(738): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(666): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\UserModel.php(58): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\UserController.php(36): App\Models\UserModel->signup([...])
+10 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\UserController->signup()
+11 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+12 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
