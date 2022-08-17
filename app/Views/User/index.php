@@ -16,6 +16,9 @@
     echo $logged_user_data['role'] == 0 ? 'Customer' : ($logged_user_data['role'] == 1 ? 'Employee' : 'Admin')
     ?>
   </h2>
+  <?php if ($logged_user_data['role'] == 2) { ?>
+    <a href="/dashboard">Dashboard</a>
+  <?php } ?>
 </body>
 
 </html>

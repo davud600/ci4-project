@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <a href="/dashboard">Back</a>
   <h2>Create Project</h2>
   <?php $num_of_employees = 0; ?>
 
