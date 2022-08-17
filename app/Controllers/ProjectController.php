@@ -126,4 +126,17 @@ class ProjectController extends BaseController
 
     return redirect()->to('/dashboard');
   }
+
+  public function delete($id)
+  {
+    $project_obj = new ProjectModel();
+    $project_employee_obj = new ProjectEmployeeModel();
+    if ($project_obj->delete($id)) {
+      if ($project_employee_obj->deleteAllOfProject($id)) {
+        return redirect()->to('/projects');
+      }
+    }
+
+    return redirect()->to('/projects');
+  }
 }

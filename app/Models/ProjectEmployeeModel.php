@@ -64,4 +64,10 @@ class ProjectEmployeeModel extends Model
     $this->insertBatch($project_employees);
     return true;
   }
+
+  public function deleteAllOfProject($project_id)
+  {
+    $this->where('project_id', $project_id)->delete();
+    return true;
+  }
 }

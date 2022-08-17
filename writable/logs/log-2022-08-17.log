@@ -520,3 +520,14 @@ in APPPATH\Controllers\ProjectController.php on line 17.
  4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-17 09:30:59 --> insertBatch() called with no data
+in SYSTEMPATH\Database\BaseBuilder.php on line 1749.
+ 1 SYSTEMPATH\Model.php(311): CodeIgniter\Database\BaseBuilder->insertBatch([], null, 100)
+ 2 SYSTEMPATH\BaseModel.php(814): CodeIgniter\Model->doInsertBatch([], null, 100, false)
+ 3 APPPATH\Models\ProjectEmployeeModel.php(64): CodeIgniter\BaseModel->insertBatch([])
+ 4 APPPATH\Controllers\ProjectController.php(122): App\Models\ProjectEmployeeModel->setEmployeeOfProject('19', [])
+ 5 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->create()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
