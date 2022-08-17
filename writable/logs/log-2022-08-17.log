@@ -1,0 +1,37 @@
+CRITICAL - 2022-08-17 02:32:27 --> Undefined variable $employees
+in APPPATH\Views\Project\create.php on line 43.
+ 1 APPPATH\Views\Project\create.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $employees', 'APPPATH\\Views\\Project\\create.php', 43)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Project\\create.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Project/create', [], true)
+ 5 APPPATH\Controllers\ProjectController.php(24): view('Project/create', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-17 02:33:59 --> Call to undefined method App\Models\UserModel::getAllEmployees
+in SYSTEMPATH\Model.php on line 773.
+ 1 APPPATH\Controllers\ProjectController.php(23): CodeIgniter\Model->__call('getAllEmployees', [])
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->create()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-17 03:10:48 --> session_start(): Failed to decode session object. Session has been destroyed
+in SYSTEMPATH\Session\Session.php on line 918.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'session_start(): Failed to decode session object. Session has been destroyed', 'SYSTEMPATH\\Session\\Session.php', 918)
+ 2 SYSTEMPATH\Session\Session.php(918): session_start()
+ 3 SYSTEMPATH\Session\Session.php(240): CodeIgniter\Session\Session->startSession()
+ 4 SYSTEMPATH\Config\Services.php(665): CodeIgniter\Session\Session->start()
+ 5 SYSTEMPATH\Config\BaseService.php(253): CodeIgniter\Config\Services::session(Object(Config\App), false)
+ 6 SYSTEMPATH\Config\BaseService.php(194): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 7 SYSTEMPATH\Config\Services.php(637): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 8 SYSTEMPATH\Config\BaseService.php(253): CodeIgniter\Config\Services::session()
+ 9 SYSTEMPATH\Common.php(934): CodeIgniter\Config\BaseService::__callStatic('session', [])
+10 APPPATH\Filters\AuthUser.php(14): session()
+11 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthUser->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+12 SYSTEMPATH\CodeIgniter.php(431): CodeIgniter\Filters\Filters->run('dashboard', 'before')
+13 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')

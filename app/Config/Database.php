@@ -35,7 +35,7 @@ class Database extends Config
     'hostname' => 'localhost',
     'username' => 'root',
     'password' => '',
-    'database' => 'authdb',
+    'database' => 'ci4_app_db',
     'DBDriver' => 'MySQLi',
     'DBPrefix' => '',
     'pConnect' => false,
