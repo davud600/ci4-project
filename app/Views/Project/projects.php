@@ -1,19 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('app') ?>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Projects</title>
-</head>
+<?= $this->section('header') ?>
+<title>All Projects</title>
+<?= $this->endSection() ?>
 
-<body>
-  <a href="/dashboard">Back</a><br>
-  <br>
-  <?php foreach ($projects as $project) { ?>
-    <a href="/project/<?= $project['id'] ?>"><?= $project['title'] ?></a><br>
-  <?php } ?>
-</body>
-
-</html>
+<?= $this->section('content') ?>
+<a class="btn btn-link" href="/dashboard">Back</a><br>
+<div class="d-flex justify-content-center text-center">
+  <div class="mt-5 w-75">
+    <table class="table w-100">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Status</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($projects as $project) { ?>
+          <tr>
+            <th><?= $project['id'] ?></th>
+            <td><?= $project['title'] ?></td>
+            <td><?= $project['description'] ?></td>
+            <td>
+              <?php
+              echo $project['status'] == 0 ? 'In Progress' : 'Finished'
+              ?>
+            </td>
+            <td><a class="btn btn-primary" href="/project/<?= $project['id'] ?>">View</a></td>
+          </tr>
+        <?php } ?>
+      </tbody>
+    </table>
+  </div>
+</div>
+<?= $this->endSection() ?>

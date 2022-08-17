@@ -59,7 +59,7 @@ class ProjectModel extends Model
 
   public function getAllProjects()
   {
-    return $this->select('id, title, description')->findAll();
+    return $this->select('id, title, description, status')->findAll();
   }
 
   public function create($project_data)

@@ -1,21 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('app') ?>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Profile</title>
-</head>
+<?= $this->section('header') ?>
+<title>User Profile</title>
+<?= $this->endSection() ?>
 
-<body>
-  <h2>Welcome: <?= $logged_user_data['name'] ?>!</h2>
-  <h2>
-    Role:
-    <?php
-    echo $logged_user_data['role'] == 0 ? 'Customer' : ($logged_user_data['role'] == 1 ? 'Employee' : 'Admin')
-    ?>
-  </h2>
-</body>
-
-</html>
+<?= $this->section('content') ?>
+<div class="d-flex justify-content-center text-center">
+  <div class="w-auto mt-5">
+    <h2>Welcome: <?= $logged_user_data['name'] ?>!</h2>
+    <h2>
+      Role:
+      <?php
+      echo $logged_user_data['role'] == 0 ? 'Customer' : ($logged_user_data['role'] == 1 ? 'Employee' : 'Admin')
+      ?>
+    </h2>
+    <div class="d-flex flex-column">
+      <?php if ($logged_user_data['role'] == 2) { ?>
+        <a class="btn btn-link mt-5" href="/dashboard">Dashboard</a>
+      <?php } ?>
+      <a class="btn btn-link mt-2" href="/login">Log Out</a>
+    </div>
+  </div>
+</div>
+<?= $this->endSection() ?>

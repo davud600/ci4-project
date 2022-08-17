@@ -1,56 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('app') ?>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Project</title>
-</head>
+<?= $this->section('header') ?>
+<title>New Project</title>
+<?= $this->endSection() ?>
 
-<body>
-  <h2>Create Project</h2>
-  <?php $num_of_employees = 0; ?>
+<?= $this->section('content') ?>
+<a class="btn btn-link" href="/">Back</a><br>
+<div class="p-2 d-flex justify-content-center">
+  <div class="w-50">
+    <h2 class="mb-5">Create Project</h2>
+    <form class="w-100" method="post">
+      <div class="form-group">
+        <label for="title">Project Title</label>
+        <input type="text" class="mt-2 mb-2 form-control" id="title" name="title" placeholder="Enter Title">
+      </div>
+      <div class="form-group">
+        <label for="description">Project Description</label>
+        <input type="text" class="mt-2 mb-2 form-control" id="description" name="description" placeholder="Enter Description">
+      </div>
+      <div class="form-group mt-3">
+        <label for="customer">Customer:</label>
+        <select name="customer">
+          <?php foreach ($customers as $customer) { ?>
+            <option value="<?= $customer['id'] ?>"><?= $customer['name'] ?></option>
+          <?php } ?>
+        </select>
+      </div>
+      <div class="form-group mt-3">
+        <label class="mb-2" for="employee">Employees:</label>
+        <div id="employees"></div>
+        <button class="btn" type="button" onclick="addEmployee()">+ Add Employee</button><br>
+      </div>
+      <button type="submit" class="mt-4 btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
 
-  <form method="post">
-    <input type="text" name="title" placeholder="Project Title"><br>
-    <input type="text" name="description" placeholder="Project Description"><br>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+  var employeeCount = 0;
 
-    <label for="customer">Customer:</label>
-    <select name="customer">
-      <?php foreach ($customers as $customer) { ?>
-        <option value="<?= $customer['id'] ?>"><?= $customer['name'] ?></option>
-      <?php } ?>
-    </select><br>
-
-    <label for="employee">Employees:</label>
-    <div id="employees"></div>
-    <button type="button" onclick="addEmployee()">Add Employee</button><br>
-
-    <button type="submit">Submit</button><br>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript">
-      var employeeCount = 0;
-
-      function addEmployee() {
-        employeeCount++;
-        $('#employees').append(`
+  function addEmployee() {
+    employeeCount++;
+    $('#employees').append(`
         <div id="employeeContainer${employeeCount}">
-          <button type="button" onclick="removeEmployee()">x</button>
+          <button class="btn btn-danger ps-3 pe-3 pt-1 pb-1 m-2" type="button" onclick="removeEmployee(event)">x</button>
           <select name="employee${employeeCount}">
             <?php foreach ($employees as $employee) { ?>
               <option value="<?= $employee['id'] ?>"><?= $employee['name'] ?></option>
             <?php } ?>
           </select>
         </div>`);
-      }
+  }
 
-      function removeEmployee() {
-        $(`#employeeContainer${employeeCount}`).remove();
-      }
-    </script>
-  </form>
-</body>
-
-</html>
+  function removeEmployee(event) {
+    event.target.parentElement.remove();
+    employeeCount--;
+  }
+</script>
+<?= $this->endSection() ?>
