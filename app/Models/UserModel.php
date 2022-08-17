@@ -51,6 +51,17 @@ class UserModel extends Model
   protected $beforeDelete   = [];
   protected $afterDelete    = [];
 
+  public function getUsersByIds($user_ids)
+  {
+    $users = [];
+    foreach ($user_ids as $user_id) {
+      $user = $this->select('id, name')->where('id', $user_id)->first();
+      array_push($users, $user);
+    }
+
+    return $users;
+  }
+
   public function getAllCustomers()
   {
     return $this->select('id, name')->where('role', 0)->findAll();
@@ -59,6 +70,11 @@ class UserModel extends Model
   public function getAllEmployees()
   {
     return $this->select('id, name')->where('role', 1)->findAll();
+  }
+
+  public function getUserById($id)
+  {
+    return $this->select('id, name')->where('id', $id)->first();
   }
 
   public function findUserByEmail($user_email)

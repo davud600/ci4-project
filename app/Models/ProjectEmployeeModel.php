@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ProjectModel extends Model
+class ProjectEmployeeModel extends Model
 {
   protected $DBGroup          = 'default';
-  protected $table            = 'projects';
+  protected $table            = 'project_employees';
   protected $primaryKey       = 'id';
   protected $useAutoIncrement = true;
   protected $insertID         = 0;
@@ -15,10 +15,8 @@ class ProjectModel extends Model
   protected $useSoftDeletes   = false;
   protected $protectFields    = true;
   protected $allowedFields    = [
-    'title',
-    'description',
-    'status',
-    'customer_id',
+    'project_id',
+    'employee_id',
     'created_date',
     'created_by'
   ];
@@ -47,28 +45,23 @@ class ProjectModel extends Model
   protected $beforeDelete   = [];
   protected $afterDelete    = [];
 
-  public function getProjectByTitle($title)
+  public function getEmployeesOfProject($project_id)
   {
-    return $this->select('id')->where('title', $title)->first();
+    return $this->select('employee_id')->where('project_id', $project_id)->findAll();
   }
 
-  public function getProjectById($id)
+  public function setEmployeeOfProject($project_id, $employee_ids)
   {
-    return $this->select('id, title, description, status, customer_id')->where('id', $id)->first();
-  }
+    $project_employees = [];
+    foreach ($employee_ids as $employee_id) {
+      array_push($project_employees, [
+        'project_id' => $project_id,
+        'employee_id' => $employee_id,
+        'created_date' => date('l jS \of F Y h:i:s A')
+      ]);
+    }
 
-  public function getAllProjects()
-  {
-    return $this->select('id, title, description')->findAll();
-  }
-
-  public function create($project_data)
-  {
-    $project = $project_data;
-    $project['status'] = 0; // In Progress
-    $project['created_date'] = date('l jS \of F Y h:i:s A');
-
-    $this->insert($project);
+    $this->insertBatch($project_employees);
     return true;
   }
 }
