@@ -62,6 +62,16 @@ class ProjectModel extends Model
     return $this->select('id, title, description, status')->findAll();
   }
 
+  public function edit($project_id, $project_data)
+  {
+    $project = $project_data;
+    $project['status'] = 0; // In Progress
+    $project['created_date'] = date('l jS \of F Y h:i:s A');
+
+    $this->update($project_id, $project);
+    return true;
+  }
+
   public function create($project_data)
   {
     $project = $project_data;

@@ -38,6 +38,7 @@
       </div>
     </div>
     <hr>
+    <a class="btn btn-secondary" href="/edit-project/<?= $project['id'] ?>">Edit</a>
   </div>
 </div>
 <?= $this->endSection() ?>
