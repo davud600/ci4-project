@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\ProjectEmployeeModel;
 use App\Models\ProjectModel;
 use App\Models\UserModel;
 
@@ -14,11 +15,14 @@ class ProjectController extends BaseController
     $project = $project_obj->getProjectById($id);
     $user_obj = new UserModel();
     $customer = $user_obj->getUserById($project['customer_id']);
+    $project_employee_obj = new ProjectEmployeeModel();
+    $employees_ids = $project_employee_obj->getEmployeesOfProject($id); // returns ids
+    $employees = $user_obj->getUsersByIds($employees_ids);
 
     return view('Project/index', [
       'project' => $project,
       'customer' => $customer,
-      // 'employees' => $employees
+      'employees' => $employees
     ]);
   }
 
@@ -62,7 +66,12 @@ class ProjectController extends BaseController
 
     $project_obj = new ProjectModel();
     if ($project_obj->create($project)) {
-      return redirect()->to('/projects');
+      $project_id = $project_obj->getProjectByTitle($project['title'])['id'];
+
+      $project_employee_obj = new ProjectEmployeeModel();
+      if ($project_employee_obj->setEmployeeOfProject($project_id, $inputedEmployees)) {
+        return redirect()->to('/projects');
+      }
     }
 
     return redirect()->to('/dashboard');
