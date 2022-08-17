@@ -33,6 +33,56 @@ class ProjectController extends BaseController
     return view('Project/projects', ['projects' => $projects]);
   }
 
+  public function edit($id)
+  {
+    $project_obj = new ProjectModel();
+    $project = $project_obj->getProjectById($id);
+    $user_obj = new UserModel();
+    $customer = $user_obj->getUserById($project['customer_id']);
+    $customers = $user_obj->getAllCustomers();
+    $project_employee_obj = new ProjectEmployeeModel();
+    $employees_ids = $project_employee_obj->getEmployeesOfProject($id); // returns ids
+    $employees = $user_obj->getUsersByIds($employees_ids);
+    $all_employees = $user_obj->getAllEmployees();
+
+    if ($this->request->getMethod() == 'get') {
+      return view('Project/edit', [
+        'project' => $project,
+        'customer' => $customer,
+        'customers' => $customers,
+        'employees' => $employees,
+        'all_employees' => $all_employees
+      ]);
+    }
+
+    $project = [
+      'title' => $this->request->getPost('title'),
+      'description' => $this->request->getPost('description'),
+      'customer_id' => $this->request->getPost('customer')
+    ];
+
+    // $MAX_EMPLOYEES = 10;
+    // $inputedEmployees = [];
+
+    // for ($i = 1; $i < $MAX_EMPLOYEES; $i++) {
+    //   if ($this->request->getPost('employee' . $i) == null) {
+    //     break;
+    //   }
+
+    //   array_push($inputedEmployees, $this->request->getPost('employee' . $i));
+    // }
+
+    $project_obj = new ProjectModel();
+    if ($project_obj->edit($id, $project)) {
+      // $project_employee_obj = new ProjectEmployeeModel();
+      // if ($project_employee_obj->setEmployeeOfProject($id, $inputedEmployees)) {
+      return redirect()->to('/project/' . $id);
+      // }
+    }
+
+    return redirect()->to('/dashboard');
+  }
+
   public function create()
   {
     if ($this->request->getMethod() == 'get') {

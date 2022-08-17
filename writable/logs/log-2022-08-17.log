@@ -359,3 +359,164 @@ in SYSTEMPATH\Database\BaseBuilder.php on line 1749.
  7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  9 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-17 08:06:34 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProjectController.php on line 41.
+ 1 APPPATH\Controllers\ProjectController.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\ProjectController.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->edit('3')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-17 08:06:53 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProjectController.php on line 41.
+ 1 APPPATH\Controllers\ProjectController.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\ProjectController.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->edit('3')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-17 08:07:03 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProjectController.php on line 41.
+ 1 APPPATH\Controllers\ProjectController.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\ProjectController.php', 41)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->edit('3')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-17 08:14:48 --> Undefined variable $customers
+in APPPATH\Views\Project\edit.php on line 35.
+ 1 APPPATH\Views\Project\edit.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $customers', 'APPPATH\\Views\\Project\\edit.php', 35)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Project\\edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Project/edit', [], true)
+ 5 APPPATH\Controllers\ProjectController.php(50): view('Project/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->edit('11')
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-17 08:14:49 --> Undefined variable $customers
+in APPPATH\Views\Project\edit.php on line 35.
+ 1 APPPATH\Views\Project\edit.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $customers', 'APPPATH\\Views\\Project\\edit.php', 35)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Project\\edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Project/edit', [], true)
+ 5 APPPATH\Controllers\ProjectController.php(50): view('Project/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->edit('11')
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-17 08:14:49 --> Undefined variable $customers
+in APPPATH\Views\Project\edit.php on line 35.
+ 1 APPPATH\Views\Project\edit.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $customers', 'APPPATH\\Views\\Project\\edit.php', 35)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Project\\edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Project/edit', [], true)
+ 5 APPPATH\Controllers\ProjectController.php(50): view('Project/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->edit('11')
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-17 08:14:49 --> Undefined variable $customers
+in APPPATH\Views\Project\edit.php on line 35.
+ 1 APPPATH\Views\Project\edit.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $customers', 'APPPATH\\Views\\Project\\edit.php', 35)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Project\\edit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Project/edit', [], true)
+ 5 APPPATH\Controllers\ProjectController.php(50): view('Project/edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->edit('11')
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-17 08:44:02 --> insertBatch() called with no data
+in SYSTEMPATH\Database\BaseBuilder.php on line 1749.
+ 1 SYSTEMPATH\Model.php(311): CodeIgniter\Database\BaseBuilder->insertBatch([], null, 100)
+ 2 SYSTEMPATH\BaseModel.php(814): CodeIgniter\Model->doInsertBatch([], null, 100, false)
+ 3 APPPATH\Models\ProjectEmployeeModel.php(64): CodeIgniter\BaseModel->insertBatch([])
+ 4 APPPATH\Controllers\ProjectController.php(78): App\Models\ProjectEmployeeModel->setEmployeeOfProject('11', [])
+ 5 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->edit('11')
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-17 08:44:21 --> insertBatch() called with no data
+in SYSTEMPATH\Database\BaseBuilder.php on line 1749.
+ 1 SYSTEMPATH\Model.php(311): CodeIgniter\Database\BaseBuilder->insertBatch([], null, 100)
+ 2 SYSTEMPATH\BaseModel.php(814): CodeIgniter\Model->doInsertBatch([], null, 100, false)
+ 3 APPPATH\Models\ProjectEmployeeModel.php(64): CodeIgniter\BaseModel->insertBatch([])
+ 4 APPPATH\Controllers\ProjectController.php(78): App\Models\ProjectEmployeeModel->setEmployeeOfProject('11', [])
+ 5 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->edit('11')
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-17 08:50:37 --> insertBatch() called with no data
+in SYSTEMPATH\Database\BaseBuilder.php on line 1749.
+ 1 SYSTEMPATH\Model.php(311): CodeIgniter\Database\BaseBuilder->insertBatch([], null, 100)
+ 2 SYSTEMPATH\BaseModel.php(814): CodeIgniter\Model->doInsertBatch([], null, 100, false)
+ 3 APPPATH\Models\ProjectEmployeeModel.php(64): CodeIgniter\BaseModel->insertBatch([])
+ 4 APPPATH\Controllers\ProjectController.php(78): App\Models\ProjectEmployeeModel->setEmployeeOfProject('11', [])
+ 5 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->edit('11')
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-17 08:52:57 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProjectController.php on line 17.
+ 1 APPPATH\Controllers\ProjectController.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\ProjectController.php', 17)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->project('FCPATH\\.')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-17 08:53:27 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProjectController.php on line 17.
+ 1 APPPATH\Controllers\ProjectController.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\ProjectController.php', 17)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->project('FCPATH\\.')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-17 08:54:58 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProjectController.php on line 17.
+ 1 APPPATH\Controllers\ProjectController.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\ProjectController.php', 17)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->project('FCPATH\\.')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-17 08:55:02 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProjectController.php on line 17.
+ 1 APPPATH\Controllers\ProjectController.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\ProjectController.php', 17)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->project('1293123')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-17 08:55:08 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProjectController.php on line 17.
+ 1 APPPATH\Controllers\ProjectController.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\ProjectController.php', 17)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->project('FCPATH\\.')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-17 08:56:08 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProjectController.php on line 17.
+ 1 APPPATH\Controllers\ProjectController.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\ProjectController.php', 17)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->project('FCPATH\\.')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-17 08:56:24 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProjectController.php on line 17.
+ 1 APPPATH\Controllers\ProjectController.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\ProjectController.php', 17)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->project('FCPATH\\.')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
