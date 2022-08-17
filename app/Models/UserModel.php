@@ -61,6 +61,11 @@ class UserModel extends Model
     return $this->select('id, name')->where('role', 1)->findAll();
   }
 
+  public function getUserById($id)
+  {
+    return $this->select('id, name')->where('id', $id)->first();
+  }
+
   public function findUserByEmail($user_email)
   {
     $db_user = $this->where('email', $user_email)->first();

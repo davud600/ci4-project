@@ -8,6 +8,20 @@ use App\Models\UserModel;
 
 class ProjectController extends BaseController
 {
+  public function project($id)
+  {
+    $project_obj = new ProjectModel();
+    $project = $project_obj->getProjectById($id);
+    $user_obj = new UserModel();
+    $customer = $user_obj->getUserById($project['customer_id']);
+
+    return view('Project/index', [
+      'project' => $project,
+      'customer' => $customer,
+      // 'employees' => $employees
+    ]);
+  }
+
   public function projects()
   {
     $project_obj = new ProjectModel();

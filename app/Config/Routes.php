@@ -44,6 +44,7 @@ $routes->match(['get', 'post'], '/login', 'UserController::login');
 $routes->match(['get', 'post'], '/signup', 'UserController::signup');
 
 // Project routes
+$routes->get('/project/(:any)', 'ProjectController::project/$1', ['filter' => ['authUser', 'authAdmin']]);
 $routes->get('/projects', 'ProjectController::projects', ['filter' => ['authUser', 'authAdmin']]);
 $routes->match(['get', 'post'], '/create-project', 'ProjectController::create', ['filter' => ['authUser', 'authAdmin']]);
 
