@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('app') ?>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard</title>
-</head>
+<?= $this->section('header') ?>
+<title>Dashboard</title>
+<?= $this->endSection() ?>
 
-<body>
-  <h2>Dashboard</h2>
-
-  <a href="/create-project">Create Project</a><br>
-  <a href="/projects">Projects</a><br>
-  <a href="/profile">Profile</a><br>
-  <a href="/login">Log Out</a><br>
-</body>
-
-</html>
+<?= $this->section('content') ?>
+<div class="d-flex justify-content-center text-center">
+  <div class="mt-5 d-flex flex-column">
+    <h2 class="mb-5">Dashboard</h2>
+    <a class="btn btn-link" href="/create-project">Create Project</a><br>
+    <a class="btn btn-link" href="/projects">View All Projects</a><br>
+    <a class="btn btn-link" href="/profile">Profile</a><br>
+    <a class="btn btn-link" href="/login">Log Out</a><br>
+  </div>
+</div>
+<?= $this->endSection() ?>

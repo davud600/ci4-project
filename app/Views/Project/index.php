@@ -1,26 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('app') ?>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?= $project['title'] ?></title>
-</head>
+<?= $this->section('header') ?>
+<title><?= $project['title'] ?></title>
+<?= $this->endSection() ?>
 
-<body>
-  <a href="/projects">Back</a>
-  <h2><?= $project['title'] ?></h2>
-  <span>Project description: </span>
-  <p><?= $project['description'] ?></p>
-  <span>Project status: </span>
-  <p><?= $project['status'] ?></p>
-  <span>Customer: </span>
-  <p><?= $customer['name'] ?></p>
-  <span>Employees: </span>
-  <?php foreach ($employees as $employee) { ?>
-    <p><?= $employee['name'] ?></p>
-  <?php } ?>
-</body>
-
-</html>
+<?= $this->section('content') ?>
+<a class="btn btn-link" href="/projects">Back</a>
+<div class="d-flex justify-content-center text-center">
+  <div class="w-75 mt-5">
+    <h2><?= $project['title'] ?></h2>
+    <hr>
+    <div class="d-flex justify-content-between">
+      <span class="fw-bold">Description: </span>
+      <span><?= $project['description'] ?></span>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-between">
+      <span class="fw-bold">Status: </span>
+      <span>
+        <?php
+        echo $project['status'] == 0 ? 'In Progress' : 'Finished'
+        ?>
+      </span>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-between">
+      <span class="fw-bold">Customer: </span>
+      <span><?= $customer['name'] ?></span>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-between">
+      <span class="fw-bold">Employees: </span>
+      <div>
+        <?php foreach ($employees as $employee) { ?>
+          <span><?= $employee['name'] ?>,</span>
+        <?php } ?>
+      </div>
+    </div>
+    <hr>
+  </div>
+</div>
+<?= $this->endSection() ?>

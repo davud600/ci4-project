@@ -1,24 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('app') ?>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up</title>
-</head>
+<?= $this->section('header') ?>
+<title>Sign Up</title>
+<?= $this->endSection() ?>
 
-<body>
-  <a href="/">Back</a><br>
-  <h2>Sign Up</h2>
-  <form method="post">
-    <input type="email" name="email" placeholder="Email"><br>
-    <input type="text" name="username" placeholder="Username"><br>
-    <input type="text" name="company" placeholder="Company"><br>
-    <input type="password" name="password" placeholder="Password"><br>
-    <input type="password" name="confirmPassword" placeholder="Confirm Password"><br>
-    <button type="submit">Sign Up</button>
-  </form>
-</body>
-
-</html>
+<?= $this->section('content') ?>
+<a class="btn btn-link" href="/">Back</a><br>
+<div class="p-2 d-flex justify-content-center">
+  <div class="w-50">
+    <h2 class="mb-5">Sign Up</h2>
+    <form class="w-100" method="post">
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="mt-2 mb-2 form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <label for="username">Name</label>
+        <input type="text" class="mt-2 mb-2 form-control" id="username" name="username" placeholder="Enter Name">
+      </div>
+      <div class="form-group">
+        <label for="company">Company</label>
+        <input type="text" class="mt-2 mb-2 form-control" id="company" name="company" placeholder="Enter Name">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="mt-2 mb-2 form-control" id="password" name="password" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" class="mt-2 mb-2 form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+      </div>
+      <span class="p-0">Already have an account? </span>
+      <a class="btn btn-link ms-2" href="/login">Log In</a><br>
+      <button type="submit" class="mt-3 btn btn-primary">Sign Up</button>
+    </form>
+  </div>
+</div>
+<?= $this->endSection() ?>
