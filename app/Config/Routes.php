@@ -37,10 +37,15 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+// User routes
 $routes->get('/profile', 'UserController::profile', ['filter' => ['authUser']]);
 $routes->get('/dashboard', 'UserController::dashboard', ['filter' => ['authUser', 'authAdmin']]);
 $routes->match(['get', 'post'], '/login', 'UserController::login');
 $routes->match(['get', 'post'], '/signup', 'UserController::signup');
+
+// Project routes
+$routes->get('/projects', 'ProjectController::projects', ['filter' => ['authUser', 'authAdmin']]);
+$routes->match(['get', 'post'], '/create-project', 'ProjectController::create', ['filter' => ['authUser', 'authAdmin']]);
 
 /*
  * --------------------------------------------------------------------
