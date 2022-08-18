@@ -9,3 +9,82 @@ in SYSTEMPATH\Database\BaseBuilder.php on line 1749.
  7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  9 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 06:29:41 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\EmployeeController.php on line 13.
+ 1 APPPATH\Controllers\EmployeeController.php(13): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\EmployeeController.php', 13)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\EmployeeController->employeeProjects()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EmployeeController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 06:30:48 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\EmployeeController.php on line 13.
+ 1 APPPATH\Controllers\EmployeeController.php(13): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\EmployeeController.php', 13)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\EmployeeController->employeeProjects()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EmployeeController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 06:31:25 --> Call to undefined method App\Models\ProjectModel::getProjectsOfEmployee
+in SYSTEMPATH\Model.php on line 773.
+ 1 APPPATH\Controllers\EmployeeController.php(26): CodeIgniter\Model->__call('getProjectsOfEmployee', [...])
+ 2 APPPATH\Controllers\EmployeeController.php(13): App\Controllers\EmployeeController->getProjectsOfEmployee('3')
+ 3 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\EmployeeController->employeeProjects()
+ 4 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EmployeeController))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 06:45:12 --> Invalid file: Employee/project.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Employee/project.php')
+ 2 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Employee/project', [], true)
+ 3 APPPATH\Controllers\EmployeeController.php(16): view('Employee/project', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\EmployeeController->project('16')
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EmployeeController))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 06:51:12 --> Undefined variable $customer
+in APPPATH\Views\Employee\project.php on line 29.
+ 1 APPPATH\Views\Employee\project.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $customer', 'APPPATH\\Views\\Employee\\project.php', 29)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Employee\\project.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Employee/project', [], true)
+ 5 APPPATH\Controllers\EmployeeController.php(16): view('Employee/project', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\EmployeeController->project('16')
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EmployeeController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 06:57:16 --> authProjectEmplyee filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authProjectEmplyee')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authProjectEmplyee', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 06:58:03 --> authProjectEmplyee filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authProjectEmplyee')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authProjectEmplyee', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 06:58:04 --> authProjectEmplyee filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authProjectEmplyee')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authProjectEmplyee', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 06:58:08 --> authProjectEmplyee filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authProjectEmplyee')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authProjectEmplyee', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
