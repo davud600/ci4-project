@@ -12,10 +12,10 @@ class ProjectController extends BaseController
   public function project($id)
   {
     $project_obj = new ProjectModel();
-    $project = $project_obj->getProjectById($id);
     $user_obj = new UserModel();
-    $customer = $user_obj->getUserById($project['customer_id']);
     $project_employee_obj = new ProjectEmployeeModel();
+    $project = $project_obj->getProjectById($id);
+    $customer = $user_obj->getUserById($project['customer_id']);
     $employees_ids = $project_employee_obj->getEmployeesOfProject($id); // returns ids
     $employees = $user_obj->getUsersByIds($employees_ids);
 
@@ -36,11 +36,11 @@ class ProjectController extends BaseController
   public function edit($id)
   {
     $project_obj = new ProjectModel();
-    $project = $project_obj->getProjectById($id);
     $user_obj = new UserModel();
+    $project_employee_obj = new ProjectEmployeeModel();
+    $project = $project_obj->getProjectById($id);
     $customer = $user_obj->getUserById($project['customer_id']);
     $customers = $user_obj->getAllCustomers();
-    $project_employee_obj = new ProjectEmployeeModel();
     $employees_ids = $project_employee_obj->getEmployeesOfProject($id); // returns ids
     $employees = $user_obj->getUsersByIds($employees_ids);
     $all_employees = $user_obj->getAllEmployees();
