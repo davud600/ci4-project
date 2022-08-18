@@ -38,8 +38,10 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 
 // User routes
-$routes->get('/profile', 'UserController::profile', ['filter' => ['authUser']]);
+$routes->get('/employee-project/(:any)', 'EmployeeController::project/$1', ['filter' => ['authUser', 'authEmployee', 'authProjectEmployee']]);
+$routes->get('/employee-projects', 'EmployeeController::projects', ['filter' => ['authUser', 'authEmployee']]);
 $routes->get('/dashboard', 'UserController::dashboard', ['filter' => ['authUser', 'authAdmin']]);
+$routes->get('/profile', 'UserController::profile', ['filter' => ['authUser']]);
 $routes->match(['get', 'post'], '/login', 'UserController::login');
 $routes->match(['get', 'post'], '/signup', 'UserController::signup');
 
@@ -48,7 +50,7 @@ $routes->get('/project/(:any)', 'ProjectController::project/$1', ['filter' => ['
 $routes->get('/projects', 'ProjectController::projects', ['filter' => ['authUser', 'authAdmin']]);
 $routes->match(['get', 'post'], '/create-project', 'ProjectController::create', ['filter' => ['authUser', 'authAdmin']]);
 $routes->match(['get', 'post'], '/edit-project/(:any)', 'ProjectController::edit/$1', ['filter' => ['authUser', 'authAdmin']]);
-$routes->match(['get', 'post'], '/delete-project/(:any)', 'ProjectController::delete/$1', ['filter' => ['authUser', 'authAdmin']]);
+$routes->match(['get', 'delete'], '/delete-project/(:any)', 'ProjectController::delete/$1', ['filter' => ['authUser', 'authAdmin']]);
 
 /*
  * --------------------------------------------------------------------

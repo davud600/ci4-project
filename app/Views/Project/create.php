@@ -5,7 +5,7 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
-<a class="btn btn-link" href="/">Back</a><br>
+<a class="btn btn-link" href="/dashboard">Back</a><br>
 <div class="p-2 d-flex justify-content-center">
   <div class="w-50">
     <h2 class="mb-5">Create Project</h2>

@@ -10,6 +10,8 @@ use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
 use App\Filters\AuthUser;
 use App\Filters\AuthAdmin;
+use App\Filters\AuthEmployee;
+use App\Filters\AuthProjectEmployee;
 
 class Filters extends BaseConfig
 {
@@ -26,7 +28,9 @@ class Filters extends BaseConfig
     'invalidchars'  => InvalidChars::class,
     'secureheaders' => SecureHeaders::class,
     'authUser'      => AuthUser::class,
-    'authAdmin'     => AuthAdmin::class
+    'authAdmin'     => AuthAdmin::class,
+    'authEmployee'     => AuthEmployee::class,
+    'authProjectEmployee'     => AuthProjectEmployee::class
   ];
 
   /**

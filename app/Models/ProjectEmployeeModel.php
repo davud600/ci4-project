@@ -45,6 +45,11 @@ class ProjectEmployeeModel extends Model
   protected $beforeDelete   = [];
   protected $afterDelete    = [];
 
+  public function getProjectsOfEmployee($employee_id)
+  {
+    return $this->select('project_id')->where('employee_id', $employee_id)->findAll();
+  }
+
   public function getEmployeesOfProject($project_id)
   {
     return $this->select('employee_id')->where('project_id', $project_id)->findAll();
