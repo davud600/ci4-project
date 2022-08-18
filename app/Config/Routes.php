@@ -38,7 +38,10 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 
 // Customer
-$routes->get('/customer-project', 'CustomerController::project', ['filter' => ['authUser']]);
+$routes->get('/customer-project', 'CustomerController::project', ['filter' => ['authUser', 'authCustomer']]);
+
+$routes->get('/request/(:any)', 'RequestController::request/$1', ['filter' => ['authUser', 'authCustomer']]);
+$routes->match(['get', 'post'], '/submit-request', 'RequestController::makeRequest', ['filter' => ['authUser', 'authCustomer']]);
 
 // Employee
 $routes->get('/employee-project/(:any)', 'EmployeeController::project/$1', ['filter' => ['authUser', 'authEmployee', 'authProjectEmployee']]);

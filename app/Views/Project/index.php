@@ -39,6 +39,33 @@
     </div>
     <hr>
     <a class="btn btn-secondary" href="/edit-project/<?= $project['id'] ?>">Edit</a>
+    <h3 class="mt-5">Requests</h3>
+    <div class="mt-3 w-100">
+      <table class="table w-100">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Content</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($requests as $request) { ?>
+            <tr>
+              <th><?= $request['id'] ?></th>
+              <td><?= $request['title'] ?></td>
+              <td><?= $request['description'] ?></td>
+              <td>
+                <?php
+                echo $request['status'] == 0 ? 'Under Review' : 'Approved'
+                ?>
+              </td>
+            </tr>
+          <?php } ?>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 <?= $this->endSection() ?>

@@ -38,6 +38,36 @@
       </div>
     </div>
     <hr>
+    <h3 class="mt-5">Requests</h3>
+    <div class="mt-3 w-100">
+      <table class="table w-100">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Content</th>
+            <th scope="col">Status</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($requests as $request) { ?>
+            <tr>
+              <th><?= $request['id'] ?></th>
+              <td><?= $request['title'] ?></td>
+              <td><?= $request['description'] ?></td>
+              <td>
+                <?php
+                echo $request['status'] == 0 ? 'Under Review' : 'Approved'
+                ?>
+              </td>
+              <td><a class="btn btn-primary" href="/request/<?= $request['id'] ?>">View</a></td>
+            </tr>
+          <?php } ?>
+        </tbody>
+      </table>
+    </div>
+    <a class="mt-4 btn btn-success" href="/submit-request?project_id=<?= $project['id'] ?>">Leave a Request</a>
   </div>
 </div>
 <?= $this->endSection() ?>
