@@ -35,8 +35,16 @@
       <div class="d-flex justify-content-between">
         <span class="fw-bold">Customer: </span>
         <select name="customer" id="customer">
-          <?php foreach ($customers as $customer) { ?>
-            <option value="<?= $customer['id'] ?>"><?= $customer['name'] ?></option>
+          <?php foreach ($customers as $cus) { ?>
+            <?php if ($cus['id'] == $customer['id']) { ?>
+              <option value="<?= $cus['id'] ?>" selected>
+                <?= $cus['name'] ?>
+              </option>
+            <?php continue;
+            } ?>
+            <option value="<?= $cus['id'] ?>">
+              <?= $cus['name'] ?>
+            </option>
           <?php } ?>
         </select>
       </div>
