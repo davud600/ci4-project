@@ -88,3 +88,31 @@ in SYSTEMPATH\Filters\Filters.php on line 340.
  4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 07:46:50 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\CustomerController.php on line 21.
+ 1 APPPATH\Controllers\CustomerController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\CustomerController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\CustomerController->project()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CustomerController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 07:47:31 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\CustomerController.php on line 21.
+ 1 APPPATH\Controllers\CustomerController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\CustomerController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\CustomerController->project()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CustomerController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 07:48:36 --> Undefined variable $customer
+in APPPATH\Views\Customer\project.php on line 29.
+ 1 APPPATH\Views\Customer\project.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $customer', 'APPPATH\\Views\\Customer\\project.php', 29)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Customer\\project.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Customer/project', [], true)
+ 5 APPPATH\Controllers\CustomerController.php(27): view('Customer/project', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\CustomerController->project()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CustomerController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')

@@ -37,15 +37,20 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
-// User routes
+// Customer
+$routes->get('/customer-project', 'CustomerController::project', ['filter' => ['authUser']]);
+
+// Employee
 $routes->get('/employee-project/(:any)', 'EmployeeController::project/$1', ['filter' => ['authUser', 'authEmployee', 'authProjectEmployee']]);
 $routes->get('/employee-projects', 'EmployeeController::projects', ['filter' => ['authUser', 'authEmployee']]);
+
+// User
 $routes->get('/dashboard', 'UserController::dashboard', ['filter' => ['authUser', 'authAdmin']]);
 $routes->get('/profile', 'UserController::profile', ['filter' => ['authUser']]);
 $routes->match(['get', 'post'], '/login', 'UserController::login');
 $routes->match(['get', 'post'], '/signup', 'UserController::signup');
 
-// Project routes
+// Project
 $routes->get('/project/(:any)', 'ProjectController::project/$1', ['filter' => ['authUser', 'authAdmin']]);
 $routes->get('/projects', 'ProjectController::projects', ['filter' => ['authUser', 'authAdmin']]);
 $routes->match(['get', 'post'], '/create-project', 'ProjectController::create', ['filter' => ['authUser', 'authAdmin']]);

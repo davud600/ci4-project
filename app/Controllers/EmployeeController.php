@@ -14,6 +14,7 @@ class EmployeeController extends BaseController
     $project_obj = new ProjectModel();
     $user_obj = new UserModel();
     $project_employee_obj = new ProjectEmployeeModel();
+
     $project = $project_obj->getProjectById($project_id);
     $customer = $user_obj->getUserById($project['customer_id']);
     $employees_ids = $project_employee_obj->getEmployeesOfProject($project_id); // returns ids
