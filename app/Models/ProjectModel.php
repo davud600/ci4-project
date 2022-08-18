@@ -64,13 +64,7 @@ class ProjectModel extends Model
 
   public function edit($project_id, $project_data)
   {
-    $project = $project_data;
-    $project['status'] = 0; // In Progress
-    $project['created_date'] = date('l jS \of F Y h:i:s A');
-
-    return $project;
-
-    $this->update($project_id, $project);
+    $this->update($project_id, $project_data);
     return true;
   }
 

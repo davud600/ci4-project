@@ -17,7 +17,6 @@
       </div>
       <hr>
       <div class="d-flex justify-content-between">
-        <!-- Checkbox doesnt change the status -->
         <span class="fw-bold">Status: </span>
         <div>
           <span>
@@ -25,7 +24,11 @@
             echo $project['status'] == 0 ? 'In Progress' : 'Finished'
             ?>
           </span>
-          <input type="checkbox">
+          <?php
+          echo $project['status'] == 0 ?
+            '<input type="checkbox" name="status">' :
+            '<input type="checkbox" name="status" checked>'
+          ?>
         </div>
       </div>
       <hr>
@@ -43,8 +46,7 @@
         <div>
           <div id="employees">
             <?php $index = 0;
-            foreach ($employees as $employee) {
-              $index += 1; ?>
+            foreach ($employees as $employee) { ?>
               <div id="employeeContainer<?= $employee['id'] ?>">
                 <button class="btn btn-danger ps-3 pe-3 pt-1 pb-1 m-2" type="button" onclick="removeEmployee(event)">x</button>
                 <select name="employee<?= $index ?>">
@@ -61,7 +63,8 @@
                   <?php } ?>
                 </select>
               </div>
-            <?php } ?>
+            <?php $index += 1;
+            } ?>
           </div>
           <button class="btn" type="button" onclick="addEmployee()">+ Add Employee</button><br>
         </div>
@@ -76,9 +79,13 @@
 <script type="text/javascript">
   var inputtedEmployees = [];
 
-  <?php foreach ($employees as $employee) { ?>
-    inputtedEmployees.push($employee);
-  <?php } ?>
+  // get dom element employees
+  const prevChildren = document.getElementById('employees').children;
+
+  // loop through its children and add them in inputtedEmployees
+  for (let i = 0; i < prevChildren.length; i++) {
+    inputtedEmployees.push(prevChildren[i]);
+  }
 
   function addEmployee() {
     inputtedEmployees.push($('#employees').append(`
