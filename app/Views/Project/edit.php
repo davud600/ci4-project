@@ -17,7 +17,6 @@
       </div>
       <hr>
       <div class="d-flex justify-content-between">
-        <!-- Checkbox doesnt change the status -->
         <span class="fw-bold">Status: </span>
         <div>
           <span>
@@ -25,7 +24,7 @@
             echo $project['status'] == 0 ? 'In Progress' : 'Finished'
             ?>
           </span>
-          <input type="checkbox">
+          <input type="checkbox" name="status">
         </div>
       </div>
       <hr>

@@ -58,7 +58,8 @@ class ProjectController extends BaseController
     $project = [
       'title' => $this->request->getPost('title'),
       'description' => $this->request->getPost('description'),
-      'customer_id' => $this->request->getPost('customer')
+      'customer_id' => $this->request->getPost('customer'),
+      'status' => $this->request->getPost('status') != null ? 1 : 0
     ];
 
     $MAX_EMPLOYEES = 100;
