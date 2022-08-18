@@ -24,7 +24,11 @@
             echo $project['status'] == 0 ? 'In Progress' : 'Finished'
             ?>
           </span>
-          <input type="checkbox" name="status">
+          <?php
+          echo $project['status'] == 0 ?
+            '<input type="checkbox" name="status">' :
+            '<input type="checkbox" name="status" checked>'
+          ?>
         </div>
       </div>
       <hr>
