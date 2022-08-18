@@ -29,7 +29,10 @@
               echo $project['status'] == 0 ? 'In Progress' : 'Finished'
               ?>
             </td>
-            <td><a class="btn btn-primary" href="/project/<?= $project['id'] ?>">View</a></td>
+            <td>
+              <a class="btn btn-primary" href="/project/<?= $project['id'] ?>">View</a>
+              <a class="btn btn-danger" href="/delete-project/<?= $project['id'] ?>">Delete</a>
+            </td>
           </tr>
         <?php } ?>
       </tbody>

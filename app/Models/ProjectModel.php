@@ -68,6 +68,8 @@ class ProjectModel extends Model
     $project['status'] = 0; // In Progress
     $project['created_date'] = date('l jS \of F Y h:i:s A');
 
+    return $project;
+
     $this->update($project_id, $project);
     return true;
   }

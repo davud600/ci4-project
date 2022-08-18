@@ -61,23 +61,23 @@ class ProjectController extends BaseController
       'customer_id' => $this->request->getPost('customer')
     ];
 
-    // $MAX_EMPLOYEES = 10;
-    // $inputedEmployees = [];
+    $MAX_EMPLOYEES = 100;
+    $inputedEmployees = [];
 
-    // for ($i = 1; $i < $MAX_EMPLOYEES; $i++) {
-    //   if ($this->request->getPost('employee' . $i) == null) {
-    //     break;
-    //   }
+    for ($i = 0; $i < $MAX_EMPLOYEES; $i++) {
+      if ($this->request->getPost('employee' . $i) == null) {
+        continue;
+      }
 
-    //   array_push($inputedEmployees, $this->request->getPost('employee' . $i));
-    // }
+      array_push($inputedEmployees, $this->request->getPost('employee' . $i));
+    }
 
     $project_obj = new ProjectModel();
     if ($project_obj->edit($id, $project)) {
-      // $project_employee_obj = new ProjectEmployeeModel();
-      // if ($project_employee_obj->setEmployeeOfProject($id, $inputedEmployees)) {
-      return redirect()->to('/project/' . $id);
-      // }
+      $project_employee_obj = new ProjectEmployeeModel();
+      if ($project_employee_obj->setEmployeeOfProject($id, $inputedEmployees)) {
+        return redirect()->to('/project/' . $id);
+      }
     }
 
     return redirect()->to('/dashboard');
@@ -103,12 +103,12 @@ class ProjectController extends BaseController
       'created_by' => session()->get('logged_user')['name']
     ];
 
-    $MAX_EMPLOYEES = 5;
+    $MAX_EMPLOYEES = 100;
     $inputedEmployees = [];
 
-    for ($i = 1; $i < $MAX_EMPLOYEES; $i++) {
+    for ($i = 0; $i < $MAX_EMPLOYEES; $i++) {
       if ($this->request->getPost('employee' . $i) == null) {
-        break;
+        continue;
       }
 
       array_push($inputedEmployees, $this->request->getPost('employee' . $i));
@@ -125,5 +125,18 @@ class ProjectController extends BaseController
     }
 
     return redirect()->to('/dashboard');
+  }
+
+  public function delete($id)
+  {
+    $project_obj = new ProjectModel();
+    $project_employee_obj = new ProjectEmployeeModel();
+    if ($project_obj->delete($id)) {
+      if ($project_employee_obj->deleteAllOfProject($id)) {
+        return redirect()->to('/projects');
+      }
+    }
+
+    return redirect()->to('/projects');
   }
 }
