@@ -42,10 +42,12 @@
         <span class="fw-bold">Employees: </span>
         <div>
           <div id="employees">
-            <?php foreach ($employees as $employee) { ?>
+            <?php $index = 0;
+            foreach ($employees as $employee) {
+              $index += 1; ?>
               <div id="employeeContainer<?= $employee['id'] ?>">
                 <button class="btn btn-danger ps-3 pe-3 pt-1 pb-1 m-2" type="button" onclick="removeEmployee(event)">x</button>
-                <select name="employee<?= count($employees) ?>">
+                <select name="employee<?= $index ?>">
                   <?php foreach ($all_employees as $emp) { ?>
                     <?php if ($emp['id'] == $employee['id']) { ?>
                       <option value="<?= $emp['id'] ?>" selected>
@@ -72,24 +74,26 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-  var employeeCount = 0;
+  var inputtedEmployees = [];
+
+  <?php foreach ($employees as $employee) { ?>
+    inputtedEmployees.push($employee);
+  <?php } ?>
 
   function addEmployee() {
-    employeeCount++;
-    $('#employees').append(`
-        <div id="employeeContainer${employeeCount}">
+    inputtedEmployees.push($('#employees').append(`
+        <div id="employeeContainer">
           <button class="btn btn-danger ps-3 pe-3 pt-1 pb-1 m-2" type="button" onclick="removeEmployee(event)">x</button>
-          <select name="employee${employeeCount}">
+          <select name="employee${inputtedEmployees.length}">
             <?php foreach ($all_employees as $employee) { ?>
               <option value="<?= $employee['id'] ?>"><?= $employee['name'] ?></option>
             <?php } ?>
           </select>
-        </div>`);
+        </div>`));
   }
 
   function removeEmployee(event) {
     event.target.parentElement.remove();
-    employeeCount--;
   }
 </script>
 <?= $this->endSection() ?>

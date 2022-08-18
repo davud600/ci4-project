@@ -28,7 +28,7 @@
       </div>
       <div class="form-group mt-3">
         <label class="mb-2" for="employee">Employees:</label>
-        <div id="employees"></div>
+        <div id="employees" name="employees"></div>
         <button class="btn" type="button" onclick="addEmployee()">+ Add Employee</button><br>
       </div>
       <button type="submit" class="mt-4 btn btn-primary">Submit</button>
@@ -38,24 +38,22 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-  var employeeCount = 0;
+  var inputtedEmployees = [];
 
   function addEmployee() {
-    employeeCount++;
-    $('#employees').append(`
-        <div id="employeeContainer${employeeCount}">
+    inputtedEmployees.push($('#employees').append(`
+        <div id="employeeContainer">
           <button class="btn btn-danger ps-3 pe-3 pt-1 pb-1 m-2" type="button" onclick="removeEmployee(event)">x</button>
-          <select name="employee${employeeCount}">
+          <select name="employee${inputtedEmployees.length}">
             <?php foreach ($employees as $employee) { ?>
               <option value="<?= $employee['id'] ?>"><?= $employee['name'] ?></option>
             <?php } ?>
           </select>
-        </div>`);
+        </div>`));
   }
 
   function removeEmployee(event) {
     event.target.parentElement.remove();
-    employeeCount--;
   }
 </script>
 <?= $this->endSection() ?>

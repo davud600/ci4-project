@@ -52,6 +52,9 @@ class ProjectEmployeeModel extends Model
 
   public function setEmployeeOfProject($project_id, $employee_ids)
   {
+    // del all initial employees if thers any
+    $this->deleteAllOfProject($project_id);
+
     $project_employees = [];
     foreach ($employee_ids as $employee_id) {
       array_push($project_employees, [
