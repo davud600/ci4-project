@@ -1,7 +1,7 @@
 <?= $this->extend('app') ?>
 
 <?= $this->section('header') ?>
-<title>User Profile</title>
+<title>Users / Profile</title>
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
