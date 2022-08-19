@@ -486,3 +486,91 @@ in APPPATH\Views\Request\request.php on line 11.
  8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-19 07:04:10 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\RequestController.php on line 49.
+ 1 APPPATH\Controllers\RequestController.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\RequestController.php', 49)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\RequestController->approve('20')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RequestController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-19 07:24:49 --> Trying to access array offset on value of type null
+in APPPATH\Filters\AuthProjectEmployee.php on line 25.
+ 1 APPPATH\Filters\AuthProjectEmployee.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Filters\\AuthProjectEmployee.php', 25)
+ 2 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthProjectEmployee->before(null, null)
+ 3 SYSTEMPATH\CodeIgniter.php(431): CodeIgniter\Filters\Filters->run('employee-project/36', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-19 07:25:01 --> Trying to access array offset on value of type null
+in APPPATH\Filters\AuthProjectEmployee.php on line 25.
+ 1 APPPATH\Filters\AuthProjectEmployee.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Filters\\AuthProjectEmployee.php', 25)
+ 2 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthProjectEmployee->before(null, null)
+ 3 SYSTEMPATH\CodeIgniter.php(431): CodeIgniter\Filters\Filters->run('employee-project/36', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-19 07:25:01 --> Trying to access array offset on value of type null
+in APPPATH\Filters\AuthProjectEmployee.php on line 25.
+ 1 APPPATH\Filters\AuthProjectEmployee.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Filters\\AuthProjectEmployee.php', 25)
+ 2 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthProjectEmployee->before(null, null)
+ 3 SYSTEMPATH\CodeIgniter.php(431): CodeIgniter\Filters\Filters->run('employee-project/36', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-19 07:25:02 --> Trying to access array offset on value of type null
+in APPPATH\Filters\AuthProjectEmployee.php on line 25.
+ 1 APPPATH\Filters\AuthProjectEmployee.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Filters\\AuthProjectEmployee.php', 25)
+ 2 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthProjectEmployee->before(null, null)
+ 3 SYSTEMPATH\CodeIgniter.php(431): CodeIgniter\Filters\Filters->run('employee-project/36', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-19 07:25:03 --> Trying to access array offset on value of type null
+in APPPATH\Filters\AuthProjectEmployee.php on line 25.
+ 1 APPPATH\Filters\AuthProjectEmployee.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Filters\\AuthProjectEmployee.php', 25)
+ 2 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthProjectEmployee->before(null, null)
+ 3 SYSTEMPATH\CodeIgniter.php(431): CodeIgniter\Filters\Filters->run('employee-project/36', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-19 07:25:03 --> Trying to access array offset on value of type null
+in APPPATH\Filters\AuthProjectEmployee.php on line 25.
+ 1 APPPATH\Filters\AuthProjectEmployee.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Filters\\AuthProjectEmployee.php', 25)
+ 2 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthProjectEmployee->before(null, null)
+ 3 SYSTEMPATH\CodeIgniter.php(431): CodeIgniter\Filters\Filters->run('employee-project/36', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-19 07:25:03 --> Trying to access array offset on value of type null
+in APPPATH\Filters\AuthProjectEmployee.php on line 25.
+ 1 APPPATH\Filters\AuthProjectEmployee.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Filters\\AuthProjectEmployee.php', 25)
+ 2 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthProjectEmployee->before(null, null)
+ 3 SYSTEMPATH\CodeIgniter.php(431): CodeIgniter\Filters\Filters->run('employee-project/36', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-19 07:25:03 --> Trying to access array offset on value of type null
+in APPPATH\Filters\AuthProjectEmployee.php on line 25.
+ 1 APPPATH\Filters\AuthProjectEmployee.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Filters\\AuthProjectEmployee.php', 25)
+ 2 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthProjectEmployee->before(null, null)
+ 3 SYSTEMPATH\CodeIgniter.php(431): CodeIgniter\Filters\Filters->run('employee-project/36', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-19 07:25:04 --> Trying to access array offset on value of type null
+in APPPATH\Filters\AuthProjectEmployee.php on line 25.
+ 1 APPPATH\Filters\AuthProjectEmployee.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Filters\\AuthProjectEmployee.php', 25)
+ 2 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthProjectEmployee->before(null, null)
+ 3 SYSTEMPATH\CodeIgniter.php(431): CodeIgniter\Filters\Filters->run('employee-project/36', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-19 07:30:02 --> Trying to access array offset on value of type null
+in APPPATH\Filters\AuthProjectEmployee.php on line 17.
+ 1 APPPATH\Filters\AuthProjectEmployee.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Filters\\AuthProjectEmployee.php', 17)
+ 2 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthProjectEmployee->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(431): CodeIgniter\Filters\Filters->run('employee-project/36', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
