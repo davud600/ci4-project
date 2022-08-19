@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class RequestModel extends Model
+class MessageModel extends Model
 {
   protected $DBGroup          = 'default';
-  protected $table            = 'requests';
+  protected $table            = 'messages';
   protected $primaryKey       = 'id';
   protected $useAutoIncrement = true;
   protected $insertID         = 0;
@@ -15,10 +15,9 @@ class RequestModel extends Model
   protected $useSoftDeletes   = false;
   protected $protectFields    = true;
   protected $allowedFields    = [
-    'title',
-    'description',
-    'status',
-    'project_id',
+    'text',
+    'attach',
+    'request_id',
     'created_date',
     'created_by'
   ];
@@ -47,28 +46,22 @@ class RequestModel extends Model
   protected $beforeDelete   = [];
   protected $afterDelete    = [];
 
-  public function getRequestById($id)
+  public function getMessagesOfRequest($request_id)
   {
-    return $this->where('id', $id)->first();
+    return $this->where('request_id', $request_id)->findAll();
   }
 
-  public function getRequestsOfProject($project_id)
+  public function createMessage($message_data)
   {
-    return $this->where('project_id', $project_id)->findAll();
-  }
-
-  public function createRequest($request_data)
-  {
-    $request = [
-      'title' => $request_data['title'],
-      'description' => $request_data['description'],
-      'status' => $request_data['status'],
-      'project_id' => $request_data['project_id'],
+    $message = [
+      'text' => $message_data['text'],
+      // 'attach' => $message_data['attach'],
+      'request_id' => $message_data['request_id'],
       'created_date' => date(''),
-      'created_by' => $request_data['created_by']
+      'created_by' => $message_data['created_by']
     ];
 
-    $this->insert($request);
+    $this->insert($message);
     return true;
   }
 }

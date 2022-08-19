@@ -10,8 +10,9 @@ use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
 use App\Filters\AuthUser;
 use App\Filters\AuthAdmin;
-use App\Filters\AuthCustomer;
+use App\Filters\AuthCreatorOfRequest;
 use App\Filters\AuthEmployee;
+use App\Filters\AuthProjectCustomer;
 use App\Filters\AuthProjectEmployee;
 
 class Filters extends BaseConfig
@@ -32,7 +33,8 @@ class Filters extends BaseConfig
     'authAdmin'     => AuthAdmin::class,
     'authEmployee'     => AuthEmployee::class,
     'authProjectEmployee'     => AuthProjectEmployee::class,
-    'authCustomer'     => AuthCustomer::class
+    'authCreatorOfRequest'     => AuthCreatorOfRequest::class,
+    'authProjectCustomer' => AuthProjectCustomer::class
   ];
 
   /**
