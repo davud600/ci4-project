@@ -47,6 +47,7 @@
             <th scope="col">Subject</th>
             <th scope="col">Content</th>
             <th scope="col">Status</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -60,6 +61,7 @@
                 echo $request['status'] == 0 ? 'Under Review' : 'Approved'
                 ?>
               </td>
+              <td><a class="btn btn-primary" href="/request/<?= $request['id'] ?>">View</a></td>
             </tr>
           <?php } ?>
         </tbody>

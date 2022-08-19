@@ -15,7 +15,7 @@ class AuthProjectEmployee implements FilterInterface
     // Get project_id
     $uri_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     $uri_segments = explode('/', $uri_path);
-    $project_id = $uri_segments[2];
+    $project_id = $uri_segments[count($uri_segments) - 1];
 
     // Get employees of project
     $project_employee_obj = new ProjectEmployeeModel();

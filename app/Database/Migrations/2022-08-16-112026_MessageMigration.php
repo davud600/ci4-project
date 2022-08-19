@@ -19,7 +19,10 @@ class MessageMigration extends Migration
         'type'       => 'VARCHAR',
         'constraint' => 225
       ],
-      'attach' => [],
+      'attach' => [
+        'type' => 'BIGINT',
+        'constraint' => 225
+      ],
       'request_id' => [
         'type' => 'BIGINT',
         'constraint' => 225
