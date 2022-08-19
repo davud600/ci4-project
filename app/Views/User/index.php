@@ -20,7 +20,9 @@
       <?php } else if ($logged_user_data['role'] == 1) { ?>
         <a class="btn btn-link mt-5" href="/employee-projects">View My Projects</a>
       <?php } else if ($logged_user_data['role'] == 0) { ?>
-        <a class="btn btn-link mt-5" href="/customer-project">My Project</a>
+        <?php if ($customer_has_project) { ?>
+          <a class="btn btn-link mt-5" href="/customer-project">My Project</a>
+        <?php } ?>
       <?php } ?>
       <a class="btn btn-link mt-2" href="/login">Log Out</a>
     </div>

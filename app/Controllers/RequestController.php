@@ -25,7 +25,7 @@ class RequestController extends BaseController
       'description' => $this->request->getPost('description'),
       'status' => 0,
       'project_id' => $project['id'],
-      'created_by' => $logged_user_data['name']
+      'created_by' => $logged_user_data['id']
     ];
 
     if ($request_obj->makeRequest($request)) {

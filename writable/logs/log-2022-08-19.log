@@ -1,0 +1,97 @@
+ERROR - 2022-08-19 02:12:49 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', '', 'ci4_app_db', 3306, '', 0)
+#1 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Model.php(249): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\app\Models\UserModel.php(97): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\app\Controllers\UserController.php(36): App\Models\UserModel->login(Array)
+#8 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\CodeIgniter.php(904): App\Controllers\UserController->login()
+#9 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#10 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Model.php(249): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#5 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\app\Models\UserModel.php(97): CodeIgniter\BaseModel->first()
+#6 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\app\Controllers\UserController.php(36): App\Models\UserModel->login(Array)
+#7 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\CodeIgniter.php(904): App\Controllers\UserController->login()
+#8 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+#9 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+CRITICAL - 2022-08-19 02:12:49 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(249): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(622): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Models\UserModel.php(97): CodeIgniter\BaseModel->first()
+ 6 APPPATH\Controllers\UserController.php(36): App\Models\UserModel->login([...])
+ 7 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\UserController->login()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-19 02:13:25 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\CustomerController.php on line 23.
+ 1 APPPATH\Controllers\CustomerController.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\CustomerController.php', 23)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\CustomerController->project()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CustomerController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-19 02:26:13 --> Undefined array key 2
+in APPPATH\Filters\AuthCustomer.php on line 16.
+ 1 APPPATH\Filters\AuthCustomer.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 2', 'APPPATH\\Filters\\AuthCustomer.php', 16)
+ 2 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthCustomer->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(431): CodeIgniter\Filters\Filters->run('customer-project', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-19 02:26:17 --> Undefined array key 2
+in APPPATH\Filters\AuthCustomer.php on line 16.
+ 1 APPPATH\Filters\AuthCustomer.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 2', 'APPPATH\\Filters\\AuthCustomer.php', 16)
+ 2 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthCustomer->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(431): CodeIgniter\Filters\Filters->run('customer-project', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-19 02:27:01 --> Undefined array key 2
+in APPPATH\Filters\AuthCustomer.php on line 16.
+ 1 APPPATH\Filters\AuthCustomer.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 2', 'APPPATH\\Filters\\AuthCustomer.php', 16)
+ 2 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthCustomer->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(431): CodeIgniter\Filters\Filters->run('customer-project', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-19 02:27:11 --> Undefined array key 2
+in APPPATH\Filters\AuthCustomer.php on line 17.
+ 1 APPPATH\Filters\AuthCustomer.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 2', 'APPPATH\\Filters\\AuthCustomer.php', 17)
+ 2 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthCustomer->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(431): CodeIgniter\Filters\Filters->run('customer-project', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-19 02:29:48 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\CustomerController.php on line 23.
+ 1 APPPATH\Controllers\CustomerController.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\CustomerController.php', 23)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\CustomerController->project()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CustomerController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
