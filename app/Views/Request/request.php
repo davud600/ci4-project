@@ -9,6 +9,7 @@
 <div class="d-flex justify-content-center text-center">
   <div class="w-75 mt-5">
     <h2><?= $request['title'] ?></h2>
+    <p class="mt-5"><?= $request['description'] ?></p>
   </div>
 </div>
 <?= $this->endSection() ?>
