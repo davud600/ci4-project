@@ -61,7 +61,14 @@
                 echo $request['status'] == 0 ? 'Under Review' : 'Approved'
                 ?>
               </td>
-              <td><a class="btn btn-primary" href="/request/<?= $request['id'] ?>">View</a></td>
+              <td>
+                <form>
+                  <a class="btn btn-primary" href="/request/<?= $request['id'] ?>">View</a>
+                  <button formmethod="post" formaction="/approve-request/<?= $request['id'] ?>" class="btn btn-success">
+                    Approve
+                  </button>
+                </form>
+              </td>
             </tr>
           <?php } ?>
         </tbody>

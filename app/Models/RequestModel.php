@@ -48,6 +48,12 @@ class RequestModel extends Model
   protected $beforeDelete   = [];
   protected $afterDelete    = [];
 
+  public function approveRequest($id)
+  {
+    $this->update($id, ['status' => 1]);
+    return true;
+  }
+
   public function getRequestById($id)
   {
     return $this->where('id', $id)->first();
