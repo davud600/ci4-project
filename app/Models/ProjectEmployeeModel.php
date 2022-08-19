@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use CodeIgniter\I18n\Time;
 use CodeIgniter\Model;
 
 class ProjectEmployeeModel extends Model
@@ -65,7 +66,7 @@ class ProjectEmployeeModel extends Model
       array_push($project_employees, [
         'project_id' => $project_id,
         'employee_id' => $employee_id,
-        'created_date' => date('l jS \of F Y h:i:s A')
+        'created_date' => Time::parse('now', 'Europe/Bucharest')
       ]);
     }
 

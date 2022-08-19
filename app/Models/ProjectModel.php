@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use CodeIgniter\I18n\Time;
 use CodeIgniter\Model;
 
 class ProjectModel extends Model
@@ -77,7 +78,7 @@ class ProjectModel extends Model
   {
     $project = $project_data;
     $project['status'] = 0; // In Progress
-    $project['created_date'] = date('l jS \of F Y h:i:s A');
+    $project['created_date'] = Time::parse('now', 'Europe/Bucharest');
 
     $this->insert($project);
     return true;

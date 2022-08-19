@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Libraries\Hash;
+use CodeIgniter\I18n\Time;
 use CodeIgniter\Model;
 
 class UserModel extends Model
@@ -107,7 +108,7 @@ class UserModel extends Model
   {
     $user = $user_data;
     $user['password'] = Hash::make($user_data['password']);
-    $user['created_date'] = date('l jS \of F Y h:i:s A');
+    $user['created_date'] = Time::parse('now', 'Europe/Bucharest');
 
     $this->insert($user);
     return true;

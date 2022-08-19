@@ -15,7 +15,7 @@ class MessageController extends BaseController
       'text' => $this->request->getPost('message'),
       // 'attach' => $this->request->getPost(''),
       'request_id' => $request_id,
-      'created_by' => session()->get('logged_user')['id']
+      'created_by' => session()->get('logged_user')['name']
     ];
 
     if ($message_obj->createMessage($message)) {
