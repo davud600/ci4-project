@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\ProjectModel;
 use App\Models\UserModel;
 
 class UserController extends BaseController
@@ -10,7 +11,15 @@ class UserController extends BaseController
   public function profile()
   {
     $logged_user_data = session()->get('logged_user');
-    return view('User/index', ['logged_user_data' => $logged_user_data]);
+
+    $project_obj = new ProjectModel();
+
+    $customer_has_project = $project_obj->getProjectByCustomer($logged_user_data['id']) != null;
+
+    return view('User/index', [
+      'logged_user_data' => $logged_user_data,
+      'customer_has_project' => $customer_has_project
+    ]);
   }
 
   public function dashboard()

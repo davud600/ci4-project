@@ -88,3 +88,296 @@ in SYSTEMPATH\Filters\Filters.php on line 340.
  4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 07:46:50 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\CustomerController.php on line 21.
+ 1 APPPATH\Controllers\CustomerController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\CustomerController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\CustomerController->project()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CustomerController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 07:47:31 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\CustomerController.php on line 21.
+ 1 APPPATH\Controllers\CustomerController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\CustomerController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\CustomerController->project()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CustomerController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 07:48:36 --> Undefined variable $customer
+in APPPATH\Views\Customer\project.php on line 29.
+ 1 APPPATH\Views\Customer\project.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $customer', 'APPPATH\\Views\\Customer\\project.php', 29)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Customer\\project.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Customer/project', [], true)
+ 5 APPPATH\Controllers\CustomerController.php(27): view('Customer/project', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\CustomerController->project()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CustomerController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 08:09:52 --> authUser, authProjectCustomer filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authUser, authProjectCustomer')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authUser, authProjectCustomer', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 08:09:57 --> authUser, authProjectCustomer filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authUser, authProjectCustomer')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authUser, authProjectCustomer', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:02:10 --> Undefined variable $requests
+in APPPATH\Views\Customer\project.php on line 54.
+ 1 APPPATH\Views\Customer\project.php(54): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $requests', 'APPPATH\\Views\\Customer\\project.php', 54)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Customer\\project.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Customer/project', [], true)
+ 5 APPPATH\Controllers\CustomerController.php(28): view('Customer/project', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\CustomerController->project()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CustomerController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:03:34 --> Call to undefined method App\Models\RequestModel::getRequestsOfProject
+in SYSTEMPATH\Model.php on line 773.
+ 1 APPPATH\Controllers\CustomerController.php(25): CodeIgniter\Model->__call('getRequestsOfProject', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\CustomerController->project()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CustomerController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:04:40 --> Undefined variable $requests
+in APPPATH\Views\Customer\project.php on line 54.
+ 1 APPPATH\Views\Customer\project.php(54): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $requests', 'APPPATH\\Views\\Customer\\project.php', 54)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Customer\\project.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Customer/project', [], true)
+ 5 APPPATH\Controllers\CustomerController.php(31): view('Customer/project', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\CustomerController->project()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CustomerController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:04:53 --> Undefined variable $requests
+in APPPATH\Views\Customer\project.php on line 54.
+ 1 APPPATH\Views\Customer\project.php(54): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $requests', 'APPPATH\\Views\\Customer\\project.php', 54)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Customer\\project.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Customer/project', [], true)
+ 5 APPPATH\Controllers\CustomerController.php(31): view('Customer/project', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\CustomerController->project()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CustomerController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:04:55 --> Undefined variable $requests
+in APPPATH\Views\Customer\project.php on line 54.
+ 1 APPPATH\Views\Customer\project.php(54): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $requests', 'APPPATH\\Views\\Customer\\project.php', 54)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Customer\\project.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Customer/project', [], true)
+ 5 APPPATH\Controllers\CustomerController.php(31): view('Customer/project', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\CustomerController->project()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CustomerController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:05:40 --> Undefined variable $requests
+in APPPATH\Views\Customer\project.php on line 53.
+ 1 APPPATH\Views\Customer\project.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $requests', 'APPPATH\\Views\\Customer\\project.php', 53)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Customer\\project.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Customer/project', [], true)
+ 5 APPPATH\Controllers\CustomerController.php(31): view('Customer/project', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\CustomerController->project()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CustomerController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:11:40 --> Undefined variable $requests
+in APPPATH\Views\Employee\project.php on line 53.
+ 1 APPPATH\Views\Employee\project.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $requests', 'APPPATH\\Views\\Employee\\project.php', 53)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Employee\\project.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Employee/project', [], true)
+ 5 APPPATH\Controllers\EmployeeController.php(26): view('Employee/project', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\EmployeeController->project('16')
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EmployeeController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:21:53 --> authUser, authCustomer filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authUser, authCustomer')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authUser, authCustomer', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:22:05 --> authUser, authCustomer filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authUser, authCustomer')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authUser, authCustomer', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:29:14 --> authUser, authCustomer filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authUser, authCustomer')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authUser, authCustomer', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:29:18 --> authUser, authCustomer filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authUser, authCustomer')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authUser, authCustomer', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:29:24 --> authUser, authCustomer filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authUser, authCustomer')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authUser, authCustomer', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:29:51 --> authUser, authCustomer filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authUser, authCustomer')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authUser, authCustomer', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:30:14 --> authUser, authCustomer filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authUser, authCustomer')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authUser, authCustomer', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:30:45 --> authUser, authCustomer filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authUser, authCustomer')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authUser, authCustomer', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:31:07 --> authUser, authCustomer filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authUser, authCustomer')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authUser, authCustomer', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:32:17 --> authUser, authCustomer filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authUser, authCustomer')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authUser, authCustomer', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:32:37 --> authUser, authCustomer filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authUser, authCustomer')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authUser, authCustomer', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:32:38 --> authUser, authCustomer filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authUser, authCustomer')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authUser, authCustomer', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:32:38 --> authUser, authCustomer filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authUser, authCustomer')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authUser, authCustomer', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:32:39 --> authUser, authCustomer filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authUser, authCustomer')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authUser, authCustomer', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:33:00 --> authUser, authCustomer filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authUser, authCustomer')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authUser, authCustomer', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:33:01 --> authUser, authCustomer filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authUser, authCustomer')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authUser, authCustomer', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:33:01 --> authUser, authCustomer filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authUser, authCustomer')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authUser, authCustomer', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:33:02 --> authUser, authCustomer filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authUser, authCustomer')
+ 2 SYSTEMPATH\Filters\Filters.php(369): CodeIgniter\Filters\Filters->enableFilter('authUser, authCustomer', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(418): CodeIgniter\Filters\Filters->enableFilters([...], 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:54:41 --> Too few arguments to function App\Controllers\RequestController::request(), 0 passed in C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\system\CodeIgniter.php on line 904 and exactly 1 expected
+in APPPATH\Controllers\RequestController.php on line 38.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\RequestController->request()
+ 2 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RequestController))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:55:02 --> Call to undefined method App\Models\RequestModel::getRequestById
+in SYSTEMPATH\Model.php on line 773.
+ 1 APPPATH\Controllers\RequestController.php(41): CodeIgniter\Model->__call('getRequestById', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\RequestController->request('3')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RequestController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-18 09:55:38 --> Invalid file: Request/request.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Request/request.php')
+ 2 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Request/request', [], true)
+ 3 APPPATH\Controllers\RequestController.php(43): view('Request/request', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\RequestController->request('3')
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RequestController))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')

@@ -26,7 +26,7 @@
     <hr>
     <div class="d-flex justify-content-between">
       <span class="fw-bold">Customer: </span>
-      <span><?= $customer['name'] ?></span>
+      <span><?= $logged_user_data['name'] ?></span>
     </div>
     <hr>
     <div class="d-flex justify-content-between">
@@ -38,7 +38,6 @@
       </div>
     </div>
     <hr>
-    <a class="btn btn-secondary" href="/edit-project/<?= $project['id'] ?>">Edit</a>
     <h3 class="mt-5">Requests</h3>
     <div class="mt-3 w-100">
       <table class="table w-100">
@@ -48,6 +47,7 @@
             <th scope="col">Subject</th>
             <th scope="col">Content</th>
             <th scope="col">Status</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -61,11 +61,13 @@
                 echo $request['status'] == 0 ? 'Under Review' : 'Approved'
                 ?>
               </td>
+              <td><a class="btn btn-primary" href="/request/<?= $request['id'] ?>">View</a></td>
             </tr>
           <?php } ?>
         </tbody>
       </table>
     </div>
+    <a class="mt-4 btn btn-success" href="/submit-request?project_id=<?= $project['id'] ?>">Leave a Request</a>
   </div>
 </div>
 <?= $this->endSection() ?>

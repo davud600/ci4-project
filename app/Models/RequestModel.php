@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ProjectModel extends Model
+class RequestModel extends Model
 {
   protected $DBGroup          = 'default';
-  protected $table            = 'projects';
+  protected $table            = 'requests';
   protected $primaryKey       = 'id';
   protected $useAutoIncrement = true;
   protected $insertID         = 0;
@@ -18,7 +18,7 @@ class ProjectModel extends Model
     'title',
     'description',
     'status',
-    'customer_id',
+    'project_id',
     'created_date',
     'created_by'
   ];
@@ -47,39 +47,28 @@ class ProjectModel extends Model
   protected $beforeDelete   = [];
   protected $afterDelete    = [];
 
-  public function getProjectByCustomer($customer_id)
+  public function getRequestById($id)
   {
-    return $this->select('id, title, description, status, customer_id')->where('customer_id', $customer_id)->first();
+    return $this->where('id', $id)->first();
   }
 
-  public function getProjectByTitle($title)
+  public function getRequestsOfProject($project_id)
   {
-    return $this->select('id')->where('title', $title)->first();
+    return $this->where('project_id', $project_id)->findAll();
   }
 
-  public function getProjectById($id)
+  public function makeRequest($request_data)
   {
-    return $this->select('id, title, description, status, customer_id')->where('id', $id)->first();
-  }
+    $request = [
+      'title' => $request_data['title'],
+      'description' => $request_data['description'],
+      'status' => $request_data['status'],
+      'project_id' => $request_data['project_id'],
+      'created_date' => date(''),
+      'created_by' => $request_data['created_by']
+    ];
 
-  public function getAllProjects()
-  {
-    return $this->select('id, title, description, status')->findAll();
-  }
-
-  public function edit($project_id, $project_data)
-  {
-    $this->update($project_id, $project_data);
-    return true;
-  }
-
-  public function create($project_data)
-  {
-    $project = $project_data;
-    $project['status'] = 0; // In Progress
-    $project['created_date'] = date('l jS \of F Y h:i:s A');
-
-    $this->insert($project);
+    $this->insert($request);
     return true;
   }
 }

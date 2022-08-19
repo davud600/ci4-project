@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ProjectEmployeeModel;
 use App\Models\ProjectModel;
+use App\Models\RequestModel;
 use App\Models\UserModel;
 
 class ProjectController extends BaseController
@@ -14,15 +15,19 @@ class ProjectController extends BaseController
     $project_obj = new ProjectModel();
     $user_obj = new UserModel();
     $project_employee_obj = new ProjectEmployeeModel();
+    $request_obj = new RequestModel();
+
     $project = $project_obj->getProjectById($id);
     $customer = $user_obj->getUserById($project['customer_id']);
     $employees_ids = $project_employee_obj->getEmployeesOfProject($id); // returns ids
     $employees = $user_obj->getUsersByIds($employees_ids);
+    $requests_of_project = $request_obj->getRequestsOfProject($project['id']);
 
     return view('Project/index', [
       'project' => $project,
       'customer' => $customer,
-      'employees' => $employees
+      'employees' => $employees,
+      'requests' => $requests_of_project
     ]);
   }
 
