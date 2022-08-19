@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use CodeIgniter\I18n\Time;
 use CodeIgniter\Model;
 
 class RequestModel extends Model
@@ -64,7 +65,7 @@ class RequestModel extends Model
       'description' => $request_data['description'],
       'status' => $request_data['status'],
       'project_id' => $request_data['project_id'],
-      'created_date' => date(''),
+      'created_date' => Time::parse('now', 'Europe/Bucharest'),
       'created_by' => $request_data['created_by']
     ];
 

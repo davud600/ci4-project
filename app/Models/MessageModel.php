@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use CodeIgniter\I18n\Time;
 use CodeIgniter\Model;
 
 class MessageModel extends Model
@@ -57,7 +58,7 @@ class MessageModel extends Model
       'text' => $message_data['text'],
       // 'attach' => $message_data['attach'],
       'request_id' => $message_data['request_id'],
-      'created_date' => date(''),
+      'created_date' => Time::parse('now', 'Europe/Bucharest'),
       'created_by' => $message_data['created_by']
     ];
 
