@@ -7,11 +7,14 @@ use App\Models\ProjectEmployeeModel;
 use App\Models\ProjectModel;
 use App\Models\RequestModel;
 use App\Models\UserModel;
+use CodeIgniter\HTTP\Request;
 
 class ProjectController extends BaseController
 {
   public function project($id)
   {
+    $logged_user_data = session()->get('logged_user');
+
     $project_obj = new ProjectModel();
     $user_obj = new UserModel();
     $project_employee_obj = new ProjectEmployeeModel();
@@ -27,22 +30,32 @@ class ProjectController extends BaseController
       'project' => $project,
       'customer' => $customer,
       'employees' => $employees,
-      'requests' => $requests_of_project
+      'requests' => $requests_of_project,
+      'logged_user_data' => $logged_user_data
     ]);
   }
 
   public function projects()
   {
+    $logged_user_data = session()->get('logged_user');
     $project_obj = new ProjectModel();
+
     $projects = $project_obj->getAllProjects();
-    return view('Project/projects', ['projects' => $projects]);
+
+    return view('Project/projects', [
+      'projects' => $projects,
+      'logged_user_data' => $logged_user_data
+    ]);
   }
 
   public function edit($id)
   {
+    $logged_user_data = session()->get('logged_user');
+
     $project_obj = new ProjectModel();
     $user_obj = new UserModel();
     $project_employee_obj = new ProjectEmployeeModel();
+
     $project = $project_obj->getProjectById($id);
     $customer = $user_obj->getUserById($project['customer_id']);
     $customers = $user_obj->getAllCustomers();
@@ -56,7 +69,8 @@ class ProjectController extends BaseController
         'customer' => $customer,
         'customers' => $customers,
         'employees' => $employees,
-        'all_employees' => $all_employees
+        'all_employees' => $all_employees,
+        'logged_user_data' => $logged_user_data
       ]);
     }
 
@@ -64,7 +78,7 @@ class ProjectController extends BaseController
       'title' => $this->request->getPost('title'),
       'description' => $this->request->getPost('description'),
       'customer_id' => $this->request->getPost('customer'),
-      'status' => $this->request->getPost('status') != null ? 1 : 0
+      'status' => $this->request->getPost('status') != 0 ? 1 : 0
     ];
 
     $MAX_EMPLOYEES = 100;
@@ -91,6 +105,7 @@ class ProjectController extends BaseController
 
   public function create()
   {
+    $logged_user_data = session()->get('logged_user');
     if ($this->request->getMethod() == 'get') {
       $user_obj = new UserModel();
       $customers = $user_obj->getAllCustomers();
@@ -98,7 +113,8 @@ class ProjectController extends BaseController
 
       return view('Project/create', [
         'customers' => $customers,
-        'employees' => $employees
+        'employees' => $employees,
+        'logged_user_data' => $logged_user_data
       ]);
     }
 
@@ -137,9 +153,13 @@ class ProjectController extends BaseController
   {
     $project_obj = new ProjectModel();
     $project_employee_obj = new ProjectEmployeeModel();
+    $request_obj = new RequestModel();
+
     if ($project_obj->delete($id)) {
       if ($project_employee_obj->deleteAllOfProject($id)) {
-        return redirect()->to('/projects');
+        if ($request_obj->deleteAllOfProject($id)) {
+          return redirect()->to('/projects');
+        }
       }
     }
 

@@ -12,6 +12,8 @@ class EmployeeController extends BaseController
 {
   public function project($project_id)
   {
+    $logged_user_data = session()->get('logged_user');
+
     $project_obj = new ProjectModel();
     $user_obj = new UserModel();
     $project_employee_obj = new ProjectEmployeeModel();
@@ -27,7 +29,8 @@ class EmployeeController extends BaseController
       'project' => $project,
       'customer' => $customer,
       'employees' => $employees,
-      'requests' => $requests_of_project
+      'requests' => $requests_of_project,
+      'logged_user_data' => $logged_user_data
     ]);
   }
 
