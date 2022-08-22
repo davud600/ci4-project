@@ -205,12 +205,10 @@
 
           <!-- Floating Labels Form -->
           <form class="row g-3" method="post">
-            <div class="justify-content-center d-flex">
-              <div class="col-md-8">
-                <div class="form-floating">
-                  <input type="text" class="form-control" id="title" name="title" placeholder="Project Title">
-                  <label for="title">Subject</label>
-                </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="title" name="title" placeholder="Project Title">
+                <label for="title">Subject</label>
               </div>
             </div>
             <div class="col-md-12">
