@@ -11,15 +11,19 @@ class RequestController extends BaseController
 {
   public function create()
   {
-    if ($this->request->getMethod() == 'get') {
-      return view('Request/make-request');
-    }
-
     $logged_user_data = session()->get('logged_user');
+
     $request_obj = new RequestModel();
     $project_obj = new ProjectModel();
 
     $project = $project_obj->getProjectByCustomer($logged_user_data['id']);
+
+    if ($this->request->getMethod() == 'get') {
+      return view('Request/make-request', [
+        'logged_user_data' => $logged_user_data,
+        'project' => $project
+      ]);
+    }
 
     $request = [
       'title' => $this->request->getPost('title'),
@@ -52,15 +56,19 @@ class RequestController extends BaseController
   public function request($id)
   {
     $logged_user_data = session()->get('logged_user');
+
     $request_obj = new RequestModel();
     $message_obj = new MessageModel();
+    $project_obj = new ProjectModel();
 
     $request = $request_obj->getRequestById($id);
     $messages = $message_obj->getMessagesOfRequest($id);
+    $project = $project_obj->getProjectById($request['project_id']);
 
     return view('Request/request', [
       'request' => $request,
       'messages' => $messages,
+      'project' => $project,
       'logged_user_data' => $logged_user_data
     ]);
   }

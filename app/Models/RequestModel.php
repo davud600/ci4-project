@@ -48,6 +48,18 @@ class RequestModel extends Model
   protected $beforeDelete   = [];
   protected $afterDelete    = [];
 
+  public function deleteAllOfProject($project_id)
+  {
+    $request_ids = $this->select('id')->where('project_id', $project_id)->findAll();
+
+    // Delete messages of each request and then the request
+    $message_obj = new MessageModel();
+    foreach ($request_ids as $request_id) {
+      $message_obj->where('request_id', $request_id)->delete();
+      $this->where('id', $request_id)->delete();
+    }
+  }
+
   public function approveRequest($id)
   {
     $this->update($id, ['status' => 1]);
