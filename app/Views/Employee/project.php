@@ -257,7 +257,10 @@
                   <td><?= $request['description'] ?></td>
                   <td>
                     <?php
-                    echo $request['status'] == 0 ? 'Under Review' : 'Approved'
+                    echo $request['status'] == 0 ? '
+                      <span class="badge bg-secondary">Under Review</span>' :
+                      '
+                      <span class="badge bg-success">Approved</span>'
                     ?>
                   </td>
                   <td>
