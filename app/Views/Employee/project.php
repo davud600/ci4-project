@@ -143,7 +143,7 @@
             <span>My Project</span>
           </a>
         <?php } else if ($logged_user_data['role'] == 1) { ?>
-          <a class="nav-link collapsed" href="/employee-projects">
+          <a class="nav-link" href="/employee-projects">
             <i class="bi bi-grid"></i>
             <span>My Projects</span>
           </a>
@@ -257,7 +257,10 @@
                   <td><?= $request['description'] ?></td>
                   <td>
                     <?php
-                    echo $request['status'] == 0 ? 'Under Review' : 'Approved'
+                    echo $request['status'] == 0 ? '
+                      <span class="badge bg-secondary">Under Review</span>' :
+                      '
+                      <span class="badge bg-success">Approved</span>'
                     ?>
                   </td>
                   <td>

@@ -138,17 +138,17 @@
 
       <li class="nav-item">
         <?php if ($logged_user_data['role'] == 0) { ?>
-          <a class="nav-link collapsed" href="/customer-project">
+          <a class="nav-link " href="/customer-project">
             <i class="bi bi-grid"></i>
             <span>My Project</span>
           </a>
         <?php } else if ($logged_user_data['role'] == 1) { ?>
-          <a class="nav-link collapsed" href="/employee-projects">
+          <a class="nav-link " href="/employee-projects">
             <i class="bi bi-grid"></i>
             <span>My Projects</span>
           </a>
         <?php } else if ($logged_user_data['role'] == 2) { ?>
-          <a class="nav-link collapsed" href="/dashboard">
+          <a class="nav-link " href="/dashboard">
             <i class="bi bi-grid"></i>
             <span>Dashboard</span>
           </a>
@@ -205,17 +205,15 @@
 
           <!-- Floating Labels Form -->
           <form class="row g-3" method="post">
-            <div class="justify-content-center d-flex">
-              <div class="col-md-8">
-                <div class="form-floating">
-                  <input type="text" class="form-control" id="title" name="title" placeholder="Project Title">
-                  <label for="title">Subject</label>
-                </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input require type="text" class="form-control" id="title" name="title" placeholder="Project Title">
+                <label for="title">Subject</label>
               </div>
             </div>
             <div class="col-md-12">
               <div class="form-floating">
-                <input type="text" class="form-control" id="description" name="description" placeholder="Project Description">
+                <input require type="text" class="form-control" id="description" name="description" placeholder="Project Description">
                 <label for="description">Content</label>
               </div>
             </div>

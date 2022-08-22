@@ -56,7 +56,7 @@ class MessageModel extends Model
   {
     $message = [
       'text' => $message_data['text'],
-      // 'attach' => $message_data['attach'],
+      'attach' => $message_data['attach'],
       'request_id' => $message_data['request_id'],
       'created_date' => Time::parse('now', 'Europe/Bucharest'),
       'created_by' => $message_data['created_by']

@@ -37,6 +37,10 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+// Files download
+// $routes->get('/download-file/(:any)', 'MessageController::downloadFile/$1');
+$routes->get('/download-file', 'MessageController::downloadFile');
+
 // Customer
 $routes->get('/customer-project', 'CustomerController::project', ['filter' => ['authUser']]);
 

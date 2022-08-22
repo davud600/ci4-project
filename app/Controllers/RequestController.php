@@ -65,11 +65,20 @@ class RequestController extends BaseController
     $messages = $message_obj->getMessagesOfRequest($id);
     $project = $project_obj->getProjectById($request['project_id']);
 
+    $files = [];
+
+    foreach ($messages as $message) {
+      if ($message['attach'] != null) {
+        $files['message' . $message['id']] = $message['attach'];
+      }
+    }
+
     return view('Request/request', [
       'request' => $request,
       'messages' => $messages,
       'project' => $project,
-      'logged_user_data' => $logged_user_data
+      'logged_user_data' => $logged_user_data,
+      'files' => $files
     ]);
   }
 }
