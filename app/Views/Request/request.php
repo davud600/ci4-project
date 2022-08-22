@@ -239,30 +239,57 @@
         <div class="card-body">
           <h5 class="card-title">Messages</h5>
           <!-- Loop through messages -->
-          <div class="d-flex flex-column gap-1">
-            <?php foreach ($messages as $message) { ?>
-              <div class="d-flex flex-column">
-                <div class="d-flex flex-row">
-                  <span class="fw-bold"><?= $message['created_by'] ?>:&nbsp;&nbsp;</span>
-                  <span><?= $message['text'] ?></span>
-                </div>
-                <div class="d-flex flex-row">
-                  <span class="fw-bold">Sent:&nbsp;&nbsp;</span>
-                  <span><?= $message['created_date'] ?></span>
-                </div>
-              </div>
-              <hr>
-            <?php } ?>
+          <div class="d-flex justify-content-center">
+            <div class="d-flex flex-column gap-1 w-50">
+              <?php foreach ($messages as $message) { ?>
+                <?php if ($message['created_by'] == $logged_user_data['name']) { ?>
+                  <div class="d-flex justify-content-end">
+                    <div class="d-flex flex-column">
+                      <div class="d-flex flex-row">
+                        <span class="ms-3" data-bs-toggle="tooltip" data-bs-placement="left" title="<?= $message['created_date'] ?>">
+                          <?= $message['text'] ?>
+                        </span>
+                        <?php if ($message['attach'] != null) { ?>
+                          <a href="<?= base_url('download-file?file_uri=' . $message['attach']) ?>">
+                            <span>Download</span>
+                            <i class="bi bi-file"></i>
+                          </a>
+                        <?php } ?>
+                      </div>
+                    </div>
+                  </div>
+                <?php } else { ?>
+                  <div class="d-flex justify-content-start">
+                    <div class="d-flex flex-column">
+                      <div class="d-flex flex-row">
+                        <span class="fw-bold"><?= $message['created_by'] ?>:&nbsp;&nbsp;</span>
+                        <span class="me-3" data-bs-toggle="tooltip" data-bs-placement="right" title="<?= $message['created_date'] ?>">
+                          <?= $message['text'] ?>
+                        </span>
+                        <?php if ($message['attach'] != null) { ?>
+                          <a href="<?= base_url('download-file?file_uri=' . $message['attach']) ?>">
+                            <span>Download</span>
+                            <i class="bi bi-file"></i>
+                          </a>
+                        <?php } ?>
+                      </div>
+                    </div>
+                  </div>
+                <?php } ?>
+                <hr>
+              <?php } ?>
+            </div>
           </div>
           <!-- Send message form -->
-          <form action="/create-message/<?= $request['id'] ?>" class="w-100" method="post">
-            <div class="row mb-3 mt-3">
-              <div class="col-sm-10">
+          <div class="d-flex justify-content-center">
+            <form action="/create-message/<?= $request['id'] ?>" class="w-50" method="post" enctype="multipart/form-data">
+              <div class="mt-3 mb-3 justify-content-center d-flex gap-2 flex-row">
                 <input type="text" name="message" class="form-control">
-                <button type="submit" class="mt-3 btn btn-primary">Send Message</button>
+                <input type="file" name="userfile">
+                <button type="submit" class="btn btn-primary">Send</button>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </section>

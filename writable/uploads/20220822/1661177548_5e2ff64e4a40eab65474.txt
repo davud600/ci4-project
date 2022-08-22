@@ -1,0 +1,28 @@
+-User [id, email, name, password, role (customer/admin), created_at]
+
+customer can create new account
+
+-Project [id, title, description, status, priority, customer_id, created_at]
+
+-ProjectEmployee [id, project_id, employee_id]
+
+
+user (admin) can create projects and assign customer
+user (admin) can view all projects
+user (admin) can manage projects (change status and priority)
+user (customer) can leave feedback and message on project
+user (admin) can approve feedback
+
+9%Vf#beorOw@
+
+
+mythauth
+
+
+
+Finish user request views and controller DONE
+
+User/Employee should be able to send messages in the request as a reply DONE
+
+add attach to a message, attach is the message its replying to (id) and fix requets view by showing proper info of messages
+Get theme for website (update views)

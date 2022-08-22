@@ -207,13 +207,13 @@
           <form class="row g-3" method="post">
             <div class="col-md-6">
               <div class="form-floating">
-                <input type="text" class="form-control" id="title" name="title" placeholder="Project Title">
+                <input require type="text" class="form-control" id="title" name="title" placeholder="Project Title">
                 <label for="title">Subject</label>
               </div>
             </div>
             <div class="col-md-12">
               <div class="form-floating">
-                <input type="text" class="form-control" id="description" name="description" placeholder="Project Description">
+                <input require type="text" class="form-control" id="description" name="description" placeholder="Project Description">
                 <label for="description">Content</label>
               </div>
             </div>
