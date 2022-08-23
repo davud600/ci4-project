@@ -20,6 +20,11 @@ class CustomerController extends BaseController
     $request_obj = new RequestModel();
 
     $project = $project_obj->getProjectByCustomer($logged_user_data['id']);
+
+    if (!$project) {
+      return redirect()->to('/profile');
+    }
+
     $employees_ids = $project_employee_obj->getEmployeesOfProject($project['id']); // returns ids
     $employees = $user_obj->getUsersByIds($employees_ids);
     $requests_of_project = $request_obj->getRequestsOfProject($project['id']);

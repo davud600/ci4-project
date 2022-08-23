@@ -8,12 +8,12 @@ use CodeIgniter\Filters\DebugToolbar;
 use CodeIgniter\Filters\Honeypot;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
-use App\Filters\AuthUser;
-use App\Filters\AuthAdmin;
-use App\Filters\AuthCreatorOfRequest;
-use App\Filters\AuthEmployee;
-use App\Filters\AuthProjectCustomer;
-use App\Filters\AuthProjectEmployee;
+use App\Filters\User;
+use App\Filters\Admin;
+use App\Filters\CreatorOfRequest;
+use App\Filters\Employee;
+use App\Filters\ProjectCustomer;
+use App\Filters\ProjectEmployee;
 
 class Filters extends BaseConfig
 {
@@ -24,17 +24,17 @@ class Filters extends BaseConfig
    * @var array
    */
   public $aliases = [
-    'csrf'          => CSRF::class,
-    'toolbar'       => DebugToolbar::class,
-    'honeypot'      => Honeypot::class,
-    'invalidchars'  => InvalidChars::class,
-    'secureheaders' => SecureHeaders::class,
-    'authUser'      => AuthUser::class,
-    'authAdmin'     => AuthAdmin::class,
-    'authEmployee'     => AuthEmployee::class,
-    'authProjectEmployee'     => AuthProjectEmployee::class,
-    'authCreatorOfRequest'     => AuthCreatorOfRequest::class,
-    'authProjectCustomer' => AuthProjectCustomer::class
+    'csrf'             => CSRF::class,
+    'toolbar'          => DebugToolbar::class,
+    'honeypot'         => Honeypot::class,
+    'invalidchars'     => InvalidChars::class,
+    'secureheaders'    => SecureHeaders::class,
+    'User'             => User::class,
+    'Admin'            => Admin::class,
+    'Employee'         => Employee::class,
+    'ProjectEmployee'  => ProjectEmployee::class,
+    'CreatorOfRequest' => CreatorOfRequest::class,
+    'ProjectCustomer'  => ProjectCustomer::class
   ];
 
   /**

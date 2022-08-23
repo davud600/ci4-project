@@ -6,12 +6,12 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-class AuthEmployee implements FilterInterface
+class Admin implements FilterInterface
 {
   public function before(RequestInterface $request, $arguments = null)
   {
-    // Employee auth
-    if (session()->get('logged_user')['role'] != 1) {
+    // Admin auth
+    if (session()->get('logged_user')['role'] < 2) {
       return redirect()->to('/profile');
     }
   }

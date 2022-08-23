@@ -6,13 +6,13 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-class AuthUser implements FilterInterface
+class Employee implements FilterInterface
 {
   public function before(RequestInterface $request, $arguments = null)
   {
-    // User auth
-    if (!session()->get('logged_user')) {
-      return redirect()->to('/login');
+    // Employee auth
+    if (session()->get('logged_user')['role'] != 1) {
+      return redirect()->to('/profile');
     }
   }
 

@@ -8,7 +8,7 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-class AuthProjectEmployee implements FilterInterface
+class ProjectEmployee implements FilterInterface
 {
   public function before(RequestInterface $request, $arguments = null)
   {
