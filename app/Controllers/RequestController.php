@@ -53,6 +53,19 @@ class RequestController extends BaseController
     return redirect()->to('/employee-project/' . $request['project_id']);
   }
 
+  public function cancel($id)
+  {
+    $request_obj = new RequestModel();
+
+    $request = $request_obj->getRequestById($id);
+
+    if ($request_obj->cancelRequest($id)) {
+      return redirect()->to('/employee-project/' . $request['project_id']);
+    }
+
+    return redirect()->to('/employee-project/' . $request['project_id']);
+  }
+
   public function request($id)
   {
     $logged_user_data = session()->get('logged_user');

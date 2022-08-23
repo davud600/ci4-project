@@ -48,6 +48,7 @@ $routes->get('/customer-project', 'CustomerController::project', ['filter' => ['
 $routes->get('/request/(:any)', 'RequestController::request/$1', ['filter' => ['authUser', 'authCreatorOfRequest']]);
 $routes->match(['get', 'post'], '/submit-request', 'RequestController::create', ['filter' => ['authUser', 'authProjectCustomer']]);
 $routes->match(['post'], '/approve-request/(:any)', 'RequestController::approve/$1', ['filter' => ['authUser', 'authProjectEmployee:hasRequestId']]);
+$routes->match(['post'], '/cancel-request/(:any)', 'RequestController::cancel/$1', ['filter' => ['authUser', 'authProjectEmployee:hasRequestId']]);
 
 // Message
 $routes->match(['post'], '/create-message/(:any)', 'MessageController::create/$1', ['filter' => ['authUser']]);
