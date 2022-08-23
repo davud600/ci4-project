@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\MessageModel;
-use CodeIgniter\Files\File;
 
 class MessageController extends BaseController
 {
@@ -15,8 +14,10 @@ class MessageController extends BaseController
     $user_file = $this->request->getFile('userfile');
     $file_path = null;
 
-    if (!$user_file->hasMoved()) {
-      $file_path = WRITEPATH . 'uploads/' . $user_file->store();
+    if (is_uploaded_file($user_file)) {
+      if (!$user_file->hasMoved()) {
+        $file_path = WRITEPATH . 'uploads/' . $user_file->store();
+      }
     }
 
     $message = [

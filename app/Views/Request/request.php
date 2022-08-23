@@ -246,7 +246,7 @@
                   <div class="d-flex justify-content-end">
                     <div class="d-flex flex-column">
                       <div class="d-flex flex-row">
-                        <span class="ms-3" data-bs-toggle="tooltip" data-bs-placement="left" title="<?= $message['created_date'] ?>">
+                        <span class="me-3" data-bs-toggle="tooltip" data-bs-placement="left" title="<?= $message['created_date'] ?>">
                           <?= $message['text'] ?>
                         </span>
                         <?php if ($message['attach'] != null) { ?>
