@@ -43,7 +43,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="/" class="logo d-flex align-items-center">
         <img src="../../assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">NiceAdmin</span>
       </a>
@@ -250,8 +250,13 @@
                           <?= $message['text'] ?>
                         </span>
                         <?php if ($message['attach'] != null) { ?>
+                          <?php
+                          $file_uri_path = $message['attach'];
+                          $uri_segments = explode('/', $file_uri_path);
+                          $file_name = $uri_segments[count($uri_segments) - 1];
+                          ?>
                           <a href="<?= base_url('download-file?file_uri=' . $message['attach']) ?>">
-                            <span>Download</span>
+                            <span><?= $file_name ?></span>
                             <i class="bi bi-file"></i>
                           </a>
                         <?php } ?>
@@ -267,8 +272,13 @@
                           <?= $message['text'] ?>
                         </span>
                         <?php if ($message['attach'] != null) { ?>
+                          <?php
+                          $file_uri_path = $message['attach'];
+                          $uri_segments = explode('/', $file_uri_path);
+                          $file_name = $uri_segments[count($uri_segments) - 1];
+                          ?>
                           <a href="<?= base_url('download-file?file_uri=' . $message['attach']) ?>">
-                            <span>Download</span>
+                            <span><?= $file_name ?></span>
                             <i class="bi bi-file"></i>
                           </a>
                         <?php } ?>

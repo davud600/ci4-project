@@ -43,7 +43,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="/" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">NiceAdmin</span>
       </a>
@@ -228,7 +228,7 @@
               <label class="ms-2 mb-2 mt-2">Employees</label>
               <div class="row" id="employees">
                 <div class="col-3">
-                  <button class="btn pe-5 ps-4 pb-3 pt-3" type="button" onclick="addEmployee()">
+                  <button class="btn w-100 text-start pb-3 pt-3" type="button" onclick="addEmployee()">
                     + Add Employee
                   </button>
                 </div>

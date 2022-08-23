@@ -43,7 +43,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="/" class="logo d-flex align-items-center">
         <img src="../../assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">NiceAdmin</span>
       </a>
@@ -257,7 +257,10 @@
                   <td><?= $request['description'] ?></td>
                   <td>
                     <?php
-                    echo $request['status'] == 0 ? 'Under Review' : 'Approved'
+                    echo $request['status'] == 0 ? '
+                      <span class="badge bg-secondary">Under Review</span>' :
+                      '
+                      <span class="badge bg-success">Approved</span>'
                     ?>
                   </td>
                   <td>

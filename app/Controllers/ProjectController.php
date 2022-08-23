@@ -7,7 +7,6 @@ use App\Models\ProjectEmployeeModel;
 use App\Models\ProjectModel;
 use App\Models\RequestModel;
 use App\Models\UserModel;
-use CodeIgniter\HTTP\Request;
 
 class ProjectController extends BaseController
 {
