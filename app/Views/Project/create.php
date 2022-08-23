@@ -228,7 +228,7 @@
               <label class="ms-2 mb-2 mt-2">Employees</label>
               <div class="row" id="employees">
                 <div class="col-3">
-                  <button class="btn pe-5 ps-4 pb-3 pt-3" type="button" onclick="addEmployee()">
+                  <button class="btn w-100 text-start pb-3 pt-3" type="button" onclick="addEmployee()">
                     + Add Employee
                   </button>
                 </div>
