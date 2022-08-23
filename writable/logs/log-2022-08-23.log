@@ -20,3 +20,35 @@ in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
  6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-23 03:06:33 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\RequestController.php on line 66.
+ 1 APPPATH\Controllers\RequestController.php(66): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\RequestController.php', 66)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\RequestController->request('index.html')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RequestController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-23 03:10:20 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\RequestController.php on line 66.
+ 1 APPPATH\Controllers\RequestController.php(66): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\RequestController.php', 66)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\RequestController->request('index.html')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RequestController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-23 03:10:21 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\RequestController.php on line 66.
+ 1 APPPATH\Controllers\RequestController.php(66): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\RequestController.php', 66)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\RequestController->request('index.html')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RequestController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-23 03:10:44 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProjectController.php on line 24.
+ 1 APPPATH\Controllers\ProjectController.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Controllers\\ProjectController.php', 24)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->project('index.html')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
