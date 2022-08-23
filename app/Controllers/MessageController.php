@@ -34,6 +34,6 @@ class MessageController extends BaseController
 
   public function downloadFile()
   {
-    return $this->response->download($_GET['file_uri'], null);
+    return $this->response->download($this->request->getGet('file_uri'), null);
   }
 }
