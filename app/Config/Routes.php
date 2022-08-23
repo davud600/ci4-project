@@ -42,32 +42,33 @@ $routes->get('/', 'Home::index');
 $routes->get('/download-file', 'MessageController::downloadFile');
 
 // Customer
-$routes->get('/customer-project', 'CustomerController::project', ['filter' => ['authUser']]);
+$routes->get('/customer-project', 'CustomerController::project', ['filter' => ['User']]);
 
 // Request
-$routes->get('/request/(:any)', 'RequestController::request/$1', ['filter' => ['authUser', 'authCreatorOfRequest']]);
-$routes->match(['get', 'post'], '/submit-request', 'RequestController::create', ['filter' => ['authUser', 'authProjectCustomer']]);
-$routes->match(['post'], '/approve-request/(:any)', 'RequestController::approve/$1', ['filter' => ['authUser', 'authProjectEmployee:hasRequestId']]);
+$routes->get('/request/(:any)', 'RequestController::request/$1', ['filter' => ['User', 'CreatorOfRequest']]);
+$routes->match(['get', 'post'], '/submit-request', 'RequestController::create', ['filter' => ['User', 'ProjectCustomer']]);
+$routes->match(['post'], '/approve-request/(:any)', 'RequestController::approve/$1', ['filter' => ['User', 'ProjectEmployee:hasRequestId']]);
+$routes->match(['post'], '/cancel-request/(:any)', 'RequestController::cancel/$1', ['filter' => ['User', 'ProjectEmployee:hasRequestId']]);
 
 // Message
-$routes->match(['post'], '/create-message/(:any)', 'MessageController::create/$1', ['filter' => ['authUser']]);
+$routes->match(['post'], '/create-message/(:any)', 'MessageController::create/$1', ['filter' => ['User']]);
 
 // Employee
-$routes->get('/employee-project/(:any)', 'EmployeeController::project/$1', ['filter' => ['authUser', 'authEmployee', 'authProjectEmployee']]);
-$routes->get('/employee-projects', 'EmployeeController::projects', ['filter' => ['authUser', 'authEmployee']]);
+$routes->get('/employee-project/(:any)', 'EmployeeController::project/$1', ['filter' => ['User', 'Employee', 'ProjectEmployee']]);
+$routes->get('/employee-projects', 'EmployeeController::projects', ['filter' => ['User', 'Employee']]);
 
 // User
-$routes->get('/dashboard', 'UserController::dashboard', ['filter' => ['authUser', 'authAdmin']]);
-$routes->get('/profile', 'UserController::profile', ['filter' => ['authUser']]);
+$routes->get('/dashboard', 'UserController::dashboard', ['filter' => ['User', 'Admin']]);
+$routes->get('/profile', 'UserController::profile', ['filter' => ['User']]);
 $routes->match(['get', 'post'], '/login', 'UserController::login');
 $routes->match(['get', 'post'], '/signup', 'UserController::signup');
 
 // Project
-$routes->get('/project/(:any)', 'ProjectController::project/$1', ['filter' => ['authUser', 'authAdmin']]);
-$routes->get('/projects', 'ProjectController::projects', ['filter' => ['authUser', 'authAdmin']]);
-$routes->match(['get', 'post'], '/create-project', 'ProjectController::create', ['filter' => ['authUser', 'authAdmin']]);
-$routes->match(['get', 'post'], '/edit-project/(:any)', 'ProjectController::edit/$1', ['filter' => ['authUser', 'authAdmin']]);
-$routes->match(['get', 'delete'], '/delete-project/(:any)', 'ProjectController::delete/$1', ['filter' => ['authUser', 'authAdmin']]);
+$routes->get('/project/(:any)', 'ProjectController::project/$1', ['filter' => ['User', 'Admin']]);
+$routes->get('/projects', 'ProjectController::projects', ['filter' => ['User', 'Admin']]);
+$routes->match(['get', 'post'], '/create-project', 'ProjectController::create', ['filter' => ['User', 'Admin']]);
+$routes->match(['get', 'post'], '/edit-project/(:any)', 'ProjectController::edit/$1', ['filter' => ['User', 'Admin']]);
+$routes->match(['get', 'delete'], '/delete-project/(:any)', 'ProjectController::delete/$1', ['filter' => ['User', 'Admin']]);
 
 /*
  * --------------------------------------------------------------------

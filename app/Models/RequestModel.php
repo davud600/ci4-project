@@ -66,6 +66,12 @@ class RequestModel extends Model
     return true;
   }
 
+  public function cancelRequest($id)
+  {
+    $this->update($id, ['status' => 0]);
+    return true;
+  }
+
   public function getRequestById($id)
   {
     return $this->where('id', $id)->first();

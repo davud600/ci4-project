@@ -266,9 +266,12 @@
                   <td>
                     <form>
                       <a class="btn btn-primary" href="/request/<?= $request['id'] ?>">View</a>
-                      <button formmethod="post" formaction="/approve-request/<?= $request['id'] ?>" class="btn btn-success">
-                        Approve
-                      </button>
+                      <?php
+                      echo $request['status'] == 0 ? '
+                        <button formmethod="post" formaction="/approve-request/' . $request["id"] . '" class="btn btn-success">Approve</button>' :
+                        '
+                        <button formmethod="post" formaction="/cancel-request/' . $request["id"] . '" class="btn btn-danger">Cancel</button>'
+                      ?>
                     </form>
                   </td>
                 </tr>
