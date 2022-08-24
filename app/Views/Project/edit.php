@@ -233,8 +233,21 @@
                 <label for="description">Project Description</label>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="form-floating mb-3">
+            <div class="col-md-2">
+              <label class="ms-2 mb-2 mt-3">Estimated Time</label>
+              <div class="d-flex gap-2">
+                <div class="form-floating w-50">
+                  <input value="<?= $estimated_hours ?>" min="0" type="number" class="form-control" id="hours" name="hours" placeholder="Hours">
+                  <label for="hours">Hours</label>
+                </div>
+                <div class="form-floating w-50">
+                  <input value="<?= $estimated_minutes ?>" min="0" type="number" class="form-control" id="minutes" name="minutes" placeholder="Minutes">
+                  <label for="minutes">Minutes</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-floating mb-3 mt-3 w-25">
                 <select name="status" class="form-select" id="floatingSelect" aria-label="State">
                   <?php echo $project['status'] == 0 ?
                     '<option value="0" selected>In Progress</option>
