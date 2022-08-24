@@ -214,12 +214,14 @@
             </li>
             <li class="list-group-item d-flex justify-content-between">
               <span class="fw-bold">Status</span>
-              <?php
-              echo $project['status'] == 0 ? '
+              <span>
+                <?php
+                echo $project['status'] == 0 ? '
                   <span class="badge bg-secondary">In Progress</span>' :
-                '
+                  '
                   <span class="badge bg-success">Finished</span>'
-              ?>
+                ?>
+              </span>
             </li>
             <li class="list-group-item d-flex justify-content-between">
               <span class="fw-bold">Customer</span>
