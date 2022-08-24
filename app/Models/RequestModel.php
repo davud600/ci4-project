@@ -63,8 +63,7 @@ class RequestModel extends Model
         $file_path = $msg['attach'];
 
         if ($file_path) {
-          return $file_path;
-          delete_files(WRITEPATH . 'uploads/' . $file_path);
+          delete_files($file_path);
         }
       }
 
