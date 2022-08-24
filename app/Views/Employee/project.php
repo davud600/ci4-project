@@ -236,9 +236,9 @@
               <span class="fw-bold">Estimated Time</span>
               <div class="d-flex justify-content-end gap-5">
                 <form class="d-flex w-50 gap-2" action="/change-estimated-time/<?= $project['id'] ?>" method="post">
-                  <input min="0" type="number" class="form-control w-25" name="hours" id="hours">
+                  <input min="0" type="number" class="form-control w-50" name="hours" id="hours">
                   <label for="hours" class="fw-light mt-2">Hr</label>
-                  <input min="0" type="number" class="form-control w-25" name="minutes" id="minutes">
+                  <input min="0" type="number" class="form-control w-50" name="minutes" id="minutes">
                   <label for="minutes" class="fw-light mt-2">Min</label>
                   <input type="submit" class="btn btn-primary w-50" value="Add Time">
                 </form>

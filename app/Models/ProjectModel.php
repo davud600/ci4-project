@@ -84,7 +84,6 @@ class ProjectModel extends Model
   {
     $project = $project_data;
     $project['status'] = 0; // In Progress
-    $project['estimated_time'] = 0;
     $project['created_date'] = Time::parse('now', 'Europe/Bucharest');
 
     $this->insert($project);

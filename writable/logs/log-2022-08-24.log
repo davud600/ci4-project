@@ -573,3 +573,30 @@ in APPPATH\Controllers\EmployeeController.php on line 56.
  3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  5 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-24 07:18:00 --> Undefined array key "estimated_time"
+in APPPATH\Models\ProjectModel.php on line 87.
+ 1 APPPATH\Models\ProjectModel.php(87): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "estimated_time"', 'APPPATH\\Models\\ProjectModel.php', 87)
+ 2 APPPATH\Controllers\ProjectController.php(139): App\Models\ProjectModel->create([...])
+ 3 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->create()
+ 4 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-24 07:18:22 --> Undefined array key "estimated_time"
+in APPPATH\Models\ProjectModel.php on line 87.
+ 1 APPPATH\Models\ProjectModel.php(87): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "estimated_time"', 'APPPATH\\Models\\ProjectModel.php', 87)
+ 2 APPPATH\Controllers\ProjectController.php(139): App\Models\ProjectModel->create([...])
+ 3 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->create()
+ 4 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-24 07:18:50 --> Undefined array key "estimated_time"
+in APPPATH\Models\ProjectModel.php on line 85.
+ 1 APPPATH\Models\ProjectModel.php(85): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "estimated_time"', 'APPPATH\\Models\\ProjectModel.php', 85)
+ 2 APPPATH\Controllers\ProjectController.php(139): App\Models\ProjectModel->create([...])
+ 3 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->create()
+ 4 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')

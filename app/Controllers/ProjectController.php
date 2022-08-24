@@ -62,6 +62,10 @@ class ProjectController extends BaseController
     $employees = $user_obj->getUsersByIds($employees_ids);
     $all_employees = $user_obj->getAllEmployees();
 
+    $estimated_time = $project['estimated_time'];
+    $estimated_hours = floor($estimated_time / 60);
+    $estimated_minutes = ($estimated_time % 60);
+
     if ($this->request->getMethod() == 'get') {
       return view('Project/edit', [
         'project' => $project,
@@ -69,14 +73,23 @@ class ProjectController extends BaseController
         'customers' => $customers,
         'employees' => $employees,
         'all_employees' => $all_employees,
+        'estimated_hours' => $estimated_hours,
+        'estimated_minutes' => $estimated_minutes,
         'logged_user_data' => $logged_user_data
       ]);
     }
+
+    $user_hours = $this->request->getPost('hours');
+    $user_minutes = $this->request->getPost('minutes');
+    $user_hours = $user_hours ? $user_hours : 0;
+    $user_minutes = $user_minutes ? $user_minutes : 0;
+    $estimated_time = ($user_hours * 60) + $user_minutes;
 
     $project = [
       'title' => $this->request->getPost('title'),
       'description' => $this->request->getPost('description'),
       'customer_id' => $this->request->getPost('customer'),
+      'estimated_time' => $estimated_time,
       'status' => $this->request->getPost('status') != 0 ? 1 : 0
     ];
 
@@ -117,10 +130,17 @@ class ProjectController extends BaseController
       ]);
     }
 
+    $user_hours = $this->request->getPost('hours');
+    $user_minutes = $this->request->getPost('minutes');
+    $user_hours = $user_hours ? $user_hours : 0;
+    $user_minutes = $user_minutes ? $user_minutes : 0;
+    $estimated_time = ($user_hours * 60) + $user_minutes;
+
     $project = [
       'title' => $this->request->getPost('title'),
       'description' => $this->request->getPost('description'),
       'customer_id' => $this->request->getPost('customer'),
+      'estimated_time' => $estimated_time,
       'created_by' => session()->get('logged_user')['name']
     ];
 
