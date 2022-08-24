@@ -29,8 +29,8 @@ class ProjectMigration extends Migration
         'constraint' => 1
       ],
       'estimated_time' => [
-        'type' => 'DATETIME',
-        'null' => true
+        'type' => 'INT',
+        'constraint' => 7
       ],
       'customer_id' => [
         'type' => 'BIGINT',

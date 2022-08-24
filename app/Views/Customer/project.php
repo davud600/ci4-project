@@ -214,11 +214,12 @@
             </li>
             <li class="list-group-item d-flex justify-content-between">
               <span class="fw-bold">Status</span>
-              <span>
-                <?php
-                echo $project['status'] == 0 ? 'In Progress' : 'Finished'
-                ?>
-              </span>
+              <?php
+              echo $project['status'] == 0 ? '
+                  <span class="badge bg-secondary">In Progress</span>' :
+                '
+                  <span class="badge bg-success">Finished</span>'
+              ?>
             </li>
             <li class="list-group-item d-flex justify-content-between">
               <span class="fw-bold">Customer</span>
@@ -234,14 +235,9 @@
             </li>
             <li class="list-group-item d-flex justify-content-between">
               <span class="fw-bold">Estimated Time</span>
-              <div class="form-group d-flex gap-2">
-                <input disabled type="datetime-local" class="form-control" name="userdate" value="<?= $project['estimated_time'] ?>">
-                <span class="ms-2 mt-2">Timer:</span>
+              <div class="form-group d-flex gap-3">
                 <span class="mt-2">
-                  <?php
-                  $seconds = abs(strtotime(Time::parse('now', 'Europe/Bucharest')) - strtotime(Time::parse($project['estimated_time'])));
-                  echo gmdate("H:i:s", $seconds);
-                  ?>
+                  <?= gmdate("i:s", $project['estimated_time']) ?>
                 </span>
               </div>
             </li>

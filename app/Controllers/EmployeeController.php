@@ -53,9 +53,15 @@ class EmployeeController extends BaseController
   {
     $project_obj = new ProjectModel();
 
-    $project_obj->edit($id, [
-      'estimated_time' => $this->request->getPost('userdate')
-    ]);
+    $user_hours = $this->request->getPost('hours');
+    $user_minutes = $this->request->getPost('minutes');
+
+    $user_hours = $user_hours ? $user_hours : 0;
+    $user_minutes = $user_minutes ? $user_minutes : 0;
+
+    $amount_to_add = ($user_hours * 60) + $user_minutes;
+
+    $project_obj->increaseEstimatedTime($id, $amount_to_add); // In Minutes
 
     return redirect()->to('/employee-project/' . $id);
   }

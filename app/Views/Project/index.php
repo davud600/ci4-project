@@ -210,7 +210,10 @@
               <span class="fw-bold">Status</span>
               <span>
                 <?php
-                echo $project['status'] == 0 ? 'In Progress' : 'Finished'
+                echo $project['status'] == 0 ? '
+                  <span class="badge bg-secondary">In Progress</span>' :
+                  '
+                  <span class="badge bg-success">Finished</span>'
                 ?>
               </span>
             </li>
@@ -229,7 +232,9 @@
             <li class="list-group-item d-flex justify-content-between">
               <span class="fw-bold">Estimated Time</span>
               <div class="form-group d-flex gap-3">
-                <input disabled type="datetime-local" class="form-control" name="userdate" value="<?= $project['estimated_time'] ?>">
+                <span class="mt-2">
+                  <?= gmdate("i:s", $project['estimated_time']) ?>
+                </span>
               </div>
             </li>
 

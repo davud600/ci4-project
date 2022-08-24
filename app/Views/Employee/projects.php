@@ -225,15 +225,13 @@
                       <td><?= $project['description'] ?></td>
                       <td>
                         <?php
-                        echo $project['status'] == 0 ? 'In Progress' : 'Finished'
+                        echo $project['status'] == 0 ? '
+                          <span class="badge bg-secondary">In Progress</span>' :
+                          '
+                          <span class="badge bg-success">Finished</span>'
                         ?>
                       </td>
-                      <td>
-                        <?php
-                        $seconds = abs(strtotime(Time::parse('now', 'Europe/Bucharest')) - strtotime(Time::parse($project['estimated_time'])));
-                        echo gmdate("H:i:s", $seconds);
-                        ?>
-                      </td>
+                      <td><?= gmdate("i:s", $project['estimated_time']) ?></td>
                       <td>
                         <a class="btn btn-primary" href="/employee-project/<?= $project['id'] ?>">View</a>
                       </td>

@@ -213,7 +213,10 @@
               <span class="fw-bold">Status</span>
               <span>
                 <?php
-                echo $project['status'] == 0 ? 'In Progress' : 'Finished'
+                echo $project['status'] == 0 ? '
+                  <span class="badge bg-secondary">In Progress</span>' :
+                  '
+                  <span class="badge bg-success">Finished</span>'
                 ?>
               </span>
             </li>
@@ -231,12 +234,18 @@
             </li>
             <li class="list-group-item d-flex justify-content-between">
               <span class="fw-bold">Estimated Time</span>
-              <form action="/change-estimated-time/<?= $project['id'] ?>" method="post">
-                <div class="form-group d-flex gap-3">
-                  <input type="datetime-local" class="form-control" name="userdate" value="<?= $project['estimated_time'] ?>">
-                  <input type="submit" class="btn btn-primary">
-                </div>
-              </form>
+              <div class="d-flex justify-content-end gap-5">
+                <form class="d-flex w-50 gap-2" action="/change-estimated-time/<?= $project['id'] ?>" method="post">
+                  <input min="0" type="number" class="form-control w-25" name="hours" id="hours">
+                  <label for="hours" class="fw-light mt-2">Hr</label>
+                  <input min="0" type="number" class="form-control w-25" name="minutes" id="minutes">
+                  <label for="minutes" class="fw-light mt-2">Min</label>
+                  <input type="submit" class="btn btn-primary w-50" value="Add Time">
+                </form>
+                <span class="mt-2">
+                  <?= gmdate("i:s", $project['estimated_time']) ?>
+                </span>
+              </div>
             </li>
           </ul><!-- End Default List group -->
 
