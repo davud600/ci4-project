@@ -210,7 +210,10 @@
               <span class="fw-bold">Status</span>
               <span>
                 <?php
-                echo $project['status'] == 0 ? 'In Progress' : 'Finished'
+                echo $project['status'] == 0 ? '
+                  <span class="badge bg-secondary">In Progress</span>' :
+                  '
+                  <span class="badge bg-success">Finished</span>'
                 ?>
               </span>
             </li>
