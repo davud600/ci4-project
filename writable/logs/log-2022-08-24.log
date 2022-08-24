@@ -470,3 +470,15 @@ in APPPATH\Views\Project\archived.php on line 73.
  8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-24 04:27:32 --> Undefined variable $request
+in APPPATH\Views\Project\projects.php on line 228.
+ 1 APPPATH\Views\Project\projects.php(228): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $request', 'APPPATH\\Views\\Project\\projects.php', 228)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Project\\projects.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Project/projects', [], true)
+ 5 APPPATH\Controllers\ProjectController.php(46): view('Project/projects', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->projects()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
