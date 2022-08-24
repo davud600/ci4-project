@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>All Projects</title>
+  <title>Archived Projects</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -192,7 +192,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/">Home</a></li>
           <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
-          <li class="breadcrumb-item active"><a href="/projects">Projects</a></li>
+          <li class="breadcrumb-item active"><a href="/archived-projects">Archived Projects</a></li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -212,7 +212,6 @@
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Estimated Time</th>
                     <th scope="col"></th>
                   </tr>
                 </thead>
@@ -223,20 +222,10 @@
                         <th scope="row"><?= $project['id'] ?></th>
                         <td><?= $project['title'] ?></td>
                         <td><?= $project['description'] ?></td>
-                        <td>
-                          <?php
-                          echo $project['status'] == 0 ? 'In Progress' : 'Finished'
-                          ?>
-                        </td>
-                        <td>
-                          <?php
-                          $seconds = abs(strtotime(Time::parse('now', 'Europe/Bucharest')) - strtotime(Time::parse($project['estimated_time'])));
-                          echo gmdate("H:i:s", $seconds);
-                          ?>
-                        </td>
+                        <td>Archived</td>
                         <td>
                           <a class="btn btn-primary" href="/project/<?= $project['id'] ?>">View</a>
-                          <a class="btn btn-secondary" href="/archive-project/<?= $project['id'] ?>">Archive</a>
+                          <a class="btn btn-secondary" href="/unarchive-project/<?= $project['id'] ?>">Unarchive</a>
                         </td>
                         <td>
                           <a class="btn ps-2 pe-2 pt-0 pb-0" href="/delete-project/<?= $project['id'] ?>">x</a>

@@ -66,7 +66,12 @@ class ProjectModel extends Model
 
   public function getAllProjects()
   {
-    return $this->select('id, title, description, status, estimated_time')->findAll();
+    return $this->select('id, title, description, status, estimated_time')->where('status !=', 2)->findAll();
+  }
+
+  public function getArchivedProjects()
+  {
+    return $this->select('id, title, description, status, estimated_time')->where('status', 2)->findAll();
   }
 
   public function edit($project_id, $project_data)

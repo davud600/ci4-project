@@ -434,3 +434,39 @@ in APPPATH\Controllers\ProjectController.php on line 23.
  4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-24 04:08:04 --> Call to undefined method App\Models\RequestModel::edit
+in SYSTEMPATH\Model.php on line 773.
+ 1 APPPATH\Controllers\ProjectController.php(173): CodeIgniter\Model->__call('edit', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->archive('4')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-24 04:09:36 --> Call to undefined method App\Models\RequestModel::edit
+in SYSTEMPATH\Model.php on line 773.
+ 1 APPPATH\Controllers\ProjectController.php(173): CodeIgniter\Model->__call('edit', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->archive('4')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-24 04:10:05 --> Call to undefined method App\Models\RequestModel::edit
+in SYSTEMPATH\Model.php on line 773.
+ 1 APPPATH\Controllers\ProjectController.php(173): CodeIgniter\Model->__call('edit', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->archive('4')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-24 04:15:44 --> Trying to access array offset on value of type null
+in APPPATH\Views\Project\archived.php on line 73.
+ 1 APPPATH\Views\Project\archived.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Views\\Project\\archived.php', 73)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Project\\archived.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Project/archived', [], true)
+ 5 APPPATH\Controllers\ProjectController.php(191): view('Project/archived', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->archivedProjects()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')

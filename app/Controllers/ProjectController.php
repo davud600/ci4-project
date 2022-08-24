@@ -164,4 +164,44 @@ class ProjectController extends BaseController
 
     return redirect()->to('/projects');
   }
+
+  public function archive($id)
+  {
+    $project_obj = new ProjectModel();
+
+    if ($project_obj->edit($id, [
+      'status' => 2
+    ])) {
+      return redirect()->to('/projects');
+    }
+
+    return redirect()->to('/projects');
+  }
+
+  public function unArchive($id)
+  {
+    $project_obj = new ProjectModel();
+
+    if ($project_obj->edit($id, [
+      'status' => 1
+    ])) {
+      return redirect()->to('/archived-projects');
+    }
+
+    return redirect()->to('/archived-projects');
+  }
+
+  public function archivedProjects()
+  {
+    $logged_user_data = session()->get('logged_user');
+
+    $project_obj = new ProjectModel();
+
+    $projects = $project_obj->getArchivedProjects();
+
+    return view('Project/archived', [
+      'logged_user_data' => $logged_user_data,
+      'projects' => $projects
+    ]);
+  }
 }

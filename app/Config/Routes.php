@@ -38,7 +38,6 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 
 // Files download
-// $routes->get('/download-file/(:any)', 'MessageController::downloadFile/$1');
 $routes->get('/download-file', 'MessageController::downloadFile');
 
 // Customer
@@ -70,6 +69,9 @@ $routes->get('/projects', 'ProjectController::projects', ['filter' => ['User', '
 $routes->match(['get', 'post'], '/create-project', 'ProjectController::create', ['filter' => ['User', 'Admin']]);
 $routes->match(['get', 'post'], '/edit-project/(:any)', 'ProjectController::edit/$1', ['filter' => ['User', 'Admin']]);
 $routes->match(['get', 'delete'], '/delete-project/(:any)', 'ProjectController::delete/$1', ['filter' => ['User', 'Admin']]);
+$routes->get('/archived-projects', 'ProjectController::archivedProjects', ['filter' => ['User', 'Admin']]);
+$routes->get('/archive-project/(:any)', 'ProjectController::archive/$1', ['filter' => ['User', 'Admin']]);
+$routes->get('/unarchive-project/(:any)', 'ProjectController::unArchive/$1', ['filter' => ['User', 'Admin']]);
 
 /*
  * --------------------------------------------------------------------
