@@ -90,4 +90,15 @@ class ProjectModel extends Model
     $this->insert($project);
     return true;
   }
+
+  public function increaseEstimatedTime($project_id, $amount_to_add)
+  {
+    $project_to_update = $this->where('id', $project_id)->first();
+
+    $current_estimated_time = $project_to_update['estimated_time'];
+
+    $new_estimated_time = $current_estimated_time + $amount_to_add;
+
+    $this->update($project_id, ['estimated_time' => $new_estimated_time]);
+  }
 }
