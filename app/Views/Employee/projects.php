@@ -78,6 +78,9 @@
               <h6><?= $logged_user_data['name'] ?></h6>
               <span>
                 <?php
+
+                use CodeIgniter\I18n\Time;
+
                 echo $logged_user_data['role'] == 0 ? 'Customer' : ($logged_user_data['role'] == 1 ? 'Employee' : 'Admin')
                 ?>
               </span>
@@ -210,6 +213,7 @@
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Estimated Time</th>
                     <th scope="col"></th>
                   </tr>
                 </thead>
@@ -222,6 +226,12 @@
                       <td>
                         <?php
                         echo $project['status'] == 0 ? 'In Progress' : 'Finished'
+                        ?>
+                      </td>
+                      <td>
+                        <?php
+                        $seconds = abs(strtotime(Time::parse('now', 'Europe/Bucharest')) - strtotime(Time::parse($project['estimated_time'])));
+                        echo gmdate("H:i:s", $seconds);
                         ?>
                       </td>
                       <td>

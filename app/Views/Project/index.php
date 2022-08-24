@@ -226,6 +226,12 @@
                 <?php } ?>
               </div>
             </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span class="fw-bold">Estimated Time</span>
+              <div class="form-group d-flex gap-3">
+                <input disabled type="datetime-local" class="form-control" name="userdate" value="<?= $project['estimated_time'] ?>">
+              </div>
+            </li>
 
             <div class="d-flex justify-content-center mt-4">
               <a class="btn btn-secondary" href="/edit-project/<?= $project['id'] ?>">Edit</a>

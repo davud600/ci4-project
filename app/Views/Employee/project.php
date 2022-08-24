@@ -229,6 +229,15 @@
                 <?php } ?>
               </div>
             </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span class="fw-bold">Estimated Time</span>
+              <form action="/change-estimated-time/<?= $project['id'] ?>" method="post">
+                <div class="form-group d-flex gap-3">
+                  <input type="datetime-local" class="form-control" name="userdate" value="<?= $project['estimated_time'] ?>">
+                  <input type="submit" class="btn btn-primary">
+                </div>
+              </form>
+            </li>
           </ul><!-- End Default List group -->
 
         </div>

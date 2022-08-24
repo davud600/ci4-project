@@ -39,10 +39,25 @@ class EmployeeController extends BaseController
     $logged_user_data = session()->get('logged_user');
     $projects = $this->getProjectsOfEmployee($logged_user_data['id']);
 
+    if (!$projects) {
+      return redirect()->to('/profile');
+    }
+
     return view('Employee/projects', [
       'logged_user_data' => $logged_user_data,
       'projects' => $projects
     ]);
+  }
+
+  public function changeEstimatedTime($id)
+  {
+    $project_obj = new ProjectModel();
+
+    $project_obj->edit($id, [
+      'estimated_time' => $this->request->getPost('userdate')
+    ]);
+
+    return redirect()->to('/employee-project/' . $id);
   }
 
   private function getProjectsOfEmployee($employee_id)
@@ -52,6 +67,7 @@ class EmployeeController extends BaseController
     $projects_of_employee = [];
 
     $project_ids = $project_employee_obj->getProjectsOfEmployee($employee_id); // Returns ids of emplyee's projects
+
     foreach ($project_ids as $project_id) {
       $project = $project_obj->getProjectById($project_id);
       array_push($projects_of_employee, $project);

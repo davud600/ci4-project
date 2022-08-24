@@ -19,6 +19,7 @@ class ProjectModel extends Model
     'title',
     'description',
     'status',
+    'estimated_time',
     'customer_id',
     'created_date',
     'created_by'
@@ -50,7 +51,7 @@ class ProjectModel extends Model
 
   public function getProjectByCustomer($customer_id)
   {
-    return $this->select('id, title, description, status, customer_id')->where('customer_id', $customer_id)->first();
+    return $this->select('id, title, description, status, customer_id, estimated_time')->where('customer_id', $customer_id)->first();
   }
 
   public function getProjectByTitle($title)
@@ -60,12 +61,12 @@ class ProjectModel extends Model
 
   public function getProjectById($id)
   {
-    return $this->select('id, title, description, status, customer_id')->where('id', $id)->first();
+    return $this->select('id, title, description, status, customer_id, estimated_time')->where('id', $id)->first();
   }
 
   public function getAllProjects()
   {
-    return $this->select('id, title, description, status')->findAll();
+    return $this->select('id, title, description, status, estimated_time')->findAll();
   }
 
   public function edit($project_id, $project_data)
@@ -78,6 +79,7 @@ class ProjectModel extends Model
   {
     $project = $project_data;
     $project['status'] = 0; // In Progress
+    $project['estimated_time'] = 0;
     $project['created_date'] = Time::parse('now', 'Europe/Bucharest');
 
     $this->insert($project);

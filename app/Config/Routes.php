@@ -56,6 +56,7 @@ $routes->match(['post'], '/create-message/(:any)', 'MessageController::create/$1
 // Employee
 $routes->get('/employee-project/(:any)', 'EmployeeController::project/$1', ['filter' => ['User', 'Employee', 'ProjectEmployee']]);
 $routes->get('/employee-projects', 'EmployeeController::projects', ['filter' => ['User', 'Employee']]);
+$routes->match(['post'], '/change-estimated-time/(:any)', 'EmployeeController::changeEstimatedTime/$1', ['filter' => ['User', 'Employee', 'ProjectEmployee']]);
 
 // User
 $routes->get('/dashboard', 'UserController::dashboard', ['filter' => ['User', 'Admin']]);
