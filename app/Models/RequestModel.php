@@ -50,13 +50,25 @@ class RequestModel extends Model
 
   public function deleteAllOfProject($project_id)
   {
+    helper('filesystem');
     $request_ids = $this->select('id')->where('project_id', $project_id)->findAll();
 
     // Delete messages of each request and then the request
     $message_obj = new MessageModel();
-    foreach ($request_ids as $request_id) {
-      $message_obj->where('request_id', $request_id)->delete();
-      $this->where('id', $request_id)->delete();
+    foreach ($request_ids as $req['id']) {
+      $messages = $message_obj->where('request_id', $req['id'])->findAll();
+
+      foreach ($messages as $msg) {
+        // Delete file not working...
+        $file_path = $msg['attach'];
+
+        if ($file_path) {
+          delete_files($file_path);
+        }
+      }
+
+      $message_obj->where('request_id', $req['id'])->delete();
+      $this->where('id', $req['id'])->delete();
     }
   }
 

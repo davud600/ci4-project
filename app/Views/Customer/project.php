@@ -78,6 +78,9 @@
               <h6><?= $logged_user_data['name'] ?></h6>
               <span>
                 <?php
+
+                use CodeIgniter\I18n\Time;
+
                 echo $logged_user_data['role'] == 0 ? 'Customer' : ($logged_user_data['role'] == 1 ? 'Employee' : 'Admin')
                 ?>
               </span>
@@ -227,6 +230,19 @@
                 <?php foreach ($employees as $employee) { ?>
                   <span><?= $employee['name'] ?>,</span>
                 <?php } ?>
+              </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span class="fw-bold">Estimated Time</span>
+              <div class="form-group d-flex gap-2">
+                <input disabled type="datetime-local" class="form-control" name="userdate" value="<?= $project['estimated_time'] ?>">
+                <span class="ms-2 mt-2">Timer:</span>
+                <span class="mt-2">
+                  <?php
+                  $seconds = abs(strtotime(Time::parse('now', 'Europe/Bucharest')) - strtotime(Time::parse($project['estimated_time'])));
+                  echo gmdate("H:i:s", $seconds);
+                  ?>
+                </span>
               </div>
             </li>
           </ul><!-- End Default List group -->

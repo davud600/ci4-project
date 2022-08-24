@@ -107,3 +107,64 @@ in SYSTEMPATH\Filters\Filters.php on line 340.
  4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-23 09:12:51 --> Undefined array key "attach"
+in APPPATH\Controllers\ProjectController.php on line 163.
+ 1 APPPATH\Controllers\ProjectController.php(163): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "attach"', 'APPPATH\\Controllers\\ProjectController.php', 163)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->delete('43')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-23 09:18:35 --> Call to undefined function App\Models\delete_files()
+in APPPATH\Models\RequestModel.php on line 62.
+ 1 APPPATH\Controllers\ProjectController.php(161): App\Models\RequestModel->deleteAllOfProject('44')
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->delete('44')
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-23 09:20:37 --> delete_files(): Argument #1 ($path) must be of type string, null given, called in C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\app\Models\RequestModel.php on line 63
+in SYSTEMPATH\Helpers\filesystem_helper.php on line 152.
+ 1 APPPATH\Models\RequestModel.php(63): delete_files(null)
+ 2 APPPATH\Controllers\ProjectController.php(161): App\Models\RequestModel->deleteAllOfProject('44')
+ 3 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->delete('44')
+ 4 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-23 09:21:28 --> delete_files(): Argument #1 ($path) must be of type string, null given, called in C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\app\Models\RequestModel.php on line 63
+in SYSTEMPATH\Helpers\filesystem_helper.php on line 152.
+ 1 APPPATH\Models\RequestModel.php(63): delete_files(null)
+ 2 APPPATH\Controllers\ProjectController.php(161): App\Models\RequestModel->deleteAllOfProject('45')
+ 3 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->delete('45')
+ 4 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-23 09:29:30 --> Undefined array key "id"
+in APPPATH\Models\RequestModel.php on line 58.
+ 1 APPPATH\Models\RequestModel.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'APPPATH\\Models\\RequestModel.php', 58)
+ 2 APPPATH\Controllers\ProjectController.php(161): App\Models\RequestModel->deleteAllOfProject('47')
+ 3 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->delete('47')
+ 4 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-23 09:31:27 --> delete_files(): Argument #1 ($path) must be of type string, null given, called in C:\xampp\htdocs\codeigniter\codeigniter4-CodeIgniter4-459e00e\app\Models\RequestModel.php on line 63
+in SYSTEMPATH\Helpers\filesystem_helper.php on line 152.
+ 1 APPPATH\Models\RequestModel.php(63): delete_files(null)
+ 2 APPPATH\Controllers\ProjectController.php(161): App\Models\RequestModel->deleteAllOfProject('48')
+ 3 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->delete('48')
+ 4 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-23 09:52:06 --> Undefined array key -1
+in APPPATH\Models\RequestModel.php on line 65.
+ 1 APPPATH\Models\RequestModel.php(65): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key -1', 'APPPATH\\Models\\RequestModel.php', 65)
+ 2 APPPATH\Controllers\ProjectController.php(159): App\Models\RequestModel->deleteAllOfProject('52')
+ 3 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->delete('52')
+ 4 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')

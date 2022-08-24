@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class MessageMigration extends Migration
+class ProjectMigration extends Migration
 {
   public function up()
   {
@@ -15,16 +15,24 @@ class MessageMigration extends Migration
         'unsigned'       => true,
         'auto_increment' => true,
       ],
-      'text' => [
+      'title' => [
         'type'       => 'VARCHAR',
         'constraint' => 225
       ],
-      'attach' => [
+      'description' => [
         'type' => 'VARCHAR',
         'constraint' => 225,
         'null' => true
       ],
-      'request_id' => [
+      'status' => [
+        'type' => 'INT',
+        'constraint' => 1
+      ],
+      'estimated_time' => [
+        'type' => 'DATETIME',
+        'null' => true
+      ],
+      'customer_id' => [
         'type' => 'BIGINT',
         'constraint' => 225
       ],
@@ -40,11 +48,11 @@ class MessageMigration extends Migration
 
     $this->forge->addField($fields);
     $this->forge->addKey('id', true);
-    $this->forge->createTable('messages');
+    $this->forge->createTable('projects');
   }
 
   public function down()
   {
-    $this->forge->dropTable('messages');
+    $this->forge->dropTable('projects');
   }
 }
