@@ -214,6 +214,7 @@
                     <th scope="col">Status</th>
                     <th scope="col">Estimated Time</th>
                     <th scope="col"></th>
+                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>

@@ -117,10 +117,17 @@ class ProjectController extends BaseController
       ]);
     }
 
+    $user_hours = $this->request->getPost('hours');
+    $user_minutes = $this->request->getPost('minutes');
+    $user_hours = $user_hours ? $user_hours : 0;
+    $user_minutes = $user_minutes ? $user_minutes : 0;
+    $estimated_time = ($user_hours * 60) + $user_minutes;
+
     $project = [
       'title' => $this->request->getPost('title'),
       'description' => $this->request->getPost('description'),
       'customer_id' => $this->request->getPost('customer'),
+      'estimated_time' => $estimated_time,
       'created_by' => session()->get('logged_user')['name']
     ];
 

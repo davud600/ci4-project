@@ -224,8 +224,22 @@
               </div>
             </div>
 
+            <div class="col-md-2">
+              <label class="ms-2 mb-2 mt-3">Estimated Time</label>
+              <div class="d-flex gap-2">
+                <div class="form-floating w-50">
+                  <input min="0" type="number" class="form-control" id="hours" name="hours" placeholder="Hours">
+                  <label for="hours">Hours</label>
+                </div>
+                <div class="form-floating w-50">
+                  <input min="0" type="number" class="form-control" id="minutes" name="minutes" placeholder="Minutes">
+                  <label for="minutes">Minutes</label>
+                </div>
+              </div>
+            </div>
+
             <div class="col-md-12">
-              <label class="ms-2 mb-2 mt-2">Employees</label>
+              <label class="ms-2 mb-2 mt-3">Employees</label>
               <div class="row" id="employees">
                 <div class="col-3">
                   <button class="btn w-100 text-start pb-3 pt-3" type="button" onclick="addEmployee()">
