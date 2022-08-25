@@ -215,3 +215,15 @@ in APPPATH\Controllers\ProjectController.php on line 52.
  4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-25 09:20:18 --> Undefined variable $validation
+in APPPATH\Views\User\login.php on line 66.
+ 1 APPPATH\Views\User\login.php(66): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $validation', 'APPPATH\\Views\\User\\login.php', 66)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\User\\login.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('User/login', [], true)
+ 5 APPPATH\Controllers\UserController.php(41): view('User/login')
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\UserController->login()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')

@@ -43,6 +43,17 @@
     <div class="container">
 
       <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+        <?php if (session()->getFlashdata('status') == 'success') { ?>
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <?= session()->getFlashdata('message') ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        <?php } else if (session()->getFlashdata('status') == 'error') { ?>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?= session()->getFlashdata('message') ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        <?php } ?>
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">

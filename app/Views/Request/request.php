@@ -37,7 +37,7 @@
   ======================================================== -->
 </head>
 
-<body>
+<body class="toggle-sidebar">
 
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">

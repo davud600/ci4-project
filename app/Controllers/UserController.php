@@ -55,6 +55,8 @@ class UserController extends BaseController
       return redirect()->to('/profile');
     }
 
+    session()->setFlashdata('status', 'error');
+    session()->setFlashdata('message', 'Error trying to log in!');
     return redirect()->to('/login'); // Failed to log in
   }
 
@@ -65,6 +67,8 @@ class UserController extends BaseController
     }
 
     if ($this->request->getPost('password') != $this->request->getPost('confirmPassword')) {
+      session()->setFlashdata('status', 'error');
+      session()->setFlashdata('message', 'Your passwords do not match!');
       return redirect()->to('/signup');
     }
 
@@ -80,6 +84,8 @@ class UserController extends BaseController
       return redirect()->to('/login');
     }
 
+    session()->setFlashdata('status', 'error');
+    session()->setFlashdata('message', 'Error trying to create an account!');
     return redirect()->to('/signup'); // Failed to sign up
   }
 }

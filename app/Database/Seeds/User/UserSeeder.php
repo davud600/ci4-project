@@ -84,6 +84,15 @@ class UserSeeder extends Seeder
         'role' => 0,
         'company' => 'company 3',
         'created_date' => $current_time
+      ],
+      [
+        'id' => 9,
+        'email' => 'd@gmail.com',
+        'name' => 'customer 3',
+        'password' => Hash::make('chkdsk34'),
+        'role' => 2,
+        'company' => 'company',
+        'created_date' => $current_time
       ]
     ];
 
