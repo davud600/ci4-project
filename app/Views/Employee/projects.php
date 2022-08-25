@@ -245,6 +245,38 @@
           </div>
         </div>
       </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">My Updates</h5>
+
+          <div class="card">
+            <div class="card-body">
+              <!-- Table with hoverable rows -->
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Employee</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Added at</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php foreach ($time_adds as $time_add) { ?>
+                    <tr>
+                      <td><?= $time_add['created_by'] ?> (me)</td>
+                      <td><?= gmdate("i:s", ($time_add['time_added'])) ?></td>
+                      <td><?= $time_add['created_date'] ?></td>
+                    </tr>
+                  <?php } ?>
+                </tbody>
+              </table>
+              <!-- End Table with hoverable rows -->
+
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
   </main><!-- End #main -->

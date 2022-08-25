@@ -47,6 +47,11 @@ class EmployeeEstimatedTimeModel extends Model
   protected $beforeDelete   = [];
   protected $afterDelete    = [];
 
+  public function getTimeAddsByEmployeeId($employee_id)
+  {
+    return $this->where('employee_id', $employee_id)->findAll();
+  }
+
   public function getAllEmployeeTimeAdds()
   {
     return $this->where('created_by !=', 'admin')->findAll();
