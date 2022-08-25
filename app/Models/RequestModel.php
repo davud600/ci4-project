@@ -70,6 +70,8 @@ class RequestModel extends Model
       $message_obj->where('request_id', $req['id'])->delete();
       $this->where('id', $req['id'])->delete();
     }
+
+    return true;
   }
 
   public function approveRequest($id)

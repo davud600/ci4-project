@@ -107,12 +107,16 @@ class ProjectController extends BaseController
     if ($this->project_obj->edit($id, $project)) {
       if ($this->employee_estimated_time_obj->initEstimatedTime($id, $logged_user_data['id'], $estimated_time)) {
         if ($this->project_employee_obj->setEmployeeOfProject($id, $inputedEmployees)) {
+          session()->setFlashdata('status', 'success');
+          session()->setFlashdata('message', 'Successfully updated project data!');
           return redirect()->to('/project/' . $id);
         }
       }
     }
 
-    return redirect()->to('/dashboard');
+    session()->setFlashdata('status', 'error');
+    session()->setFlashdata('message', 'Error trying to update project data!');
+    return redirect()->to('/project/' . $id);
   }
 
   public function create()
@@ -149,20 +153,28 @@ class ProjectController extends BaseController
 
       if ($this->employee_estimated_time_obj->initEstimatedTime($project_id, $logged_user_data['id'], $estimated_time)) {
         if ($this->project_employee_obj->setEmployeeOfProject($project_id, $inputedEmployees)) {
+          session()->setFlashdata('status', 'success');
+          session()->setFlashdata('message', 'Successfully created project!');
           return redirect()->to('/projects');
         }
       }
     }
 
-    return redirect()->to('/dashboard');
+    session()->setFlashdata('status', 'error');
+    session()->setFlashdata('message', 'Error trying to create project!');
+    return redirect()->to('/projects');
   }
 
   public function delete($id)
   {
     if ($this->project_obj->deleteProject($id)) {
+      session()->setFlashdata('status', 'success');
+      session()->setFlashdata('message', 'Successfully deleted project!');
       return redirect()->to('/projects');
     }
 
+    session()->setFlashdata('status', 'error');
+    session()->setFlashdata('message', 'Error trying to delete project!');
     return redirect()->to('/projects');
   }
 
@@ -171,9 +183,13 @@ class ProjectController extends BaseController
     if ($this->project_obj->edit($id, [
       'status' => 2
     ])) {
+      session()->setFlashdata('status', 'success');
+      session()->setFlashdata('message', 'Successfully archived project!');
       return redirect()->to('/projects');
     }
 
+    session()->setFlashdata('status', 'error');
+    session()->setFlashdata('message', 'Error trying to archive project!');
     return redirect()->to('/projects');
   }
 
@@ -182,9 +198,13 @@ class ProjectController extends BaseController
     if ($this->project_obj->edit($id, [
       'status' => 1
     ])) {
+      session()->setFlashdata('status', 'success');
+      session()->setFlashdata('message', 'Successfully unarchived project!');
       return redirect()->to('/archived-projects');
     }
 
+    session()->setFlashdata('status', 'error');
+    session()->setFlashdata('message', 'Error trying to unarchive project!');
     return redirect()->to('/archived-projects');
   }
 
