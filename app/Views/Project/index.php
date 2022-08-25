@@ -239,7 +239,7 @@
             </li>
 
             <div class="d-flex justify-content-center mt-4">
-              <a class="btn btn-secondary" href="/edit-project/<?= $project['id'] ?>">Edit</a>
+              <a class="btn btn-secondary ps-4 pe-4" href="/edit-project/<?= $project['id'] ?>">Edit</a>
             </div>
           </ul><!-- End Default List group -->
 
