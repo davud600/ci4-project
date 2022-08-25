@@ -57,3 +57,15 @@ in APPPATH\Controllers\ProjectController.php on line 53.
  4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-25 04:26:26 --> Undefined variable $time_adds
+in APPPATH\Views\Employee\project.php on line 318.
+ 1 APPPATH\Views\Employee\project.php(318): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $time_adds', 'APPPATH\\Views\\Employee\\project.php', 318)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Employee\\project.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Employee/project', [], true)
+ 5 APPPATH\Controllers\EmployeeController.php(34): view('Employee/project', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\EmployeeController->project('11')
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EmployeeController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')

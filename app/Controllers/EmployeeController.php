@@ -19,18 +19,21 @@ class EmployeeController extends BaseController
     $user_obj = new UserModel();
     $project_employee_obj = new ProjectEmployeeModel();
     $request_obj = new RequestModel();
+    $employee_estimated_time_obj = new EmployeeEstimatedTimeModel();
 
     $project = $project_obj->getProjectById($project_id);
     $customer = $user_obj->getUserById($project['customer_id']);
     $employees_ids = $project_employee_obj->getEmployeesOfProject($project_id); // returns ids
     $employees = $user_obj->getUsersByIds($employees_ids);
     $requests_of_project = $request_obj->getRequestsOfProject($project['id']);
+    $time_adds = $employee_estimated_time_obj->getProjectEmployeeTimeAdds($project_id);
 
     return view('Employee/project', [
       'project' => $project,
       'customer' => $customer,
       'employees' => $employees,
       'requests' => $requests_of_project,
+      'time_adds' => $time_adds,
       'logged_user_data' => $logged_user_data
     ]);
   }
