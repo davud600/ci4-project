@@ -1,0 +1,59 @@
+CRITICAL - 2022-08-25 03:54:25 --> Undefined variable $time_adds
+in APPPATH\Views\Project\projects.php on line 271.
+ 1 APPPATH\Views\Project\projects.php(271): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $time_adds', 'APPPATH\\Views\\Project\\projects.php', 271)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Project\\projects.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Project/projects', [], true)
+ 5 APPPATH\Controllers\ProjectController.php(50): view('Project/projects', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->projects()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-25 03:59:08 --> Undefined array key "project_id"
+in APPPATH\Controllers\ProjectController.php on line 52.
+ 1 APPPATH\Controllers\ProjectController.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "project_id"', 'APPPATH\\Controllers\\ProjectController.php', 52)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->projects()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-25 04:02:04 --> Array to string conversion
+in APPPATH\Views\Project\projects.php on line 275.
+ 1 APPPATH\Views\Project\projects.php(275): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'APPPATH\\Views\\Project\\projects.php', 275)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Project\\projects.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Project/projects', [], true)
+ 5 APPPATH\Controllers\ProjectController.php(65): view('Project/projects', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->projects()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-25 04:02:18 --> Cannot access offset of type string on string
+in APPPATH\Controllers\ProjectController.php on line 53.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->projects()
+ 2 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-25 04:02:25 --> Array to string conversion
+in APPPATH\Views\Project\projects.php on line 275.
+ 1 APPPATH\Views\Project\projects.php(275): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'APPPATH\\Views\\Project\\projects.php', 275)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Project\\projects.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Project/projects', [], true)
+ 5 APPPATH\Controllers\ProjectController.php(65): view('Project/projects', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->projects()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-25 04:02:39 --> Undefined array key "name"
+in APPPATH\Controllers\ProjectController.php on line 53.
+ 1 APPPATH\Controllers\ProjectController.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'APPPATH\\Controllers\\ProjectController.php', 53)
+ 2 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->projects()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')

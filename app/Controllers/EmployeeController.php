@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\EmployeeEstimatedTimeModel;
 use App\Models\ProjectEmployeeModel;
 use App\Models\ProjectModel;
 use App\Models\RequestModel;
@@ -51,7 +52,10 @@ class EmployeeController extends BaseController
 
   public function changeEstimatedTime($id)
   {
+    $logged_user_data = session()->get('logged_user');
+
     $project_obj = new ProjectModel();
+    $employee_estimated_time_obj = new EmployeeEstimatedTimeModel();
 
     $user_hours = $this->request->getPost('hours');
     $user_minutes = $this->request->getPost('minutes');
@@ -62,6 +66,7 @@ class EmployeeController extends BaseController
     $amount_to_add = ($user_hours * 60) + $user_minutes;
 
     $project_obj->increaseEstimatedTime($id, $amount_to_add); // In Minutes
+    $employee_estimated_time_obj->addEmployeeTime($id, $logged_user_data['id'], $amount_to_add, $logged_user_data['name']);
 
     return redirect()->to('/employee-project/' . $id);
   }
