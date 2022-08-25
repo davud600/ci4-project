@@ -9,14 +9,17 @@ use App\Models\RequestModel;
 
 class RequestController extends BaseController
 {
+  public function __construct()
+  {
+    $this->request_obj = new RequestModel();
+    $this->project_obj = new ProjectModel();
+    $this->message_obj = new MessageModel();
+  }
+
   public function create()
   {
     $logged_user_data = session()->get('logged_user');
-
-    $request_obj = new RequestModel();
-    $project_obj = new ProjectModel();
-
-    $project = $project_obj->getProjectByCustomer($logged_user_data['id']);
+    $project = $this->project_obj->getProjectByCustomer($logged_user_data['id']);
 
     if ($this->request->getMethod() == 'get') {
       return view('Request/make-request', [
@@ -33,53 +36,55 @@ class RequestController extends BaseController
       'created_by' => $logged_user_data['id']
     ];
 
-    if ($request_obj->createRequest($request)) {
+    if ($this->request_obj->createRequest($request)) {
+      session()->setFlashdata('status', 'success');
+      session()->setFlashdata('message', 'Successfully created request!');
       return redirect()->to('/customer-project');
     }
 
+    session()->setFlashdata('status', 'error');
+    session()->setFlashdata('message', 'Error trying to create request!');
     return redirect()->to('/customer-project');
   }
 
   public function approve($id)
   {
-    $request_obj = new RequestModel();
+    $request = $this->request_obj->getRequestById($id);
 
-    $request = $request_obj->getRequestById($id);
-
-    if ($request_obj->approveRequest($id)) {
+    if ($this->request_obj->approveRequest($id)) {
+      session()->setFlashdata('status', 'success');
+      session()->setFlashdata('message', 'Successfully approved request!');
       return redirect()->to('/employee-project/' . $request['project_id']);
     }
 
+    session()->setFlashdata('status', 'error');
+    session()->setFlashdata('message', 'Error trying to approve request!');
     return redirect()->to('/employee-project/' . $request['project_id']);
   }
 
   public function cancel($id)
   {
-    $request_obj = new RequestModel();
+    $request = $this->request_obj->getRequestById($id);
 
-    $request = $request_obj->getRequestById($id);
-
-    if ($request_obj->cancelRequest($id)) {
+    if ($this->request_obj->cancelRequest($id)) {
+      session()->setFlashdata('status', 'success');
+      session()->setFlashdata('message', 'Successfully canceled request!');
       return redirect()->to('/employee-project/' . $request['project_id']);
     }
 
+    session()->setFlashdata('status', 'error');
+    session()->setFlashdata('message', 'Error trying to cancel request!');
     return redirect()->to('/employee-project/' . $request['project_id']);
   }
 
   public function request($id)
   {
     $logged_user_data = session()->get('logged_user');
-
-    $request_obj = new RequestModel();
-    $message_obj = new MessageModel();
-    $project_obj = new ProjectModel();
-
-    $request = $request_obj->getRequestById($id);
-    $messages = $message_obj->getMessagesOfRequest($id);
-    $project = $project_obj->getProjectById($request['project_id']);
+    $request = $this->request_obj->getRequestById($id);
+    $messages = $this->message_obj->getMessagesOfRequest($id);
+    $project = $this->project_obj->getProjectById($request['project_id']);
 
     $files = [];
-
     foreach ($messages as $message) {
       if ($message['attach'] != null) {
         $files['message' . $message['id']] = $message['attach'];
