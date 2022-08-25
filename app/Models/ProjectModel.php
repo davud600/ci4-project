@@ -51,7 +51,7 @@ class ProjectModel extends Model
 
   public function getProjectByCustomer($customer_id)
   {
-    return $this->select('id, title, description, status, customer_id, estimated_time')->where('customer_id', $customer_id)->first();
+    return $this->where('customer_id', $customer_id)->first();
   }
 
   public function getProjectByTitle($title)
@@ -61,17 +61,17 @@ class ProjectModel extends Model
 
   public function getProjectById($id)
   {
-    return $this->select('id, title, description, status, customer_id, estimated_time')->where('id', $id)->first();
+    return $this->where('id', $id)->first();
   }
 
   public function getAllProjects()
   {
-    return $this->select('id, title, description, status, estimated_time')->where('status !=', 2)->findAll();
+    return $this->where('status !=', 2)->findAll();
   }
 
   public function getArchivedProjects()
   {
-    return $this->select('id, title, description, status, estimated_time')->where('status', 2)->findAll();
+    return $this->where('status', 2)->findAll();
   }
 
   public function edit($project_id, $project_data)
@@ -93,11 +93,28 @@ class ProjectModel extends Model
   public function increaseEstimatedTime($project_id, $amount_to_add)
   {
     $project_to_update = $this->where('id', $project_id)->first();
-
     $current_estimated_time = $project_to_update['estimated_time'];
-
     $new_estimated_time = $current_estimated_time + $amount_to_add;
 
     $this->update($project_id, ['estimated_time' => $new_estimated_time]);
+  }
+
+  public function deleteProject($id)
+  {
+    $employee_estimated_time_obj = new EmployeeEstimatedTimeModel();
+    $project_employee_obj = new ProjectEmployeeModel();
+    $request_obj = new RequestModel();
+
+    if ($this->delete($id)) {
+      if ($employee_estimated_time_obj->deleteTimeHistoryOfProject($id)) {
+        if ($project_employee_obj->deleteAllOfProject($id)) {
+          if ($request_obj->deleteAllOfProject($id)) {
+            return true;
+          }
+        }
+      }
+    }
+
+    return false;
   }
 }
