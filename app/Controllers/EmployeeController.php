@@ -66,7 +66,7 @@ class EmployeeController extends BaseController
     $amount_to_add = ($user_hours * 60) + $user_minutes;
 
     $project_obj->increaseEstimatedTime($id, $amount_to_add); // In Minutes
-    $employee_estimated_time_obj->addEmployeeTime($id, $logged_user_data['id'], $amount_to_add);
+    $employee_estimated_time_obj->addEmployeeTime($id, $logged_user_data['id'], $amount_to_add, $logged_user_data['name']);
 
     return redirect()->to('/employee-project/' . $id);
   }

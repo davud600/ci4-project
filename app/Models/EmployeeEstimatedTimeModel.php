@@ -47,6 +47,16 @@ class EmployeeEstimatedTimeModel extends Model
   protected $beforeDelete   = [];
   protected $afterDelete    = [];
 
+  public function getAllEmployeeTimeAdds()
+  {
+    return $this->where('created_by !=', 'admin')->findAll();
+  }
+
+  public function getProjectEmployeeTimeAdds($project_id)
+  {
+    return $this->where('project_id', $project_id)->findAll();
+  }
+
   public function deleteTimeHistoryOfProject($project_id)
   {
     $this->where('project_id', $project_id)->delete();
@@ -72,13 +82,14 @@ class EmployeeEstimatedTimeModel extends Model
     return true;
   }
 
-  public function addEmployeeTime($project_id, $employee_id, $time_added)
+  public function addEmployeeTime($project_id, $employee_id, $time_added, $employee_name)
   {
     $data = [
       'employee_id' => $employee_id,
       'project_id' => $project_id,
       'time_added' => $time_added,
-      'created_date' => Time::parse('now', 'Europe/Bucharest')
+      'created_date' => Time::parse('now', 'Europe/Bucharest'),
+      'created_by' => $employee_name
     ];
 
     $this->insert($data);

@@ -19,18 +19,21 @@ class ProjectController extends BaseController
     $user_obj = new UserModel();
     $project_employee_obj = new ProjectEmployeeModel();
     $request_obj = new RequestModel();
+    $employee_estimated_time_obj = new EmployeeEstimatedTimeModel();
 
     $project = $project_obj->getProjectById($id);
     $customer = $user_obj->getUserById($project['customer_id']);
     $employees_ids = $project_employee_obj->getEmployeesOfProject($id); // returns ids
     $employees = $user_obj->getUsersByIds($employees_ids);
     $requests_of_project = $request_obj->getRequestsOfProject($project['id']);
+    $time_adds = $employee_estimated_time_obj->getProjectEmployeeTimeAdds($id);
 
     return view('Project/index', [
       'project' => $project,
       'customer' => $customer,
       'employees' => $employees,
       'requests' => $requests_of_project,
+      'time_adds' => $time_adds,
       'logged_user_data' => $logged_user_data
     ]);
   }
@@ -39,11 +42,26 @@ class ProjectController extends BaseController
   {
     $logged_user_data = session()->get('logged_user');
     $project_obj = new ProjectModel();
+    $employee_estimated_time_obj = new EmployeeEstimatedTimeModel();
 
     $projects = $project_obj->getAllProjects();
+    $time_adds_before = $employee_estimated_time_obj->getAllEmployeeTimeAdds();
+    $time_adds = [];
+
+    foreach ($time_adds_before as $time_add) {
+      $el = [
+        'project_id' => $project_obj->getProjectById($time_add['project_id'])['title'],
+        'time_added' => $time_add['time_added'],
+        'created_date' => $time_add['created_date'],
+        'created_by' => $time_add['created_by'],
+      ];
+
+      array_push($time_adds, $el);
+    }
 
     return view('Project/projects', [
       'projects' => $projects,
+      'time_adds' => $time_adds,
       'logged_user_data' => $logged_user_data
     ]);
   }

@@ -196,9 +196,9 @@
     <section>
       <div class="d-flex justify-content-center text-center">
         <div class="mt-5 d-flex flex-row gap-5">
-          <a class="btn btn-secondary" href="/archived-projects">View Archive</a><br>
-          <a class="btn btn-primary" href="/projects">View All Projects</a><br>
           <a class="btn btn-success" href="/create-project">Create Project</a><br>
+          <a class="btn btn-primary" href="/projects">View All Projects</a><br>
+          <a class="btn btn-secondary" href="/archived-projects">View Archive</a><br>
         </div>
       </div>
     </section>
