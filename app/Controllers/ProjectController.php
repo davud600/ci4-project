@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\EmployeeEstimatedTimeModel;
 use App\Models\ProjectEmployeeModel;
 use App\Models\ProjectModel;
 use App\Models\RequestModel;
@@ -54,6 +55,7 @@ class ProjectController extends BaseController
     $project_obj = new ProjectModel();
     $user_obj = new UserModel();
     $project_employee_obj = new ProjectEmployeeModel();
+    $employee_estimated_time_obj = new EmployeeEstimatedTimeModel();
 
     $project = $project_obj->getProjectById($id);
     $customer = $user_obj->getUserById($project['customer_id']);
@@ -107,8 +109,10 @@ class ProjectController extends BaseController
     $project_obj = new ProjectModel();
     if ($project_obj->edit($id, $project)) {
       $project_employee_obj = new ProjectEmployeeModel();
-      if ($project_employee_obj->setEmployeeOfProject($id, $inputedEmployees)) {
-        return redirect()->to('/project/' . $id);
+      if ($employee_estimated_time_obj->initEstimatedTime($id, $logged_user_data['id'], $estimated_time)) {
+        if ($project_employee_obj->setEmployeeOfProject($id, $inputedEmployees)) {
+          return redirect()->to('/project/' . $id);
+        }
       }
     }
 
@@ -156,12 +160,15 @@ class ProjectController extends BaseController
     }
 
     $project_obj = new ProjectModel();
+    $employee_estimated_time_obj = new EmployeeEstimatedTimeModel();
+
     if ($project_obj->create($project)) {
       $project_id = $project_obj->getProjectByTitle($project['title'])['id'];
-
-      $project_employee_obj = new ProjectEmployeeModel();
-      if ($project_employee_obj->setEmployeeOfProject($project_id, $inputedEmployees)) {
-        return redirect()->to('/projects');
+      if ($employee_estimated_time_obj->initEstimatedTime($project_id, $logged_user_data['id'], $estimated_time)) {
+        $project_employee_obj = new ProjectEmployeeModel();
+        if ($project_employee_obj->setEmployeeOfProject($project_id, $inputedEmployees)) {
+          return redirect()->to('/projects');
+        }
       }
     }
 
@@ -173,11 +180,14 @@ class ProjectController extends BaseController
     $project_obj = new ProjectModel();
     $project_employee_obj = new ProjectEmployeeModel();
     $request_obj = new RequestModel();
+    $employee_estimated_time_obj = new EmployeeEstimatedTimeModel();
 
     if ($project_obj->delete($id)) {
-      if ($project_employee_obj->deleteAllOfProject($id)) {
-        if ($request_obj->deleteAllOfProject($id)) {
-          return redirect()->to('/projects');
+      if ($employee_estimated_time_obj->deleteTimeHistoryOfProject($id)) {
+        if ($project_employee_obj->deleteAllOfProject($id)) {
+          if ($request_obj->deleteAllOfProject($id)) {
+            return redirect()->to('/projects');
+          }
         }
       }
     }
