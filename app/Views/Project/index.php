@@ -196,6 +196,17 @@
     </div><!-- End Page Title -->
 
     <section>
+      <?php if (session()->getFlashdata('status') == 'success') { ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <?= session()->getFlashdata('message') ?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <?php } else if (session()->getFlashdata('status') == 'error') { ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <?= session()->getFlashdata('message') ?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <?php } ?>
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Project Information</h5>
@@ -239,7 +250,7 @@
             </li>
 
             <div class="d-flex justify-content-center mt-4">
-              <a class="btn btn-secondary" href="/edit-project/<?= $project['id'] ?>">Edit</a>
+              <a class="btn btn-secondary ps-4 pe-4" href="/edit-project/<?= $project['id'] ?>">Edit</a>
             </div>
           </ul><!-- End Default List group -->
 
@@ -301,7 +312,10 @@
               <?php foreach ($time_adds as $time_add) { ?>
                 <tr>
                   <td><?= $time_add['created_by'] ?></td>
-                  <td><?= gmdate("i:s", ($time_add['time_added'])) ?></td>
+                  <td>
+                    <?= $time_add['created_by'] == 'admin' ? '(Updated)' : ''; ?>
+                    <?= gmdate("i:s", ($time_add['time_added'])) ?>
+                  </td>
                   <td><?= $time_add['created_date'] ?></td>
                 </tr>
               <?php } ?>

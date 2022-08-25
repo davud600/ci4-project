@@ -7,13 +7,16 @@ use App\Models\MessageModel;
 
 class MessageController extends BaseController
 {
+  public function __construct()
+  {
+    $this->message_obj = new MessageModel();
+  }
+
   public function create($request_id)
   {
-    $message_obj = new MessageModel();
-
     $user_file = $this->request->getFile('userfile');
-    $file_path = null;
 
+    $file_path = null;
     if (is_uploaded_file($user_file)) {
       if (!$user_file->hasMoved()) {
         $file_path = WRITEPATH . 'uploads/' . $user_file->store();
@@ -27,9 +30,13 @@ class MessageController extends BaseController
       'created_by' => session()->get('logged_user')['name']
     ];
 
-    if ($message_obj->createMessage($message)) {
+    if ($this->message_obj->createMessage($message)) {
       return redirect()->to('/request/' . $request_id);
     }
+
+    session()->setFlashdata('status', 'error');
+    session()->setFlashdata('message', 'Message was not sent!');
+    return redirect()->to('/request/' . $request_id);
   }
 
   public function downloadFile()

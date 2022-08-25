@@ -8,13 +8,16 @@ use App\Models\UserModel;
 
 class UserController extends BaseController
 {
+  public function __construct()
+  {
+    $this->user_obj = new UserModel();
+    $this->project_obj = new ProjectModel();
+  }
+
   public function profile()
   {
     $logged_user_data = session()->get('logged_user');
-
-    $project_obj = new ProjectModel();
-
-    $customer_has_project = $project_obj->getProjectByCustomer($logged_user_data['id']) != null;
+    $customer_has_project = $this->project_obj->getProjectByCustomer($logged_user_data['id']) != null;
 
     return view('User/index', [
       'logged_user_data' => $logged_user_data,
@@ -25,13 +28,15 @@ class UserController extends BaseController
   public function dashboard()
   {
     $logged_user_data = session()->get('logged_user');
-    return view('Dashboard/index', ['logged_user_data' => $logged_user_data]);
+
+    return view('Dashboard/index', [
+      'logged_user_data' => $logged_user_data
+    ]);
   }
 
   public function login()
   {
     session()->remove('logged_user');
-
     if ($this->request->getMethod() == 'get') {
       return view('User/login');
     }
@@ -41,12 +46,12 @@ class UserController extends BaseController
       'password' => $this->request->getPost('password')
     ];
 
-    $user_obj = new UserModel();
-    if ($user_obj->login($user)) {
-      $logged_user_data = $user_obj->findUserByEmail($user['email']);
+    if ($this->user_obj->login($user)) {
+      $logged_user_data = $this->user_obj->findUserByEmail($user['email']);
       session()->set([
         'logged_user' => $logged_user_data
       ]);
+
       return redirect()->to('/profile');
     }
 
@@ -71,8 +76,7 @@ class UserController extends BaseController
       'company' => $this->request->getPost('company')
     ];
 
-    $user_obj = new UserModel();
-    if ($user_obj->signup($user)) {
+    if ($this->user_obj->signup($user)) {
       return redirect()->to('/login');
     }
 
