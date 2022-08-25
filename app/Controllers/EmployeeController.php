@@ -59,6 +59,8 @@ class EmployeeController extends BaseController
     }
 
     if (!$projects) {
+      session()->setFlashdata('status', 'error');
+      session()->setFlashdata('message', 'You dont currently have any projects assigned to you.');
       return redirect()->to('/profile');
     }
 

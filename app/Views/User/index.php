@@ -195,6 +195,17 @@
     </div><!-- End Page Title -->
 
     <section class="section profile">
+      <?php if (session()->getFlashdata('status') == 'success') { ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <?= session()->getFlashdata('message') ?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <?php } else if (session()->getFlashdata('status') == 'error') { ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <?= session()->getFlashdata('message') ?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <?php } ?>
       <div class="row">
         <div class="col-xl-4">
 
