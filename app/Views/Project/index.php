@@ -301,7 +301,10 @@
               <?php foreach ($time_adds as $time_add) { ?>
                 <tr>
                   <td><?= $time_add['created_by'] ?></td>
-                  <td><?= gmdate("i:s", ($time_add['time_added'])) ?></td>
+                  <td>
+                    <?= $time_add['created_by'] == 'admin' ? '(Updated)' : ''; ?>
+                    <?= gmdate("i:s", ($time_add['time_added'])) ?>
+                  </td>
                   <td><?= $time_add['created_date'] ?></td>
                 </tr>
               <?php } ?>
