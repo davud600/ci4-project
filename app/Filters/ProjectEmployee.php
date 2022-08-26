@@ -35,8 +35,10 @@ class ProjectEmployee implements FilterInterface
     $employee_ids = $project_employee_obj->getEmployeesOfProject($project_id);
 
     // Check if employee_ids includes loggeduserid
-    if (!in_array(session()->get('logged_user')['id'], array_column($employee_ids, 'employee_id'))) {
-      return redirect()->to('/profile');
+    if (session()->get('logged_user')['role'] != 2) {
+      if (!in_array(session()->get('logged_user')['id'], array_column($employee_ids, 'employee_id'))) {
+        return redirect()->to('/profile');
+      }
     }
   }
 

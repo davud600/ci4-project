@@ -285,7 +285,17 @@
                       '
                       <span class="badge bg-success">Approved</span>'
                     ?>
-                  <td><a class="btn btn-primary" href="/request/<?= $request['id'] ?>">View</a></td>
+                  <td>
+                    <form>
+                      <a class="btn btn-primary" href="/request/<?= $request['id'] ?>">View</a>
+                      <?php
+                      echo $request['status'] == 0 ? '
+                        <button formmethod="post" formaction="/approve-request/' . $request["id"] . '" class="btn btn-success">Approve</button>' :
+                        '
+                        <button formmethod="post" formaction="/cancel-request/' . $request["id"] . '" class="btn btn-danger">Cancel</button>'
+                      ?>
+                    </form>
+                  </td>
                 </tr>
               <?php } ?>
             </tbody>
