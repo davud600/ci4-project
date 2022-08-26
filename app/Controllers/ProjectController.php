@@ -50,6 +50,7 @@ class ProjectController extends BaseController
     foreach ($time_adds_before as $time_add) {
       $el = [
         'project_id' => $this->project_obj->getProjectById($time_add['project_id'])['title'],
+        'description' => $time_add['description'],
         'time_added' => $time_add['time_added'],
         'created_date' => $time_add['created_date'],
         'created_by' => $time_add['created_by'],

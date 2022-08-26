@@ -327,6 +327,7 @@
             <thead>
               <tr>
                 <th scope="col">Employee</th>
+                <th scope="col">Description</th>
                 <th scope="col">Time</th>
                 <th scope="col">Added at</th>
               </tr>
@@ -335,6 +336,7 @@
               <?php foreach ($time_adds as $time_add) { ?>
                 <tr>
                   <td><?= $time_add['created_by'] ?></td>
+                  <td><?= $time_add['description'] ?></td>
                   <td>
                     <?= $time_add['created_by'] == 'admin' ? '(Updated)' : ''; ?>
                     <?php

@@ -326,6 +326,7 @@
             <thead>
               <tr>
                 <th scope="col">Employee</th>
+                <th scope="col">Description</th>
                 <th scope="col">Time</th>
                 <th scope="col">Added at</th>
               </tr>
@@ -335,7 +336,9 @@
                 <tr>
                   <td>
                     <?= $time_add['created_by'] ?>
-                    <?= $time_add['employee_id'] == $logged_user_data['id'] ? '(me)' : ''; ?></td>
+                    <?= $time_add['employee_id'] == $logged_user_data['id'] ? '(me)' : ''; ?>
+                  </td>
+                  <td><?= $time_add['description'] ?></td>
                   <td>
                     <?= $time_add['created_by'] == 'admin' ? '(Updated)' : ''; ?>
                     <?php
