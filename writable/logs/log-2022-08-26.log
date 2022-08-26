@@ -126,3 +126,12 @@ in APPPATH\Views\Employee\projects.php on line 265.
  8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-26 03:53:17 --> foreach() argument must be of type array|object, null given
+in APPPATH\Models\ProjectEmployeeModel.php on line 65.
+ 1 APPPATH\Models\ProjectEmployeeModel.php(65): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', 'APPPATH\\Models\\ProjectEmployeeModel.php', 65)
+ 2 APPPATH\Controllers\ProjectController.php(109): App\Models\ProjectEmployeeModel->setEmployeeOfProject('24', null)
+ 3 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->edit('24')
+ 4 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
