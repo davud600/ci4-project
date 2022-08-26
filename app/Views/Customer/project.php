@@ -195,7 +195,7 @@
             <a href="/customer-projects">My Projects</a>
           </li>
           <li class="breadcrumb-item active">
-            <a href="/customer-project">
+            <a href="/customer-project/<?= $project['id'] ?>">
               <?= $project['title'] ?>
             </a>
           </li>

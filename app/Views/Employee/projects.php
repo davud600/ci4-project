@@ -259,6 +259,7 @@
                 <thead>
                   <tr>
                     <th scope="col">Employee</th>
+                    <th scope="col">Project</th>
                     <th scope="col">Time Added</th>
                     <th scope="col">Added at</th>
                   </tr>
@@ -267,6 +268,7 @@
                   <?php foreach ($time_adds as $time_add) { ?>
                     <tr>
                       <td><?= $time_add['created_by'] ?> (me)</td>
+                      <td><?= $time_add['project_id'] ?></td>
                       <td>
                         <?= floor($time_add['time_added'] / 60); ?>:<?= $time_add['time_added'] % 60 ?>
                       </td>

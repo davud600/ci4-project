@@ -39,12 +39,12 @@ class RequestController extends BaseController
     if ($this->request_obj->createRequest($request)) {
       session()->setFlashdata('status', 'success');
       session()->setFlashdata('message', 'Successfully created request!');
-      return redirect()->to('/customer-project');
+      return redirect()->to('/customer-project/' . $project['id']);
     }
 
     session()->setFlashdata('status', 'error');
     session()->setFlashdata('message', 'Error trying to create request!');
-    return redirect()->to('/customer-project');
+    return redirect()->to('/customer-project/' . $project['id']);
   }
 
   public function approve($id)
