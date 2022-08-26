@@ -50,6 +50,7 @@ class EmployeeController extends BaseController
     foreach ($time_adds_before as $time_add) {
       $el = [
         'project_id' => $this->project_obj->getProjectById($time_add['project_id'])['title'],
+        'description' => $time_add['description'],
         'time_added' => $time_add['time_added'],
         'created_date' => $time_add['created_date'],
         'created_by' => $time_add['created_by'],
@@ -82,11 +83,16 @@ class EmployeeController extends BaseController
 
     $this->project_obj->increaseEstimatedTime($id, $amount_to_add); // In Minutes
 
+    $description = $this->request->getPost('description') ?
+      $this->request->getPost('description') :
+      null;
+
     if ($this->employee_estimated_time_obj->addEmployeeTime(
       $id,
       $logged_user_data['id'],
       $amount_to_add,
-      $logged_user_data['name']
+      $logged_user_data['name'],
+      $description
     )) {
       session()->setFlashdata('status', 'success');
       session()->setFlashdata('message', 'Successfully added time to project!');
@@ -117,6 +123,7 @@ class EmployeeController extends BaseController
     $user_minutes = $this->request->getPost('minutes');
     $user_hours = $user_hours ? $user_hours : 0;
     $user_minutes = $user_minutes ? $user_minutes : 0;
+
     return ($user_hours * 60) + $user_minutes;
   }
 }

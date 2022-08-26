@@ -290,6 +290,7 @@
                   <tr>
                     <th scope="col">Employee</th>
                     <th scope="col">Project</th>
+                    <th scope="col">Description</th>
                     <th scope="col">Time</th>
                     <th scope="col">Added at</th>
                   </tr>
@@ -299,6 +300,7 @@
                     <tr>
                       <td><?= $time_add['created_by'] ?></td>
                       <td><?= $time_add['project_id'] ?></td>
+                      <td><?= $time_add['description'] ?></td>
                       <td>
                         <?php
                         $hrs = floor($time_add['time_added'] / 60);

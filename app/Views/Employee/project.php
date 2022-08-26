@@ -245,11 +245,13 @@
             </li>
             <li class="list-group-item d-flex justify-content-between">
               <span class="fw-bold">Estimated Time</span>
-              <div class="d-flex justify-content-end gap-5">
-                <form class="d-flex w-50 gap-2" action="/change-estimated-time/<?= $project['id'] ?>" method="post">
-                  <input min="0" type="number" class="form-control w-50" name="hours" id="hours">
+              <div class="d-flex justify-content-end gap-4">
+                <form class="d-flex w-75 gap-2" action="/change-estimated-time/<?= $project['id'] ?>" method="post">
+                  <label for="description" class="fw-light mt-2">Description</label>
+                  <input type="text" class="form-control" name="description" id="description">
+                  <input min="0" type="number" class="form-control ms-4 w-25" name="hours" id="hours">
                   <label for="hours" class="fw-light mt-2">Hr</label>
-                  <input min="0" type="number" class="form-control w-50" name="minutes" id="minutes">
+                  <input min="0" type="number" class="form-control w-25" name="minutes" id="minutes">
                   <label for="minutes" class="fw-light mt-2">Min</label>
                   <input type="submit" class="btn btn-primary w-50" value="Add Time">
                 </form>
@@ -334,6 +336,7 @@
             <thead>
               <tr>
                 <th scope="col">Employee</th>
+                <th scope="col">Description</th>
                 <th scope="col">Time</th>
                 <th scope="col">Added at</th>
               </tr>
@@ -343,7 +346,9 @@
                 <tr>
                   <td>
                     <?= $time_add['created_by'] ?>
-                    <?= $time_add['employee_id'] == $logged_user_data['id'] ? '(me)' : ''; ?></td>
+                    <?= $time_add['employee_id'] == $logged_user_data['id'] ? '(me)' : ''; ?>
+                  </td>
+                  <td><?= $time_add['description'] ?></td>
                   <td>
                     <?= $time_add['created_by'] == 'admin' ? '(Updated)' : ''; ?>
                     <?php

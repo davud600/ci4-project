@@ -17,6 +17,7 @@ class EmployeeEstimatedTimeModel extends Model
   protected $protectFields    = true;
   protected $allowedFields    = [
     'employee_id',
+    'description',
     'project_id',
     'time_added',
     'created_date',
@@ -87,15 +88,26 @@ class EmployeeEstimatedTimeModel extends Model
     return true;
   }
 
-  public function addEmployeeTime($project_id, $employee_id, $time_added, $employee_name)
-  {
+  public function addEmployeeTime(
+    $project_id,
+    $employee_id,
+    $time_added,
+    $employee_name,
+    $description
+  ) {
+
     $data = [
       'employee_id' => $employee_id,
+      'description' => $description,
       'project_id' => $project_id,
       'time_added' => $time_added,
       'created_date' => Time::parse('now', 'Europe/Bucharest'),
       'created_by' => $employee_name
     ];
+
+    if ($time_added == 0) {
+      return false;
+    }
 
     $this->insert($data);
     return true;

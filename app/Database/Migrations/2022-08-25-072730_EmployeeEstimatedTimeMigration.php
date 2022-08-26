@@ -15,6 +15,10 @@ class EmployeeEstimatedTimeMigration extends Migration
         'unsigned'       => true,
         'auto_increment' => true,
       ],
+      'description' => [
+        'type' => 'text',
+        'null' => true
+      ],
       'employee_id' => [
         'type'       => 'BIGINT',
         'constraint' => 225

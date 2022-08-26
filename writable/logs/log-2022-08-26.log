@@ -369,3 +369,27 @@ in APPPATH\Views\Customer\project.php on line 334.
  8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-26 06:38:56 --> Undefined array key "description"
+in APPPATH\Views\Employee\projects.php on line 286.
+ 1 APPPATH\Views\Employee\projects.php(286): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "description"', 'APPPATH\\Views\\Employee\\projects.php', 286)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Employee\\projects.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Employee/projects', [], true)
+ 5 APPPATH\Controllers\EmployeeController.php(70): view('Employee/projects', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\EmployeeController->projects()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\EmployeeController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-26 06:45:02 --> Undefined array key "description"
+in APPPATH\Views\Project\projects.php on line 303.
+ 1 APPPATH\Views\Project\projects.php(303): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "description"', 'APPPATH\\Views\\Project\\projects.php', 303)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Project\\projects.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Project/projects', [], true)
+ 5 APPPATH\Controllers\ProjectController.php(64): view('Project/projects', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\ProjectController->projects()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProjectController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
