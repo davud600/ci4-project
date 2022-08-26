@@ -244,7 +244,7 @@
               <span class="fw-bold">Estimated Time</span>
               <div class="form-group d-flex gap-3">
                 <span class="mt-2">
-                  <?= gmdate("i:s", $project['estimated_time']) ?>
+                  <?= floor($project['estimated_time'] / 60); ?>:<?= $project['estimated_time'] % 60 ?>
                 </span>
               </div>
             </li>
@@ -285,7 +285,17 @@
                       '
                       <span class="badge bg-success">Approved</span>'
                     ?>
-                  <td><a class="btn btn-primary" href="/request/<?= $request['id'] ?>">View</a></td>
+                  <td>
+                    <form>
+                      <a class="btn btn-primary" href="/request/<?= $request['id'] ?>">View</a>
+                      <?php
+                      echo $request['status'] == 0 ? '
+                        <button formmethod="post" formaction="/approve-request/' . $request["id"] . '" class="btn btn-success">Approve</button>' :
+                        '
+                        <button formmethod="post" formaction="/cancel-request/' . $request["id"] . '" class="btn btn-danger">Cancel</button>'
+                      ?>
+                    </form>
+                  </td>
                 </tr>
               <?php } ?>
             </tbody>
@@ -314,7 +324,7 @@
                   <td><?= $time_add['created_by'] ?></td>
                   <td>
                     <?= $time_add['created_by'] == 'admin' ? '(Updated)' : ''; ?>
-                    <?= gmdate("i:s", ($time_add['time_added'])) ?>
+                    <?= floor($time_add['time_added'] / 60); ?>:<?= $time_add['time_added'] % 60 ?>
                   </td>
                   <td><?= $time_add['created_date'] ?></td>
                 </tr>

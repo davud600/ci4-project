@@ -41,7 +41,8 @@ $routes->get('/', 'Home::index');
 $routes->get('/download-file', 'MessageController::downloadFile');
 
 // Customer
-$routes->get('/customer-project', 'CustomerController::project', ['filter' => ['User']]);
+$routes->get('/customer-project/(:any)', 'CustomerController::project/$1', ['filter' => ['User']]);
+$routes->get('/customer-projects', 'CustomerController::projects', ['filter' => ['User']]);
 
 // Request
 $routes->get('/request/(:any)', 'RequestController::request/$1', ['filter' => ['User', 'CreatorOfRequest']]);

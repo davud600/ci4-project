@@ -138,9 +138,9 @@
 
       <li class="nav-item">
         <?php if ($logged_user_data['role'] == 0) { ?>
-          <a class="nav-link " href="/customer-project">
+          <a class="nav-link " href="/customer-projects">
             <i class="bi bi-grid"></i>
-            <span>My Project</span>
+            <span>My Projects</span>
           </a>
         <?php } else if ($logged_user_data['role'] == 1) { ?>
           <a class="nav-link " href="/employee-projects">

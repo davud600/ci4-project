@@ -254,7 +254,7 @@
                   <input type="submit" class="btn btn-primary w-50" value="Add Time">
                 </form>
                 <span class="mt-2">
-                  <?= gmdate("i:s", $project['estimated_time']) ?>
+                  <?= floor($project['estimated_time'] / 60); ?>:<?= $project['estimated_time'] % 60 ?>
                 </span>
               </div>
             </li>
@@ -333,7 +333,7 @@
                     <?= $time_add['employee_id'] == $logged_user_data['id'] ? '(me)' : ''; ?></td>
                   <td>
                     <?= $time_add['created_by'] == 'admin' ? '(Updated)' : ''; ?>
-                    <?= gmdate("i:s", ($time_add['time_added'])) ?>
+                    <?= floor($time_add['time_added'] / 60); ?>:<?= $time_add['time_added'] % 60 ?>
                   </td>
                   <td><?= $time_add['created_date'] ?></td>
                 </tr>

@@ -49,32 +49,46 @@ class RequestController extends BaseController
 
   public function approve($id)
   {
+    $logged_user_data = session()->get('logged_user');
     $request = $this->request_obj->getRequestById($id);
 
     if ($this->request_obj->approveRequest($id)) {
       session()->setFlashdata('status', 'success');
       session()->setFlashdata('message', 'Successfully approved request!');
-      return redirect()->to('/employee-project/' . $request['project_id']);
+
+      return $logged_user_data['role'] == 2 ?
+        redirect()->to('/project/' . $request['project_id']) :
+        redirect()->to('/employee-project/' . $request['project_id']);
     }
 
     session()->setFlashdata('status', 'error');
     session()->setFlashdata('message', 'Error trying to approve request!');
-    return redirect()->to('/employee-project/' . $request['project_id']);
+
+    return $logged_user_data['role'] == 2 ?
+      redirect()->to('/project/' . $request['project_id']) :
+      redirect()->to('/employee-project/' . $request['project_id']);
   }
 
   public function cancel($id)
   {
+    $logged_user_data = session()->get('logged_user');
     $request = $this->request_obj->getRequestById($id);
 
     if ($this->request_obj->cancelRequest($id)) {
       session()->setFlashdata('status', 'success');
       session()->setFlashdata('message', 'Successfully canceled request!');
-      return redirect()->to('/employee-project/' . $request['project_id']);
+
+      return $logged_user_data['role'] == 2 ?
+        redirect()->to('/project/' . $request['project_id']) :
+        redirect()->to('/employee-project/' . $request['project_id']);
     }
 
     session()->setFlashdata('status', 'error');
     session()->setFlashdata('message', 'Error trying to cancel request!');
-    return redirect()->to('/employee-project/' . $request['project_id']);
+
+    return $logged_user_data['role'] == 2 ?
+      redirect()->to('/project/' . $request['project_id']) :
+      redirect()->to('/employee-project/' . $request['project_id']);
   }
 
   public function request($id)

@@ -237,6 +237,10 @@ class ProjectController extends BaseController
         continue;
       }
 
+      if (in_array($request->getPost('employee' . $i), $inputedEmployees)) {
+        continue;
+      }
+
       array_push($inputedEmployees, $request->getPost('employee' . $i));
     }
 
