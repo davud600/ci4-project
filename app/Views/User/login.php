@@ -37,7 +37,7 @@
   ======================================================== -->
 </head>
 
-<body>
+<body class=" user-select-none">
 
   <main>
     <div class="container">

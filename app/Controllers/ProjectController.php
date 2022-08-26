@@ -48,8 +48,12 @@ class ProjectController extends BaseController
 
     $time_adds = [];
     foreach ($time_adds_before as $time_add) {
+      $project_title = $this->project_obj->getProjectById($time_add['project_id']) ?
+        $this->project_obj->getProjectById($time_add['project_id'])['title'] :
+        'deleted project';
+
       $el = [
-        'project_id' => $this->project_obj->getProjectById($time_add['project_id'])['title'],
+        'project_id' => $project_title,
         'description' => $time_add['description'],
         'time_added' => $time_add['time_added'],
         'created_date' => $time_add['created_date'],
