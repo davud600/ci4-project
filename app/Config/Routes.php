@@ -43,7 +43,7 @@ $routes->get('/download-file', 'MessageController::downloadFile');
 // Customer
 $routes->get('/customer-project/(:any)', 'CustomerController::project/$1', ['filter' => ['User']]);
 $routes->get('/customer-projects', 'CustomerController::projects', ['filter' => ['User']]);
-$routes->match(['get, post'], '/project-request', 'CustomerController::projectRequest', ['filter' => ['User']]);
+$routes->match(['get', 'post'], '/project-request', 'CustomerController::projectRequest', ['filter' => ['User']]);
 
 // Request
 $routes->get('/request/(:any)', 'RequestController::request/$1', ['filter' => ['User', 'CreatorOfRequest']]);
