@@ -142,6 +142,10 @@
             <i class="bi bi-grid"></i>
             <span>My Projects</span>
           </a>
+          <a class="nav-link collapsed" href="/project-request">
+            <i class="bi bi-grid"></i>
+            <span>Request a Project</span>
+          </a>
         <?php } else if ($logged_user_data['role'] == 1) { ?>
           <a class="nav-link collapsed" href="/employee-projects">
             <i class="bi bi-grid"></i>

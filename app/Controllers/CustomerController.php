@@ -8,6 +8,7 @@ use App\Models\ProjectEmployeeModel;
 use App\Models\ProjectModel;
 use App\Models\RequestModel;
 use App\Models\UserModel;
+use CodeIgniter\I18n\Time;
 
 class CustomerController extends BaseController
 {
@@ -60,5 +61,26 @@ class CustomerController extends BaseController
       'logged_user_data' => $logged_user_data,
       'projects' => $projects
     ]);
+  }
+
+  public function projectRequest()
+  {
+    $logged_user_data = session()->get('logged_user');
+
+    if ($this->request->getMethod() == 'get') {
+      return view('Customer/project-request', [
+        'logged_user_data' => $logged_user_data
+      ]);
+    }
+
+    $data = [
+      'user_id' => $logged_user_data['id'],
+      'user_name' => $logged_user_data['name'],
+      'user_email' => $logged_user_data['email'],
+      'subject' => $this->request->getPost('subject'),
+      'content' => $this->request->getPost('content'),
+      'price_per_hour' => $this->request->getPost('price'),
+      'sent_at' => Time::parse('now', 'Europe/Bucharest')
+    ];
   }
 }

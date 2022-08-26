@@ -401,3 +401,15 @@ in APPPATH\Controllers\ProjectController.php on line 52.
  4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
+CRITICAL - 2022-08-26 08:05:07 --> Undefined variable $logged_user_data
+in APPPATH\Views\Customer\project-request.php on line 73.
+ 1 APPPATH\Views\Customer\project-request.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $logged_user_data', 'APPPATH\\Views\\Customer\\project-request.php', 73)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Customer\\project-request.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1137): CodeIgniter\View\View->render('Customer/project-request', [], true)
+ 5 APPPATH\Controllers\CustomerController.php(70): view('Customer/project-request', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\CustomerController->projectRequest()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CustomerController))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(43): require_once('FCPATH\\index.php')
