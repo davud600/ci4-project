@@ -51,27 +51,27 @@ class ProjectModel extends Model
 
   public function getProjectsOfCustomer($customer_id)
   {
-    return $this->where('customer_id', $customer_id)->findAll();
+    return $this->where('status !=', 9)->where('customer_id', $customer_id)->findAll();
   }
 
   public function getProjectByCustomer($customer_id)
   {
-    return $this->where('customer_id', $customer_id)->first();
+    return $this->where('status !=', 9)->where('customer_id', $customer_id)->first();
   }
 
   public function getProjectByTitle($title)
   {
-    return $this->select('id')->where('title', $title)->first();
+    return $this->select('id')->where('status !=', 9)->where('title', $title)->first();
   }
 
   public function getProjectById($id)
   {
-    return $this->where('id', $id)->first();
+    return $this->where('status !=', 9)->where('id', $id)->first();
   }
 
   public function getAllProjects()
   {
-    return $this->where('status !=', 2)->findAll();
+    return $this->where('status !=', 9)->where('status !=', 2)->findAll();
   }
 
   public function getArchivedProjects()
@@ -106,18 +106,24 @@ class ProjectModel extends Model
 
   public function deleteProject($id)
   {
-    $employee_estimated_time_obj = new EmployeeEstimatedTimeModel();
-    $project_employee_obj = new ProjectEmployeeModel();
-    $request_obj = new RequestModel();
+    // $employee_estimated_time_obj = new EmployeeEstimatedTimeModel();
+    // $project_employee_obj = new ProjectEmployeeModel();
+    // $request_obj = new RequestModel();
 
-    if ($this->delete($id)) {
-      if ($employee_estimated_time_obj->deleteTimeHistoryOfProject($id)) {
-        if ($project_employee_obj->deleteAllOfProject($id)) {
-          if ($request_obj->deleteAllOfProject($id)) {
-            return true;
-          }
-        }
-      }
+    // if ($this->delete($id)) {
+    //   if ($employee_estimated_time_obj->deleteTimeHistoryOfProject($id)) {
+    //     if ($project_employee_obj->deleteAllOfProject($id)) {
+    //       if ($request_obj->deleteAllOfProject($id)) {
+    //         return true;
+    //       }
+    //     }
+    //   }
+    // }
+
+    if ($this->update($id, [
+      'status' => 9 // Deleted
+    ])) {
+      return true;
     }
 
     return false;
