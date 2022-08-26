@@ -141,9 +141,9 @@
 
       <li class="nav-item">
         <?php if ($logged_user_data['role'] == 0) { ?>
-          <a class="nav-link " href="/customer-project">
+          <a class="nav-link " href="/customer-projects">
             <i class="bi bi-grid"></i>
-            <span>My Project</span>
+            <span>My Projects</span>
           </a>
         <?php } else if ($logged_user_data['role'] == 1) { ?>
           <a class="nav-link " href="/employee-projects">
@@ -191,7 +191,9 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/">Home</a></li>
-
+          <li class="breadcrumb-item">
+            <a href="/customer-projects">My Projects</a>
+          </li>
           <li class="breadcrumb-item active">
             <a href="/customer-project">
               <?= $project['title'] ?>
@@ -250,7 +252,7 @@
               <span class="fw-bold">Estimated Time</span>
               <div class="form-group d-flex gap-3">
                 <span class="mt-2">
-                  <?= gmdate("i:s", $project['estimated_time']) ?>
+                  <?= floor($project['estimated_time'] / 60); ?>:<?= $project['estimated_time'] % 60 ?>
                 </span>
               </div>
             </li>
@@ -289,9 +291,9 @@
                     ?>
                   </td>
                   <td>
-                    <form>
-                      <a class="btn btn-primary" href="/request/<?= $request['id'] ?>">View</a>
-                    </form>
+                    <!-- <form> -->
+                    <a class="btn btn-primary" href="/request/<?= $request['id'] ?>">View</a>
+                    <!-- </form> -->
                   </td>
                 </tr>
               <?php } ?>

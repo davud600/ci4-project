@@ -243,7 +243,9 @@
                           <span class="badge bg-success">Finished</span>'
                           ?>
                         </td>
-                        <td><?= gmdate("i:s", $project['estimated_time']) ?></td>
+                        <td>
+                          <?= floor($project['estimated_time'] / 60); ?>:<?= $project['estimated_time'] % 60 ?>
+                        </td>
                         <td>
                           <a class="btn btn-primary" href="/project/<?= $project['id'] ?>">View</a>
                           <a class="btn btn-secondary" href="/archive-project/<?= $project['id'] ?>">Archive</a>
@@ -284,7 +286,9 @@
                     <tr>
                       <td><?= $time_add['created_by'] ?></td>
                       <td><?= $time_add['project_id'] ?></td>
-                      <td><?= gmdate("i:s", ($time_add['time_added'])) ?></td>
+                      <td>
+                        <?= floor($time_add['time_added'] / 60); ?>:<?= $time_add['time_added'] % 60 ?>
+                      </td>
                       <td><?= $time_add['created_date'] ?></td>
                     </tr>
                   <?php } ?>

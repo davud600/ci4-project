@@ -24,7 +24,7 @@ class CreatorOfRequest implements FilterInterface
 
     if (session()->get('logged_user')['role'] == 0) {
       if (session()->get('logged_user')['id'] != $req['created_by']) {
-        return redirect()->to('/customer-project');
+        return redirect()->to('/profile');
       }
     }
   }

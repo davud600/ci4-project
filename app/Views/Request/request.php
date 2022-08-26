@@ -138,9 +138,9 @@
 
       <li class="nav-item">
         <?php if ($logged_user_data['role'] == 0) { ?>
-          <a class="nav-link " href="/customer-project">
+          <a class="nav-link " href="/customer-projects">
             <i class="bi bi-grid"></i>
-            <span>My Project</span>
+            <span>My Projects</span>
           </a>
         <?php } else if ($logged_user_data['role'] == 1) { ?>
           <a class="nav-link " href="/employee-projects">
@@ -191,7 +191,12 @@
 
           <?php if ($logged_user_data['role'] == 0) { ?>
             <li class="breadcrumb-item">
-              <a href="/customer-project">My Project</a>
+              <a href="/customer-projects">My Projects</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="/customer-project/<?= $project['id'] ?>">
+                <?= $project['title'] ?>
+              </a>
             </li>
           <?php } else if ($logged_user_data['role'] == 1) { ?>
             <li class="breadcrumb-item">

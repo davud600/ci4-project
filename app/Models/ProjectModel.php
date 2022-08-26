@@ -49,6 +49,11 @@ class ProjectModel extends Model
   protected $beforeDelete   = [];
   protected $afterDelete    = [];
 
+  public function getProjectsOfCustomer($customer_id)
+  {
+    return $this->where('customer_id', $customer_id)->findAll();
+  }
+
   public function getProjectByCustomer($customer_id)
   {
     return $this->where('customer_id', $customer_id)->first();

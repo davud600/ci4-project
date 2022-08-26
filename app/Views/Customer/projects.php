@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Profile</title>
+  <title>My Projects</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -138,12 +138,12 @@
 
       <li class="nav-item">
         <?php if ($logged_user_data['role'] == 0) { ?>
-          <a class="nav-link collapsed" href="/customer-projects">
+          <a class="nav-link collapsed" href="/customer-project">
             <i class="bi bi-grid"></i>
-            <span>My Projects</span>
+            <span>My Project</span>
           </a>
         <?php } else if ($logged_user_data['role'] == 1) { ?>
-          <a class="nav-link collapsed" href="/employee-projects">
+          <a class="nav-link" href="/employee-projects">
             <i class="bi bi-grid"></i>
             <span>My Projects</span>
           </a>
@@ -157,21 +157,21 @@
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
-        <a class="nav-link " href="/profile">
+        <a class="nav-link collapsed" href="/profile">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
+        <a class="nav-link collapsed" href="/faq">
           <i class="bi bi-question-circle"></i>
           <span>F.A.Q</span>
         </a>
       </li><!-- End F.A.Q Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
+        <a class="nav-link collapsed" href="/contact">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>
@@ -184,84 +184,64 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Profile</h1>
+      <h1>Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/">Home</a></li>
-          <li class="breadcrumb-item">Users</li>
-          <li class="breadcrumb-item active">Profile</li>
+          <li class="breadcrumb-item">
+            <a href="/customer-projects">My Projects</a>
+          </li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section profile">
-      <?php if (session()->getFlashdata('status') == 'success') { ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-          <?= session()->getFlashdata('message') ?>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      <?php } else if (session()->getFlashdata('status') == 'error') { ?>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-          <?= session()->getFlashdata('message') ?>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      <?php } ?>
-      <div class="row">
-        <div class="col-xl-4">
+    <section>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Projects</h5>
 
           <div class="card">
-            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-
-              <h2><?= $logged_user_data['name'] ?></h2>
-              <h3>
-                <?php
-                echo $logged_user_data['role'] == 0 ? 'Customer' : ($logged_user_data['role'] == 1 ? 'Employee' : 'Admin')
-                ?>
-              </h3>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col-xl-8">
-
-          <div class="card">
-            <div class="card-body pt-3">
-              <!-- Bordered Tabs -->
-              <ul class="nav nav-tabs nav-tabs-bordered">
-
-                <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
-                </li>
-
-              </ul>
-              <div class="tab-content pt-2">
-
-                <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                  <h5 class="card-title">Profile Details</h5>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Name</div>
-                    <div class="col-lg-9 col-md-8"><?= $logged_user_data['name'] ?></div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Company</div>
-                    <div class="col-lg-9 col-md-8"><?= $logged_user_data['company'] ?></div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8"><?= $logged_user_data['email'] ?></div>
-                  </div>
-
-                </div>
-
-              </div><!-- End Bordered Tabs -->
+            <div class="card-body">
+              <!-- Table with hoverable rows -->
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Estimated Time</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php foreach ($projects as $project) { ?>
+                    <tr>
+                      <th><?= $project['id'] ?></th>
+                      <td><?= $project['title'] ?></td>
+                      <td><?= $project['description'] ?></td>
+                      <td>
+                        <?php
+                        echo $project['status'] == 0 ? '
+                          <span class="badge bg-secondary">In Progress</span>' :
+                          '
+                          <span class="badge bg-success">Finished</span>'
+                        ?>
+                      </td>
+                      <td>
+                        <?= floor($project['estimated_time'] / 60); ?>:<?= $project['estimated_time'] % 60 ?>
+                      </td>
+                      <td>
+                        <a class="btn btn-primary" href="/customer-project/<?= $project['id'] ?>">View</a>
+                      </td>
+                    </tr>
+                  <?php } ?>
+                </tbody>
+              </table>
+              <!-- End Table with hoverable rows -->
 
             </div>
           </div>
-
         </div>
       </div>
     </section>
