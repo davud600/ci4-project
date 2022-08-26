@@ -78,9 +78,6 @@
               <h6><?= $logged_user_data['name'] ?></h6>
               <span>
                 <?php
-
-                use CodeIgniter\I18n\Time;
-
                 echo $logged_user_data['role'] == 0 ? 'Customer' : ($logged_user_data['role'] == 1 ? 'Employee' : 'Admin')
                 ?>
               </span>
@@ -195,7 +192,7 @@
             <a href="/customer-projects">My Projects</a>
           </li>
           <li class="breadcrumb-item active">
-            <a href="/customer-project">
+            <a href="/customer-project/<?= $project['id'] ?>">
               <?= $project['title'] ?>
             </a>
           </li>
@@ -252,7 +249,20 @@
               <span class="fw-bold">Estimated Time</span>
               <div class="form-group d-flex gap-3">
                 <span class="mt-2">
-                  <?= floor($project['estimated_time'] / 60); ?>:<?= $project['estimated_time'] % 60 ?>
+                  <?php
+                  $hrs = floor($project['estimated_time'] / 60);
+                  $min = $project['estimated_time'] % 60;
+
+                  if (strlen($hrs) == 1) {
+                    echo '0';
+                  }
+                  echo $hrs . ':';
+
+                  if (strlen($min) == 1) {
+                    echo '0';
+                  }
+                  echo $min;
+                  ?>
                 </span>
               </div>
             </li>
@@ -304,6 +314,52 @@
           <div class="d-flex justify-content-center">
             <a class="mt-4 btn btn-success" href="/submit-request?project_id=<?= $project['id'] ?>">Leave a Request</a>
           </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Updates</h5>
+
+          <!-- Table with hoverable rows -->
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Employee</th>
+                <th scope="col">Time</th>
+                <th scope="col">Added at</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($time_adds as $time_add) { ?>
+                <tr>
+                  <td>
+                    <?= $time_add['created_by'] ?>
+                    <?= $time_add['employee_id'] == $logged_user_data['id'] ? '(me)' : ''; ?></td>
+                  <td>
+                    <?= $time_add['created_by'] == 'admin' ? '(Updated)' : ''; ?>
+                    <?php
+                    $hrs = floor($time_add['time_added'] / 60);
+                    $min = $time_add['time_added'] % 60;
+
+                    if (strlen($hrs) == 1) {
+                      echo '0';
+                    }
+                    echo $hrs . ':';
+
+                    if (strlen($min) == 1) {
+                      echo '0';
+                    }
+                    echo $min;
+                    ?>
+                  </td>
+                  <td><?= $time_add['created_date'] ?></td>
+                </tr>
+              <?php } ?>
+            </tbody>
+          </table>
+          <!-- End Table with hoverable rows -->
+
         </div>
       </div>
     </section>

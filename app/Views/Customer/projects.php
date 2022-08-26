@@ -229,7 +229,20 @@
                         ?>
                       </td>
                       <td>
-                        <?= floor($project['estimated_time'] / 60); ?>:<?= $project['estimated_time'] % 60 ?>
+                        <?php
+                        $hrs = floor($project['estimated_time'] / 60);
+                        $min = $project['estimated_time'] % 60;
+
+                        if (strlen($hrs) == 1) {
+                          echo '0';
+                        }
+                        echo $hrs . ':';
+
+                        if (strlen($min) == 1) {
+                          echo '0';
+                        }
+                        echo $min;
+                        ?>
                       </td>
                       <td>
                         <a class="btn btn-primary" href="/customer-project/<?= $project['id'] ?>">View</a>

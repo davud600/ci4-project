@@ -232,7 +232,20 @@
                         ?>
                       </td>
                       <td>
-                        <?= floor($project['estimated_time'] / 60); ?>:<?= $project['estimated_time'] % 60 ?>
+                        <?php
+                        $hrs = floor($project['estimated_time'] / 60);
+                        $min = $project['estimated_time'] % 60;
+
+                        if (strlen($hrs) == 1) {
+                          echo '0';
+                        }
+                        echo $hrs . ':';
+
+                        if (strlen($min) == 1) {
+                          echo '0';
+                        }
+                        echo $min;
+                        ?>
                       </td>
                       <td>
                         <a class="btn btn-primary" href="/employee-project/<?= $project['id'] ?>">View</a>
@@ -259,6 +272,7 @@
                 <thead>
                   <tr>
                     <th scope="col">Employee</th>
+                    <th scope="col">Project</th>
                     <th scope="col">Time Added</th>
                     <th scope="col">Added at</th>
                   </tr>
@@ -267,8 +281,22 @@
                   <?php foreach ($time_adds as $time_add) { ?>
                     <tr>
                       <td><?= $time_add['created_by'] ?> (me)</td>
+                      <td><?= $time_add['project_id'] ?></td>
                       <td>
-                        <?= floor($time_add['time_added'] / 60); ?>:<?= $time_add['time_added'] % 60 ?>
+                        <?php
+                        $hrs = floor($time_add['time_added'] / 60);
+                        $min = $time_add['time_added'] % 60;
+
+                        if (strlen($hrs) == 1) {
+                          echo '0';
+                        }
+                        echo $hrs . ':';
+
+                        if (strlen($min) == 1) {
+                          echo '0';
+                        }
+                        echo $min;
+                        ?>
                       </td>
                       <td><?= $time_add['created_date'] ?></td>
                     </tr>
