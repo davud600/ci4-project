@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\EmployeeEstimatedTimeModel;
 use App\Models\ProjectEmployeeModel;
 use App\Models\ProjectModel;
 use App\Models\RequestModel;
@@ -16,6 +17,7 @@ class CustomerController extends BaseController
     $this->project_obj = new ProjectModel();
     $this->request_obj = new RequestModel();
     $this->project_employee_obj = new ProjectEmployeeModel();
+    $this->employee_estimated_time_obj = new EmployeeEstimatedTimeModel();
   }
 
   public function project($project_id)
@@ -32,11 +34,13 @@ class CustomerController extends BaseController
     $employees_ids = $this->project_employee_obj->getEmployeesOfProject($project_id); // returns ids
     $employees = $this->user_obj->getUsersByIds($employees_ids);
     $requests_of_project = $this->request_obj->getRequestsOfProject($project_id);
+    $time_adds = $this->employee_estimated_time_obj->getProjectEmployeeTimeAdds($project_id);
 
     return view('Customer/project', [
       'project' => $project,
       'logged_user_data' => $logged_user_data,
       'employees' => $employees,
+      'time_adds' => $time_adds,
       'requests' => $requests_of_project
     ]);
   }

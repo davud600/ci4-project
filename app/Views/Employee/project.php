@@ -254,7 +254,20 @@
                   <input type="submit" class="btn btn-primary w-50" value="Add Time">
                 </form>
                 <span class="mt-2">
-                  <?= floor($project['estimated_time'] / 60); ?>:<?= $project['estimated_time'] % 60 ?>
+                  <?php
+                  $hrs = floor($project['estimated_time'] / 60);
+                  $min = $project['estimated_time'] % 60;
+
+                  if (strlen($hrs) == 1) {
+                    echo '0';
+                  }
+                  echo $hrs . ':';
+
+                  if (strlen($min) == 1) {
+                    echo '0';
+                  }
+                  echo $min;
+                  ?>
                 </span>
               </div>
             </li>
@@ -333,7 +346,20 @@
                     <?= $time_add['employee_id'] == $logged_user_data['id'] ? '(me)' : ''; ?></td>
                   <td>
                     <?= $time_add['created_by'] == 'admin' ? '(Updated)' : ''; ?>
-                    <?= floor($time_add['time_added'] / 60); ?>:<?= $time_add['time_added'] % 60 ?>
+                    <?php
+                    $hrs = floor($time_add['time_added'] / 60);
+                    $min = $time_add['time_added'] % 60;
+
+                    if (strlen($hrs) == 1) {
+                      echo '0';
+                    }
+                    echo $hrs . ':';
+
+                    if (strlen($min) == 1) {
+                      echo '0';
+                    }
+                    echo $min;
+                    ?>
                   </td>
                   <td><?= $time_add['created_date'] ?></td>
                 </tr>
