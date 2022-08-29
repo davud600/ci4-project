@@ -48,8 +48,14 @@ class EmployeeController extends BaseController
 
     $time_adds = [];
     foreach ($time_adds_before as $time_add) {
+      $project_of_time_add = $this->project_obj->getProjectById($time_add['project_id']);
+
+      if (!$project_of_time_add) {
+        continue;
+      }
+
       $el = [
-        'project_id' => $this->project_obj->getProjectById($time_add['project_id'])['title'],
+        'project_id' => $project_of_time_add['title'],
         'description' => $time_add['description'],
         'time_added' => $time_add['time_added'],
         'created_date' => $time_add['created_date'],
@@ -59,7 +65,7 @@ class EmployeeController extends BaseController
       array_push($time_adds, $el);
     }
 
-    if (!$projects) {
+    if (empty($projects)) {
       session()->setFlashdata('status', 'error');
       session()->setFlashdata('message', 'You dont currently have any projects assigned to you.');
       return redirect()->to('/profile');
@@ -111,7 +117,9 @@ class EmployeeController extends BaseController
 
     foreach ($project_ids as $project_id) {
       $project = $this->project_obj->getProjectById($project_id);
-      array_push($projects_of_employee, $project);
+      if ($project) {
+        array_push($projects_of_employee, $project);
+      }
     }
 
     return $projects_of_employee;
