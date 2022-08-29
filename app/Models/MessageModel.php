@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use CodeIgniter\I18n\Time;
 use CodeIgniter\Model;
 
 class MessageModel extends Model
@@ -13,18 +12,17 @@ class MessageModel extends Model
   protected $useAutoIncrement = true;
   protected $insertID         = 0;
   protected $returnType       = 'array';
-  protected $useSoftDeletes   = false;
+  protected $useSoftDeletes   = true;
   protected $protectFields    = true;
   protected $allowedFields    = [
     'text',
     'attach',
     'request_id',
-    'created_date',
     'created_by'
   ];
 
   // Dates
-  protected $useTimestamps = false;
+  protected $useTimestamps = true;
   protected $dateFormat    = 'datetime';
   protected $createdField  = 'created_at';
   protected $updatedField  = 'updated_at';
@@ -49,20 +47,7 @@ class MessageModel extends Model
 
   public function getMessagesOfRequest($request_id)
   {
-    return $this->where('request_id', $request_id)->findAll();
-  }
-
-  public function createMessage($message_data)
-  {
-    $message = [
-      'text' => $message_data['text'],
-      'attach' => $message_data['attach'],
-      'request_id' => $message_data['request_id'],
-      'created_date' => Time::parse('now', 'Europe/Bucharest'),
-      'created_by' => $message_data['created_by']
-    ];
-
-    $this->insert($message);
-    return true;
+    return $this->where('request_id', $request_id)
+      ->findAll();
   }
 }

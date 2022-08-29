@@ -251,7 +251,7 @@
           <h5 class="card-title">Description</h5>
           <p class="pb-3"><?= $request['description'] ?></p>
           <span class="me-3 fw-bold">Created at</span>
-          <span class=""><?= $request['created_date'] ?></span>
+          <span class=""><?= $request['created_at'] ?></span>
         </div>
       </div>
 
@@ -266,7 +266,8 @@
                   <div class="d-flex justify-content-end">
                     <div class="d-flex flex-column">
                       <div class="d-flex flex-row">
-                        <span class="me-3" data-bs-toggle="tooltip" data-bs-placement="left" title="<?= $message['created_date'] ?>">
+                        <span class="fw-bold">(me):&nbsp;&nbsp;</span>
+                        <span class="me-3" data-bs-toggle="tooltip" data-bs-placement="left" title="<?= $message['created_at'] ?>">
                           <?= $message['text'] ?>
                         </span>
                         <?php if ($message['attach'] != null) { ?>
@@ -288,7 +289,7 @@
                     <div class="d-flex flex-column">
                       <div class="d-flex flex-row">
                         <span class="fw-bold"><?= $message['created_by'] ?>:&nbsp;&nbsp;</span>
-                        <span class="me-3" data-bs-toggle="tooltip" data-bs-placement="right" title="<?= $message['created_date'] ?>">
+                        <span class="me-3" data-bs-toggle="tooltip" data-bs-placement="right" title="<?= $message['created_at'] ?>">
                           <?= $message['text'] ?>
                         </span>
                         <?php if ($message['attach'] != null) { ?>

@@ -13,19 +13,18 @@ class EmployeeEstimatedTimeModel extends Model
   protected $useAutoIncrement = true;
   protected $insertID         = 0;
   protected $returnType       = 'array';
-  protected $useSoftDeletes   = false;
+  protected $useSoftDeletes   = true;
   protected $protectFields    = true;
   protected $allowedFields    = [
-    'employee_id',
     'description',
-    'project_id',
     'time_added',
-    'created_date',
-    'created_by'
+    'employee_id',
+    'project_id',
+    'created_by_admin'
   ];
 
   // Dates
-  protected $useTimestamps = false;
+  protected $useTimestamps = true;
   protected $dateFormat    = 'datetime';
   protected $createdField  = 'created_at';
   protected $updatedField  = 'updated_at';
@@ -50,66 +49,48 @@ class EmployeeEstimatedTimeModel extends Model
 
   public function getTimeAddsByEmployeeId($employee_id)
   {
-    return $this->where('employee_id', $employee_id)->findAll();
+    return $this->where('employee_id', $employee_id)
+      ->findAll();
   }
 
   public function getAllEmployeeTimeAdds()
   {
-    return $this->where('created_by !=', 'admin')->findAll();
+    return $this->where('created_by_admin', 0)
+      ->findAll();
   }
 
   public function getProjectEmployeeTimeAdds($project_id)
   {
-    return $this->where('project_id', $project_id)->findAll();
+    return $this->where('project_id', $project_id)
+      ->findAll();
   }
 
   public function deleteTimeHistoryOfProject($project_id)
   {
-    $this->where('project_id', $project_id)->delete();
-    return true;
+    return $this->where('project_id', $project_id)
+      ->delete();
   }
 
-  public function initEstimatedTime($project_id, $admin_id, $time_added)
+  public function initEstimatedTime($data)
   {
-    $timeChangeByAdmin = $this->where('project_id', $project_id)->where('created_by', 'admin');
+    $data['created_by_admin'] = 1;
+    $timeChangeByAdmin = $this->where('project_id', $data['project_id'])
+      ->where('created_by_admin', 1)
+      ->first();
+
     if ($timeChangeByAdmin) {
-      $timeChangeByAdmin->delete();
+      return $this->update($timeChangeByAdmin['id'], $data);
     }
 
-    $data = [
-      'employee_id' => $admin_id,
-      'project_id' => $project_id,
-      'time_added' => $time_added,
-      'created_date' => Time::parse('now', 'Europe/Bucharest'),
-      'created_by' => 'admin'
-    ];
-
-    $this->insert($data);
-    return true;
+    return $this->insert($data);
   }
 
-  public function addEmployeeTime(
-    $project_id,
-    $employee_id,
-    $time_added,
-    $employee_name,
-    $description
-  ) {
-
-    $data = [
-      'employee_id' => $employee_id,
-      'description' => $description,
-      'project_id' => $project_id,
-      'time_added' => $time_added,
-      'created_date' => Time::parse('now', 'Europe/Bucharest'),
-      'created_by' => $employee_name
-    ];
-
-    if ($time_added == 0) {
+  public function addEmployeeTime($data)
+  {
+    if ($data['time_added'] == 0) {
       return false;
     }
 
-    $this->insert($data);
-    return true;
+    return $this->insert($data);
   }
 }

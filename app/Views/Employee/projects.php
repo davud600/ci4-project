@@ -281,7 +281,7 @@
                 <tbody>
                   <?php foreach ($time_adds as $time_add) { ?>
                     <tr>
-                      <td><?= $time_add['created_by'] ?> (me)</td>
+                      <td><?= $time_add['employee_id'] ?> (me)</td>
                       <td><?= $time_add['project_id'] ?></td>
                       <td><?= $time_add['description'] ?></td>
                       <td>
@@ -300,7 +300,7 @@
                         echo $min;
                         ?>
                       </td>
-                      <td><?= $time_add['created_date'] ?></td>
+                      <td><?= $time_add['created_at'] ?></td>
                     </tr>
                   <?php } ?>
                 </tbody>

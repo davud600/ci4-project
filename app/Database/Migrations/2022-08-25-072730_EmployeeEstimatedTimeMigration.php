@@ -10,33 +10,42 @@ class EmployeeEstimatedTimeMigration extends Migration
   {
     $fields = [
       'id' => [
-        'type'           => 'BIGINT',
-        'constraint'     => 225,
-        'unsigned'       => true,
-        'auto_increment' => true,
+        'type' => 'INT',
+        'constraint' => 225,
+        'unsigned' => true,
+        'auto_increment' => true
       ],
       'description' => [
-        'type' => 'text',
+        'type' => 'VARCHAR',
+        'constraint' => 225,
         'null' => true
       ],
       'employee_id' => [
-        'type'       => 'BIGINT',
+        'type'       => 'INT',
         'constraint' => 225
       ],
       'project_id' => [
-        'type'       => 'BIGINT',
+        'type'       => 'INT',
         'constraint' => 225
       ],
       'time_added' => [
         'type' => 'INT',
-        'constraint' => 7
+        'constraint' => 10
       ],
-      'created_date' => [
+      'created_by_admin' => [
+        'type' => 'TINYINT',
+        'constraint' => 1,
+        'default' => 0
+      ],
+      'created_at' => [
         'type' => 'DATETIME'
       ],
-      'created_by' => [
-        'type' => 'VARCHAR',
-        'constraint' => 225,
+      'updated_at' => [
+        'type' => 'DATETIME',
+        'null' => true
+      ],
+      'deleted_at' => [
+        'type' => 'DATETIME',
         'null' => true
       ]
     ];

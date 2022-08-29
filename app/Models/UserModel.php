@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Libraries\Hash;
-use CodeIgniter\I18n\Time;
 use CodeIgniter\Model;
 
 class UserModel extends Model
@@ -14,22 +13,18 @@ class UserModel extends Model
   protected $useAutoIncrement = true;
   protected $insertID         = 0;
   protected $returnType       = 'array';
-  protected $useSoftDeletes   = false;
+  protected $useSoftDeletes   = true;
   protected $protectFields    = true;
   protected $allowedFields    = [
     'email',
     'name',
     'password',
     'role',
-    'company',
-    'created_date',
-    'created_by',
-    'updated_date',
-    'updated_by'
+    'company'
   ];
 
   // Dates
-  protected $useTimestamps = false;
+  protected $useTimestamps = true;
   protected $dateFormat    = 'datetime';
   protected $createdField  = 'created_at';
   protected $updatedField  = 'updated_at';
@@ -56,7 +51,10 @@ class UserModel extends Model
   {
     $users = [];
     foreach ($user_ids as $user_id) {
-      $user = $this->select('id, name')->where('id', $user_id)->first();
+      $user = $this->select('id, name')
+        ->where('id', $user_id)
+        ->first();
+
       array_push($users, $user);
     }
 
@@ -65,22 +63,30 @@ class UserModel extends Model
 
   public function getAllCustomers()
   {
-    return $this->select('id, name')->where('role', 0)->findAll();
+    return $this->select('id, name')
+      ->where('role', 0)
+      ->findAll();
   }
 
   public function getAllEmployees()
   {
-    return $this->select('id, name')->where('role', 1)->findAll();
+    return $this->select('id, name')
+      ->where('role', 1)
+      ->findAll();
   }
 
   public function getUserById($id)
   {
-    return $this->select('id, name')->where('id', $id)->first();
+    return $this->select('id, name')
+      ->where('id', $id)
+      ->first();
   }
 
   public function findUserByEmail($user_email)
   {
-    $db_user = $this->where('email', $user_email)->first();
+    $db_user = $this->where('email', $user_email)
+      ->first();
+
     $user_data = [
       'id' => $db_user['id'],
       'email' => $db_user['email'],
@@ -95,7 +101,9 @@ class UserModel extends Model
   public function login($user_data)
   {
     // Find user in db
-    $user = $this->where('email', $user_data['email'])->first();
+    $user = $this->where('email', $user_data['email'])
+      ->first();
+
     if (!$user) {
       return false; // Incorrect email
     }
@@ -108,9 +116,7 @@ class UserModel extends Model
   {
     $user = $user_data;
     $user['password'] = Hash::make($user_data['password']);
-    $user['created_date'] = Time::parse('now', 'Europe/Bucharest');
 
-    $this->insert($user);
-    return true;
+    return $this->insert($user);
   }
 }

@@ -10,13 +10,13 @@ class RequestMigration extends Migration
   {
     $fields = [
       'id' => [
-        'type'           => 'BIGINT',
-        'constraint'     => 225,
-        'unsigned'       => true,
-        'auto_increment' => true,
+        'type' => 'INT',
+        'constraint' => 225,
+        'unsigned' => true,
+        'auto_increment' => true
       ],
       'title' => [
-        'type'       => 'VARCHAR',
+        'type' => 'VARCHAR',
         'constraint' => 225
       ],
       'description' => [
@@ -24,20 +24,23 @@ class RequestMigration extends Migration
         'constraint' => 225,
         'null' => true
       ],
-      'status' => [
-        'type' => 'INT',
-        'constraint' => 1
-      ],
       'project_id' => [
-        'type' => 'BIGINT',
+        'type' => 'INT',
         'constraint' => 225
       ],
-      'created_date' => [
+      'status' => [
+        'type' => 'TINYINT',
+        'constraint' => 1
+      ],
+      'created_at' => [
         'type' => 'DATETIME'
       ],
-      'created_by' => [
-        'type' => 'VARCHAR',
-        'constraint' => 225,
+      'updated_at' => [
+        'type' => 'DATETIME',
+        'null' => true
+      ],
+      'deleted_at' => [
+        'type' => 'DATETIME',
         'null' => true
       ]
     ];

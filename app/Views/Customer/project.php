@@ -339,12 +339,12 @@
               <?php foreach ($time_adds as $time_add) { ?>
                 <tr>
                   <td>
-                    <?= $time_add['created_by'] ?>
+                    <?= $time_add['employee_id'] ?>
                     <?= $time_add['employee_id'] == $logged_user_data['id'] ? '(me)' : ''; ?>
                   </td>
                   <td><?= $time_add['description'] ?></td>
                   <td>
-                    <?= $time_add['created_by'] == 'admin' ? '(Updated)' : ''; ?>
+                    <?= $time_add['created_by_admin'] == 1 ? '(Updated)' : ''; ?>
                     <?php
                     $hrs = floor($time_add['time_added'] / 60);
                     $min = $time_add['time_added'] % 60;
@@ -360,7 +360,7 @@
                     echo $min;
                     ?>
                   </td>
-                  <td><?= $time_add['created_date'] ?></td>
+                  <td><?= $time_add['created_at'] ?></td>
                 </tr>
               <?php } ?>
             </tbody>

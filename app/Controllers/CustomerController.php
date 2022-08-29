@@ -37,11 +37,21 @@ class CustomerController extends BaseController
     $requests_of_project = $this->request_obj->getRequestsOfProject($project_id);
     $time_adds = $this->employee_estimated_time_obj->getProjectEmployeeTimeAdds($project_id);
 
+    // Get employee names from employee_ids in time_adds
+    $time_adds_new = [];
+    foreach ($time_adds as $time_add) {
+      $el = $time_add;
+
+      $el['employee_id'] = $this->user_obj->getUserById($el['employee_id'])['name'];
+
+      array_push($time_adds_new, $el);
+    }
+
     return view('Customer/project', [
       'project' => $project,
       'logged_user_data' => $logged_user_data,
       'employees' => $employees,
-      'time_adds' => $time_adds,
+      'time_adds' => $time_adds_new,
       'requests' => $requests_of_project
     ]);
   }
