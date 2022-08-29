@@ -27,10 +27,10 @@ class MessageController extends BaseController
       'text' => $this->request->getPost('message'),
       'attach' => $file_path,
       'request_id' => $request_id,
-      'created_by' => session()->get('logged_user')['name']
+      'created_by' => session()->get('logged_user')['id']
     ];
 
-    if ($this->message_obj->createMessage($message)) {
+    if ($this->message_obj->insert($message)) {
       return redirect()->to('/request/' . $request_id);
     }
 

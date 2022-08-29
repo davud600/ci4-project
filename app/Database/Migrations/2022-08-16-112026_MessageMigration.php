@@ -10,14 +10,15 @@ class MessageMigration extends Migration
   {
     $fields = [
       'id' => [
-        'type'           => 'BIGINT',
-        'constraint'     => 225,
-        'unsigned'       => true,
-        'auto_increment' => true,
+        'type' => 'INT',
+        'constraint' => 225,
+        'unsigned' => true,
+        'auto_increment' => true
       ],
       'text' => [
-        'type'       => 'VARCHAR',
-        'constraint' => 225
+        'type' => 'TEXT',
+        'constraint' => 550,
+        'null' => true
       ],
       'attach' => [
         'type' => 'VARCHAR',
@@ -25,15 +26,22 @@ class MessageMigration extends Migration
         'null' => true
       ],
       'request_id' => [
-        'type' => 'BIGINT',
+        'type' => 'INT',
         'constraint' => 225
       ],
-      'created_date' => [
+      'created_by' => [
+        'type' => 'INT',
+        'constraint' => 225
+      ],
+      'created_at' => [
         'type' => 'DATETIME'
       ],
-      'created_by' => [
-        'type' => 'VARCHAR',
-        'constraint' => 225,
+      'updated_at' => [
+        'type' => 'DATETIME',
+        'null' => true
+      ],
+      'deleted_at' => [
+        'type' => 'DATETIME',
         'null' => true
       ]
     ];

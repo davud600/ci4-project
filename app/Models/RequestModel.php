@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use CodeIgniter\I18n\Time;
 use CodeIgniter\Model;
 
 class RequestModel extends Model
@@ -13,19 +12,17 @@ class RequestModel extends Model
   protected $useAutoIncrement = true;
   protected $insertID         = 0;
   protected $returnType       = 'array';
-  protected $useSoftDeletes   = false;
+  protected $useSoftDeletes   = true;
   protected $protectFields    = true;
   protected $allowedFields    = [
     'title',
     'description',
     'status',
-    'project_id',
-    'created_date',
-    'created_by'
+    'project_id'
   ];
 
   // Dates
-  protected $useTimestamps = false;
+  protected $useTimestamps = true;
   protected $dateFormat    = 'datetime';
   protected $createdField  = 'created_at';
   protected $updatedField  = 'updated_at';
@@ -45,69 +42,47 @@ class RequestModel extends Model
   protected $afterUpdate    = [];
   protected $beforeFind     = [];
   protected $afterFind      = [];
-  protected $beforeDelete   = [];
+  protected $beforeDelete   = ['callBeforeDelete'];
   protected $afterDelete    = [];
-
-  public function deleteAllOfProject($project_id)
-  {
-    helper('filesystem');
-    $request_ids = $this->select('id')->where('project_id', $project_id)->findAll();
-
-    // Delete messages of each request and then the request
-    $message_obj = new MessageModel();
-    foreach ($request_ids as $req['id']) {
-      $messages = $message_obj->where('request_id', $req['id'])->findAll();
-
-      foreach ($messages as $msg) {
-        // Delete file not working...
-        $file_path = $msg['attach'];
-
-        if ($file_path) {
-          delete_files($file_path);
-        }
-      }
-
-      $message_obj->where('request_id', $req['id'])->delete();
-      $this->where('id', $req['id'])->delete();
-    }
-
-    return true;
-  }
-
-  public function approveRequest($id)
-  {
-    $this->update($id, ['status' => 1]);
-    return true;
-  }
-
-  public function cancelRequest($id)
-  {
-    $this->update($id, ['status' => 0]);
-    return true;
-  }
 
   public function getRequestById($id)
   {
-    return $this->where('id', $id)->first();
+    return $this->where('id', $id)
+      ->first();
   }
 
   public function getRequestsOfProject($project_id)
   {
-    return $this->where('project_id', $project_id)->findAll();
+    return $this->where('project_id', $project_id)
+      ->findAll();
   }
 
-  public function createRequest($request_data)
+  public function approveRequest($id)
   {
-    $request = [
-      'title' => $request_data['title'],
-      'description' => $request_data['description'],
-      'status' => $request_data['status'],
-      'project_id' => $request_data['project_id'],
-      'created_date' => Time::parse('now', 'Europe/Bucharest'),
-      'created_by' => $request_data['created_by']
-    ];
+    return $this->update(
+      $id,
+      ['status' => 1]
+    );
+  }
 
-    $this->insert($request);
-    return true;
+  public function cancelRequest($id)
+  {
+    return $this->update(
+      $id,
+      ['status' => 0]
+    );
+  }
+
+  private function deleteMessages(array $data)
+  {
+    $message_obj = new MessageModel();
+
+    return $message_obj->where('request_id', $data['id'])
+      ->delete();
+  }
+
+  public function callBeforeDelete(array $data)
+  {
+    $this->deleteMessages($data);
   }
 }

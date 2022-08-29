@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use CodeIgniter\I18n\Time;
 use CodeIgniter\Model;
 
 class ProjectEmployeeModel extends Model
@@ -13,17 +12,15 @@ class ProjectEmployeeModel extends Model
   protected $useAutoIncrement = true;
   protected $insertID         = 0;
   protected $returnType       = 'array';
-  protected $useSoftDeletes   = false;
+  protected $useSoftDeletes   = true;
   protected $protectFields    = true;
   protected $allowedFields    = [
     'project_id',
-    'employee_id',
-    'created_date',
-    'created_by'
+    'employee_id'
   ];
 
   // Dates
-  protected $useTimestamps = false;
+  protected $useTimestamps = true;
   protected $dateFormat    = 'datetime';
   protected $createdField  = 'created_at';
   protected $updatedField  = 'updated_at';
@@ -48,12 +45,16 @@ class ProjectEmployeeModel extends Model
 
   public function getProjectsOfEmployee($employee_id)
   {
-    return $this->select('project_id')->where('employee_id', $employee_id)->findAll();
+    return $this->select('project_id')
+      ->where('employee_id', $employee_id)
+      ->findAll();
   }
 
   public function getEmployeesOfProject($project_id)
   {
-    return $this->select('employee_id')->where('project_id', $project_id)->findAll();
+    return $this->select('employee_id')
+      ->where('project_id', $project_id)
+      ->findAll();
   }
 
   public function setEmployeeOfProject($project_id, $employee_ids)
@@ -65,8 +66,7 @@ class ProjectEmployeeModel extends Model
     foreach ($employee_ids as $employee_id) {
       array_push($project_employees, [
         'project_id' => $project_id,
-        'employee_id' => $employee_id,
-        'created_date' => Time::parse('now', 'Europe/Bucharest')
+        'employee_id' => $employee_id
       ]);
     }
 
@@ -76,7 +76,7 @@ class ProjectEmployeeModel extends Model
 
   public function deleteAllOfProject($project_id)
   {
-    $this->where('project_id', $project_id)->delete();
-    return true;
+    return $this->where('project_id', $project_id)
+      ->delete();
   }
 }

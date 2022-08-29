@@ -2,7 +2,9 @@
 
 namespace App\Filters;
 
+use App\Models\ProjectModel;
 use App\Models\RequestModel;
+use App\Models\UserModel;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
@@ -18,12 +20,13 @@ class CreatorOfRequest implements FilterInterface
     $uri_segments = explode('/', $uri_path);
     $request_id = $uri_segments[count($uri_segments) - 1];
 
-    // Get request by id
-    $request_obj = new RequestModel();
-    $req = $request_obj->getRequestById($request_id);
-
     if (session()->get('logged_user')['role'] == 0) {
-      if (session()->get('logged_user')['id'] != $req['created_by']) {
+      $project_obj = new ProjectModel();
+      $request_obj = new RequestModel();
+
+      $req = $request_obj->getRequestById($request_id);
+      $creator_of_request_id = $project_obj->getProjectById($req['project_id'])['customer_id'];
+      if (session()->get('logged_user')['id'] != $creator_of_request_id) {
         return redirect()->to('/profile');
       }
     }

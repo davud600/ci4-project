@@ -30,12 +30,22 @@ class ProjectController extends BaseController
     $requests_of_project = $this->request_obj->getRequestsOfProject($project['id']);
     $time_adds = $this->employee_estimated_time_obj->getProjectEmployeeTimeAdds($id);
 
+    // Get employee names from employee_ids in time_adds
+    $time_adds_new = [];
+    foreach ($time_adds as $time_add) {
+      $el = $time_add;
+
+      $el['employee_id'] = $this->user_obj->getUserById($el['employee_id'])['name'];
+
+      array_push($time_adds_new, $el);
+    }
+
     return view('Project/index', [
       'project' => $project,
       'customer' => $customer,
       'employees' => $employees,
       'requests' => $requests_of_project,
-      'time_adds' => $time_adds,
+      'time_adds' => $time_adds_new,
       'logged_user_data' => $logged_user_data
     ]);
   }
@@ -51,13 +61,15 @@ class ProjectController extends BaseController
       $project_title = $this->project_obj->getProjectById($time_add['project_id']) ?
         $this->project_obj->getProjectById($time_add['project_id'])['title'] :
         'deleted project';
+      $employee_of_time_add = $this->user_obj->getUserById($time_add['employee_id']);
 
       $el = [
         'project_id' => $project_title,
+        'employee_id' => $employee_of_time_add['name'],
         'description' => $time_add['description'],
         'time_added' => $time_add['time_added'],
-        'created_date' => $time_add['created_date'],
-        'created_by' => $time_add['created_by'],
+        'created_at' => $time_add['created_at'],
+        'created_by_admin' => $time_add['created_by_admin'],
       ];
 
       array_push($time_adds, $el);
@@ -109,8 +121,12 @@ class ProjectController extends BaseController
       'status' => $this->request->getPost('status') != 0 ? 1 : 0
     ];
 
-    if ($this->project_obj->edit($id, $project)) {
-      if ($this->employee_estimated_time_obj->initEstimatedTime($id, $logged_user_data['id'], $estimated_time)) {
+    if ($this->project_obj->update($id, $project)) {
+      if ($this->employee_estimated_time_obj->initEstimatedTime([
+        'project_id' => $id,
+        'employee_id' => $logged_user_data['id'],
+        'time_added' => $estimated_time
+      ])) {
         if ($this->project_employee_obj->setEmployeeOfProject($id, $inputedEmployees)) {
           session()->setFlashdata('status', 'success');
           session()->setFlashdata('message', 'Successfully updated project data!');
@@ -150,13 +166,17 @@ class ProjectController extends BaseController
       'description' => $this->request->getPost('description'),
       'customer_id' => $this->request->getPost('customer'),
       'estimated_time' => $estimated_time,
-      'created_by' => session()->get('logged_user')['name']
+      // 'status' => 0
     ];
 
-    if ($this->project_obj->create($project)) {
+    if ($this->project_obj->insert($project)) {
       $project_id = $this->project_obj->getProjectByTitle($project['title'])['id'];
 
-      if ($this->employee_estimated_time_obj->initEstimatedTime($project_id, $logged_user_data['id'], $estimated_time)) {
+      if ($this->employee_estimated_time_obj->initEstimatedTime([
+        'project_id' => $project_id,
+        'employee_id' => $logged_user_data['id'],
+        'time_added' => $estimated_time
+      ])) {
         if ($this->project_employee_obj->setEmployeeOfProject($project_id, $inputedEmployees)) {
           session()->setFlashdata('status', 'success');
           session()->setFlashdata('message', 'Successfully created project!');
@@ -172,7 +192,7 @@ class ProjectController extends BaseController
 
   public function delete($id)
   {
-    if ($this->project_obj->deleteProject($id)) {
+    if ($this->project_obj->delete($id)) {
       session()->setFlashdata('status', 'success');
       session()->setFlashdata('message', 'Successfully deleted project!');
       return redirect()->to('/projects');
@@ -185,7 +205,7 @@ class ProjectController extends BaseController
 
   public function archive($id)
   {
-    if ($this->project_obj->edit($id, [
+    if ($this->project_obj->update($id, [
       'status' => 2
     ])) {
       session()->setFlashdata('status', 'success');
@@ -200,7 +220,7 @@ class ProjectController extends BaseController
 
   public function unArchive($id)
   {
-    if ($this->project_obj->edit($id, [
+    if ($this->project_obj->update($id, [
       'status' => 1
     ])) {
       session()->setFlashdata('status', 'success');

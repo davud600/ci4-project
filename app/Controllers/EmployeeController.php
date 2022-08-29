@@ -30,12 +30,22 @@ class EmployeeController extends BaseController
     $requests_of_project = $this->request_obj->getRequestsOfProject($project['id']);
     $time_adds = $this->employee_estimated_time_obj->getProjectEmployeeTimeAdds($project_id);
 
+    // Get employee names from employee_ids in time_adds
+    $time_adds_new = [];
+    foreach ($time_adds as $time_add) {
+      $el = $time_add;
+
+      $el['employee_id'] = $this->user_obj->getUserById($el['employee_id'])['name'];
+
+      array_push($time_adds_new, $el);
+    }
+
     return view('Employee/project', [
       'project' => $project,
       'customer' => $customer,
       'employees' => $employees,
       'requests' => $requests_of_project,
-      'time_adds' => $time_adds,
+      'time_adds' => $time_adds_new,
       'logged_user_data' => $logged_user_data
     ]);
   }
@@ -48,18 +58,18 @@ class EmployeeController extends BaseController
 
     $time_adds = [];
     foreach ($time_adds_before as $time_add) {
-      $project_of_time_add = $this->project_obj->getProjectById($time_add['project_id']);
-
-      if (!$project_of_time_add) {
-        continue;
-      }
+      $project_title = $this->project_obj->getProjectById($time_add['project_id']) ?
+        $this->project_obj->getProjectById($time_add['project_id'])['title'] :
+        'deleted project';
+      $employee_of_time_add = $this->user_obj->getUserById($time_add['employee_id']);
 
       $el = [
-        'project_id' => $project_of_time_add['title'],
+        'project_id' => $project_title,
+        'employee_id' => $employee_of_time_add['name'],
         'description' => $time_add['description'],
         'time_added' => $time_add['time_added'],
-        'created_date' => $time_add['created_date'],
-        'created_by' => $time_add['created_by'],
+        'created_at' => $time_add['created_at'],
+        'created_by_admin' => $time_add['created_by_admin'],
       ];
 
       array_push($time_adds, $el);
@@ -93,13 +103,12 @@ class EmployeeController extends BaseController
       $this->request->getPost('description') :
       null;
 
-    if ($this->employee_estimated_time_obj->addEmployeeTime(
-      $id,
-      $logged_user_data['id'],
-      $amount_to_add,
-      $logged_user_data['name'],
-      $description
-    )) {
+    if ($this->employee_estimated_time_obj->addEmployeeTime([
+      'project_id' => $id,
+      'employee_id' => $logged_user_data['id'],
+      'time_added' => $amount_to_add,
+      'description' => $description
+    ])) {
       session()->setFlashdata('status', 'success');
       session()->setFlashdata('message', 'Successfully added time to project!');
       return redirect()->to('/employee-project/' . $id);

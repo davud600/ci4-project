@@ -6,11 +6,13 @@ use App\Controllers\BaseController;
 use App\Models\MessageModel;
 use App\Models\ProjectModel;
 use App\Models\RequestModel;
+use App\Models\UserModel;
 
 class RequestController extends BaseController
 {
   public function __construct()
   {
+    $this->user_obj = new UserModel();
     $this->request_obj = new RequestModel();
     $this->project_obj = new ProjectModel();
     $this->message_obj = new MessageModel();
@@ -32,11 +34,10 @@ class RequestController extends BaseController
       'title' => $this->request->getPost('title'),
       'description' => $this->request->getPost('description'),
       'status' => 0,
-      'project_id' => $project['id'],
-      'created_by' => $logged_user_data['id']
+      'project_id' => $project['id']
     ];
 
-    if ($this->request_obj->createRequest($request)) {
+    if ($this->request_obj->insert($request)) {
       session()->setFlashdata('status', 'success');
       session()->setFlashdata('message', 'Successfully created request!');
       return redirect()->to('/customer-project/' . $project['id']);
@@ -95,8 +96,17 @@ class RequestController extends BaseController
   {
     $logged_user_data = session()->get('logged_user');
     $request = $this->request_obj->getRequestById($id);
-    $messages = $this->message_obj->getMessagesOfRequest($id);
     $project = $this->project_obj->getProjectById($request['project_id']);
+    $messages = $this->message_obj->getMessagesOfRequest($id);
+
+    $messages_new = [];
+    foreach ($messages as $message) {
+      $el = $message;
+
+      $el['created_by'] = $this->user_obj->getUserById($el['created_by'])['name'];
+
+      array_push($messages_new, $el);
+    }
 
     $files = [];
     foreach ($messages as $message) {
@@ -107,7 +117,7 @@ class RequestController extends BaseController
 
     return view('Request/request', [
       'request' => $request,
-      'messages' => $messages,
+      'messages' => $messages_new,
       'project' => $project,
       'logged_user_data' => $logged_user_data,
       'files' => $files

@@ -10,13 +10,13 @@ class ProjectMigration extends Migration
   {
     $fields = [
       'id' => [
-        'type'           => 'BIGINT',
-        'constraint'     => 225,
-        'unsigned'       => true,
-        'auto_increment' => true,
+        'type' => 'INT',
+        'constraint' => 225,
+        'unsigned' => true,
+        'auto_increment' => true
       ],
       'title' => [
-        'type'       => 'VARCHAR',
+        'type' => 'VARCHAR',
         'constraint' => 225
       ],
       'description' => [
@@ -25,23 +25,27 @@ class ProjectMigration extends Migration
         'null' => true
       ],
       'status' => [
-        'type' => 'INT',
-        'constraint' => 1
+        'type' => 'TINYINT',
+        'constraint' => 1,
+        'default' => 0
       ],
       'estimated_time' => [
         'type' => 'INT',
-        'constraint' => 7
+        'constraint' => 10
       ],
       'customer_id' => [
-        'type' => 'BIGINT',
+        'type' => 'INT',
         'constraint' => 225
       ],
-      'created_date' => [
+      'created_at' => [
         'type' => 'DATETIME'
       ],
-      'created_by' => [
-        'type' => 'VARCHAR',
-        'constraint' => 225,
+      'updated_at' => [
+        'type' => 'DATETIME',
+        'null' => true
+      ],
+      'deleted_at' => [
+        'type' => 'DATETIME',
         'null' => true
       ]
     ];

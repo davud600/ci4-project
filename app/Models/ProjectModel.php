@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use CodeIgniter\I18n\Time;
 use CodeIgniter\Model;
 
 class ProjectModel extends Model
@@ -13,20 +12,18 @@ class ProjectModel extends Model
   protected $useAutoIncrement = true;
   protected $insertID         = 0;
   protected $returnType       = 'array';
-  protected $useSoftDeletes   = false;
+  protected $useSoftDeletes   = true;
   protected $protectFields    = true;
   protected $allowedFields    = [
     'title',
     'description',
     'status',
     'estimated_time',
-    'customer_id',
-    'created_date',
-    'created_by'
+    'customer_id'
   ];
 
   // Dates
-  protected $useTimestamps = false;
+  protected $useTimestamps = true;
   protected $dateFormat    = 'datetime';
   protected $createdField  = 'created_at';
   protected $updatedField  = 'updated_at';
@@ -46,86 +43,87 @@ class ProjectModel extends Model
   protected $afterUpdate    = [];
   protected $beforeFind     = [];
   protected $afterFind      = [];
-  protected $beforeDelete   = [];
+  protected $beforeDelete   = ['callBeforeDelete'];
   protected $afterDelete    = [];
 
   public function getProjectsOfCustomer($customer_id)
   {
-    return $this->where('status !=', 9)->where('customer_id', $customer_id)->findAll();
+    return $this->where('customer_id', $customer_id)
+      ->findAll();
   }
 
   public function getProjectByCustomer($customer_id)
   {
-    return $this->where('status !=', 9)->where('customer_id', $customer_id)->first();
+    return $this->where('customer_id', $customer_id)
+      ->first();
   }
 
   public function getProjectByTitle($title)
   {
-    return $this->select('id')->where('status !=', 9)->where('title', $title)->first();
+    return $this->select('id')
+      ->where('title', $title)
+      ->first();
   }
 
   public function getProjectById($id)
   {
-    return $this->where('status !=', 9)->where('id', $id)->first();
+    return $this->where('id', $id)
+      ->first();
   }
 
   public function getAllProjects()
   {
-    return $this->where('status !=', 9)->where('status !=', 2)->findAll();
+    return $this->where('status !=', 2)
+      ->findAll();
   }
 
   public function getArchivedProjects()
   {
-    return $this->where('status', 2)->findAll();
-  }
-
-  public function edit($project_id, $project_data)
-  {
-    $this->update($project_id, $project_data);
-    return true;
-  }
-
-  public function create($project_data)
-  {
-    $project = $project_data;
-    $project['status'] = 0; // In Progress
-    $project['created_date'] = Time::parse('now', 'Europe/Bucharest');
-
-    $this->insert($project);
-    return true;
+    return $this->where('status', 2)
+      ->findAll();
   }
 
   public function increaseEstimatedTime($project_id, $amount_to_add)
   {
-    $project_to_update = $this->where('id', $project_id)->first();
+    $project_to_update = $this->where('id', $project_id)
+      ->first();
+
     $current_estimated_time = $project_to_update['estimated_time'];
     $new_estimated_time = $current_estimated_time + $amount_to_add;
 
-    $this->update($project_id, ['estimated_time' => $new_estimated_time]);
+    return $this->update($project_id, [
+      'estimated_time' => $new_estimated_time
+    ]);
   }
 
-  public function deleteProject($id)
+  private function deleteRequests(array $data)
   {
-    // $employee_estimated_time_obj = new EmployeeEstimatedTimeModel();
-    // $project_employee_obj = new ProjectEmployeeModel();
-    // $request_obj = new RequestModel();
+    $request_obj = new RequestModel();
 
-    // if ($this->delete($id)) {
-    //   if ($employee_estimated_time_obj->deleteTimeHistoryOfProject($id)) {
-    //     if ($project_employee_obj->deleteAllOfProject($id)) {
-    //       if ($request_obj->deleteAllOfProject($id)) {
-    //         return true;
-    //       }
-    //     }
-    //   }
-    // }
+    return $request_obj->where('project_id', $data['id'])
+      ->delete();
+  }
 
-    if ($this->update($id, [
-      'status' => 9 // Deleted
-    ])) {
-      return true;
-    }
+  private function deleteProjectEmployees(array $data)
+  {
+    $project_employee_obj = new ProjectEmployeeModel();
 
-    return false;
+    return $project_employee_obj->where('project_id', $data['id'])
+      ->delete();
+  }
+
+  private function deleteTimeAdds(array $data)
+  {
+    $employee_estimated_time_obj = new EmployeeEstimatedTimeModel();
+
+    return $employee_estimated_time_obj->where('project_id', $data['id'])
+      ->delete();
+  }
+
+  public function callBeforeDelete(array $data)
+  {
+    $this->deleteRequests($data);
+    $this->deleteProjectEmployees($data);
+    $this->deleteTimeAdds($data);
   }
 }
